@@ -1,0 +1,26 @@
+{
+    "sourceFile": "4-gradio/app_soma.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1756228295522,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1756228410060,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,13 @@\n import gradio as gr\r\n \r\n+def soma(num1, num2):\r\n+    return num1 + num2\r\n+\r\n+iface = gr.Interface(\r\n+    fn = soma,\r\n+    inputs = [\"number\", \"number\"]\r\n+    outputs = \"number\"\r\n+    title = \"Soma números\"\r\n+)\r\n+\r\n+iface.launch()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1756228418279,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,10 +4,10 @@\n     return num1 + num2\r\n \r\n iface = gr.Interface(\r\n     fn = soma,\r\n-    inputs = [\"number\", \"number\"]\r\n-    outputs = \"number\"\r\n+    inputs = [\"number\", \"number\"],\r\n+    outputs = \"number\",\r\n     title = \"Soma números\"\r\n )\r\n \r\n iface.launch()\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1756228295522,
+            "name": "Commit-0",
+            "content": "import gradio as gr\r\n\r\n"
+        }
+    ]
+}

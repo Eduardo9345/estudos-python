@@ -1,0 +1,38 @@
+{
+    "sourceFile": "4-gradio/app_interface.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1756230878328,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1756231214337,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,4 +9,21 @@\n         f\"font-family: {estilo_fonte};\"\r\n     )\r\n \r\n     return f'<div style=\"{estilo}\">{texto}</div>'\r\n+\r\n+iface = gr.Interface(\r\n+    fn=customizar_texto\r\n+    inputs=[\r\n+        gr.Textbox(label=\"Texto\", placeholder=\"Digite seu texto aqui...\"),\r\n+        gr.ColorPicker(label=\"Cor de fundo\"),\r\n+        gr.ColorPicker(label=\"Cor do texto\"),\r\n+        gr.Slider(minimum=10, maximum=100, label=\"TAmanho da fonte\", value=20),\r\n+        gr.Radio(\r\n+            choices=[\"Arial\", \"Courier New\", \"Georgia\", \"Times New Roman\", \"Verdana\"],\r\n+            label = \"Escolha a fonte\"\r\n+        )\r\n+    ],\r\n+    outputs = gr.HTML(label=\"Texto customizado\"),\r\n+    title=\"Cusomizador de texto\",\r\n+    description=\"Customize o seu texto\"\r\n+)\r\n"
+                },
+                {
+                    "date": 1756231248044,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n \r\n     return f'<div style=\"{estilo}\">{texto}</div>'\r\n \r\n iface = gr.Interface(\r\n-    fn=customizar_texto\r\n+    fn=customizar_texto,\r\n     inputs=[\r\n         gr.Textbox(label=\"Texto\", placeholder=\"Digite seu texto aqui...\"),\r\n         gr.ColorPicker(label=\"Cor de fundo\"),\r\n         gr.ColorPicker(label=\"Cor do texto\"),\r\n@@ -26,4 +26,5 @@\n     outputs = gr.HTML(label=\"Texto customizado\"),\r\n     title=\"Cusomizador de texto\",\r\n     description=\"Customize o seu texto\"\r\n )\r\n+iface.launch()\r\n"
+                },
+                {
+                    "date": 1756231483877,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,11 +2,11 @@\n \r\n def customizar_texto(texto, cor_fundo, cor_texto, tamanho_fonte, estilo_fonte):\r\n \r\n     estilo = (\r\n-        f\"color: {cor_texto};\",\r\n-        f\"background-color: {cor_fundo};\",\r\n-        f\"font-size: {tamanho_fonte};\",\r\n+        f\"color: {cor_texto};\"\r\n+        f\"background-color: {cor_fundo};\"\r\n+        f\"font-size: {tamanho_fonte};\"\r\n         f\"font-family: {estilo_fonte};\"\r\n     )\r\n \r\n     return f'<div style=\"{estilo}\">{texto}</div>'\r\n@@ -26,5 +26,6 @@\n     outputs = gr.HTML(label=\"Texto customizado\"),\r\n     title=\"Cusomizador de texto\",\r\n     description=\"Customize o seu texto\"\r\n )\r\n+\r\n iface.launch()\r\n"
+                },
+                {
+                    "date": 1756231553442,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n     inputs=[\r\n         gr.Textbox(label=\"Texto\", placeholder=\"Digite seu texto aqui...\"),\r\n         gr.ColorPicker(label=\"Cor de fundo\"),\r\n         gr.ColorPicker(label=\"Cor do texto\"),\r\n-        gr.Slider(minimum=10, maximum=100, label=\"TAmanho da fonte\", value=20),\r\n+        gr.Slider(minimum=10, maximum=100, label=\"Tamanho da fonte\", value=20),\r\n         gr.Radio(\r\n             choices=[\"Arial\", \"Courier New\", \"Georgia\", \"Times New Roman\", \"Verdana\"],\r\n             label = \"Escolha a fonte\"\r\n         )\r\n"
+                },
+                {
+                    "date": 1756231625226,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \r\n     estilo = (\r\n         f\"color: {cor_texto};\"\r\n         f\"background-color: {cor_fundo};\"\r\n-        f\"font-size: {tamanho_fonte};\"\r\n+        f\"font-size: {tamanho_fonte}px;\"\r\n         f\"font-family: {estilo_fonte};\"\r\n     )\r\n \r\n     return f'<div style=\"{estilo}\">{texto}</div>'\r\n"
+                }
+            ],
+            "date": 1756230878328,
+            "name": "Commit-0",
+            "content": "import gradio as gr\r\n\r\ndef customizar_texto(texto, cor_fundo, cor_texto, tamanho_fonte, estilo_fonte):\r\n\r\n    estilo = (\r\n        f\"color: {cor_texto};\",\r\n        f\"background-color: {cor_fundo};\",\r\n        f\"font-size: {tamanho_fonte};\",\r\n        f\"font-family: {estilo_fonte};\"\r\n    )\r\n\r\n    return f'<div style=\"{estilo}\">{texto}</div>'\r\n"
+        }
+    ]
+}

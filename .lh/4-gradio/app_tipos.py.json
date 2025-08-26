@@ -1,0 +1,50 @@
+{
+    "sourceFile": "4-gradio/app_tipos.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1756228601847,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1756228645898,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,4 +2,6 @@\n \r\n def processar_dados(texto, numero, imagem, lista_texto, cor, opcoes):\r\n     texto_revertido = texto[::-1]\r\n     dobro_numero = numero * 2\r\n+    mensagem = \"Imagem recebida\" if imagem else \"Imagem não recebida\"\r\n+    \r\n"
+                },
+                {
+                    "date": 1756228706885,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,5 +3,7 @@\n def processar_dados(texto, numero, imagem, lista_texto, cor, opcoes):\r\n     texto_revertido = texto[::-1]\r\n     dobro_numero = numero * 2\r\n     mensagem = \"Imagem recebida\" if imagem else \"Imagem não recebida\"\r\n-    \r\n+\r\n+\r\n+    lista_processada = [[item] for item in lista_texto.splitlines()] if lista_texto else []\r\n"
+                },
+                {
+                    "date": 1756228756607,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,4 +6,13 @@\n     mensagem = \"Imagem recebida\" if imagem else \"Imagem não recebida\"\r\n \r\n \r\n     lista_processada = [[item] for item in lista_texto.splitlines()] if lista_texto else []\r\n+\r\n+    return (\r\n+        texto_revertido,\r\n+        dobro_numero,\r\n+        mensagem,\r\n+        lista_processada,\r\n+        f\"Cor selecionada: {cor}\",\r\n+        opcoes\r\n+    )\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1756229006984,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,5 +14,15 @@\n         mensagem,\r\n         lista_processada,\r\n         f\"Cor selecionada: {cor}\",\r\n         opcoes\r\n-    )\n\\ No newline at end of file\n+    )\r\n+\r\n+iface = gr.Interface(\r\n+    fn = processar_dados,\r\n+    inputs=[\r\n+        gr.Textbox(label=\"Texto\", placeholder = \"Digite um texto aqui...\"),\r\n+        gr.Slider(minimum = 0, maximum = 100, label = \"N\", value = 0),\r\n+        gr.Image(type = \"pil\", label = \"Imagem\"),\r\n+        gr.Textbox(label= \"Lista de Itens\", lines=4, placeholder=\"Item 1\\nItem 2\")\r\n+    ]\r\n+)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1756229098646,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,7 +22,11 @@\n     inputs=[\r\n         gr.Textbox(label=\"Texto\", placeholder = \"Digite um texto aqui...\"),\r\n         gr.Slider(minimum = 0, maximum = 100, label = \"N\", value = 0),\r\n         gr.Image(type = \"pil\", label = \"Imagem\"),\r\n-        gr.Textbox(label= \"Lista de Itens\", lines=4, placeholder=\"Item 1\\nItem 2\")\r\n+        gr.Textbox(label= \"Lista de Itens\", lines=4, placeholder=\"Item 1\\nItem 2\"),\r\n+        gr.ColorPicker(label=\"Selecione uma cor\"),\r\n+        gr.CheckboxGroup(\r\n+            choices=[\"Opção 1\", \"Opção 2\", \"Opção 3\"]\r\n+        )\r\n     ]\r\n )\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1756229322697,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,8 +25,17 @@\n         gr.Image(type = \"pil\", label = \"Imagem\"),\r\n         gr.Textbox(label= \"Lista de Itens\", lines=4, placeholder=\"Item 1\\nItem 2\"),\r\n         gr.ColorPicker(label=\"Selecione uma cor\"),\r\n         gr.CheckboxGroup(\r\n-            choices=[\"Opção 1\", \"Opção 2\", \"Opção 3\"]\r\n+            choices=[\"Opção 1\", \"Opção 2\", \"Opção 3\"],\r\n+            label = \"Escolha suas opção: \"\r\n         )\r\n+    ],\r\n+    outputs=[\r\n+        gr.Textbox(label=\"Texto revertido\"),\r\n+        gr.Number(label = \"Dobro do número\"),\r\n+        gr.Textbox(label = \"Mensagem sobre a imagem\"),\r\n+        gr.DataFrame(label=\"Itens da lista\", headers=[\"Itens\"]),\r\n+        gr.Textbox(label = \"Cor escolhida\"),\r\n+        gr.Textbox(label = \"Opções selecionadas\")\r\n     ]\r\n )\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1756229372368,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,5 +37,8 @@\n         gr.DataFrame(label=\"Itens da lista\", headers=[\"Itens\"]),\r\n         gr.Textbox(label = \"Cor escolhida\"),\r\n         gr.Textbox(label = \"Opções selecionadas\")\r\n     ]\r\n-)\n\\ No newline at end of file\n+    title = \"Verificandor de tipos de entrada e saida\"\r\n+)\r\n+\r\n+iface.launch()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1756229377829,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n         gr.Textbox(label = \"Mensagem sobre a imagem\"),\r\n         gr.DataFrame(label=\"Itens da lista\", headers=[\"Itens\"]),\r\n         gr.Textbox(label = \"Cor escolhida\"),\r\n         gr.Textbox(label = \"Opções selecionadas\")\r\n-    ]\r\n+    ],\r\n     title = \"Verificandor de tipos de entrada e saida\"\r\n )\r\n \r\n iface.launch()\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1756228601847,
+            "name": "Commit-0",
+            "content": "import gradio as gr\r\n\r\ndef processar_dados(texto, numero, imagem, lista_texto, cor, opcoes):\r\n    texto_revertido = texto[::-1]\r\n    dobro_numero = numero * 2\r\n"
+        }
+    ]
+}

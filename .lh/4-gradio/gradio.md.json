@@ -1,0 +1,26 @@
+{
+    "sourceFile": "4-gradio/gradio.md",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1756229604981,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1756229727996,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-﻿# Gradio\n+# Gradio\n \n * Mais simples\n * Web\n * Construir aplicações machine learning\n"
+                },
+                {
+                    "date": 1756231218542,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-﻿# Gradio\n+# Gradio\n \n * Mais simples\n * Web\n * Construir aplicações machine learning\n"
+                }
+            ],
+            "date": 1756229604981,
+            "name": "Commit-0",
+            "content": "# Gradio\n\n* Mais simples\n* Web\n* Construir aplicações machine learning\n* Front end\n*  Interface de usuário\n\nExemplo:\n```python\nimport gradio as gr\n\ndef saudacao(name):\n    return \"Hello \" + name + \"!\"\n\ndemo = gr.Interface(fn = saudacao, inputs = \"text\", outputs = \"text\")\ndemo.launch()\n```\nInstalação:\n```\npip install gradio\n```\n## Aplicações com gradio\n### Soma \n\n```python\nimport gradio as gr\n\ndef somar(num1, num2):\n    return num1 + num2\n\ninterface = gr.Interface(\n         fn = somar,\n         inputs = [\"number\", \"number\"],\n         outputs = \"number\",\n         title = \"Calculadora\",\n         description = \"Insira dois numeros para serem somados: \"\n         theme = \"default\"\n)\ninterface.launch()\n```\nRoda no ``http://{ip}:7860``\n\n### Texto\n```python\nimport gradio as gr\n\ndef inverter_texto(texto):\n    return texto[::-1]\n\niface = gr.Interface(\n\t\tfn = inverter_texto,\n\t\tinputs = \"text\",\n\t\toutputs = \"text\",\n\t\ttitle = \"Reverter\",\n\t\tdescription = \"insira um texto para reverter\"\n)\niface.launch()\n```\n\n### Fatorial\n\n```python\nimport gradio as gr\nimport math\n\ndef fatorial(num):\n\tif num < 0:\n\t\treturn \"Fatorial não definido para números negativos!\"\n\treturn math.factorial(num)\n\niface = gr.Interface(\n\tfn = fatorial,\n\tinputs = \"number\",\n\toutputs = \"text\",\n\ttitle = \"Calculadora fatorial\"\n\tdescription = \"insira um númeropara obter o fatorial\"\n)\n\niface.launch()\n```\n\n## Tipos de Dados de entrada e saida"
+        }
+    ]
+}
