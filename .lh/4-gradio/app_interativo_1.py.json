@@ -1,0 +1,30 @@
+{
+    "sourceFile": "4-gradio/app_interativo_1.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1756234194168,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1756234353306,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,4 +5,20 @@\n     if escala == \"Celsius\":\r\n         return (temperatura * 9/5) + 32\r\n     else:\r\n         return (temperatura - 32) * 5/9\r\n+    \r\n+iface = gr.Interface(\r\n+    fn=converter_temperatura,\r\n+    inputs=[\r\n+        gr.Number(label=\"Temperatura\", precision=2),\r\n+        gr.Radio(\r\n+            choices=[\r\n+                \"Celsius\", \"Fahrenheit\"\r\n+            ],\r\n+            label=\"Converter de\"\r\n+        )\r\n+    ],\r\n+    outputs=gr.Number(label=\"Resultado\")\r\n+    title=\"Conversor de temperatura\"\r\n+    description=\"Converte temperaturas entre Celsius e Fahrenheit\"\r\n+)\r\n"
+                },
+                {
+                    "date": 1756234361621,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,4 +21,6 @@\n     outputs=gr.Number(label=\"Resultado\")\r\n     title=\"Conversor de temperatura\"\r\n     description=\"Converte temperaturas entre Celsius e Fahrenheit\"\r\n )\r\n+\r\n+iface.launch()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1756234368858,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,10 +17,10 @@\n             ],\r\n             label=\"Converter de\"\r\n         )\r\n     ],\r\n-    outputs=gr.Number(label=\"Resultado\")\r\n-    title=\"Conversor de temperatura\"\r\n+    outputs=gr.Number(label=\"Resultado\"),\r\n+    title=\"Conversor de temperatura\",\r\n     description=\"Converte temperaturas entre Celsius e Fahrenheit\"\r\n )\r\n \r\n iface.launch()\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1756234194168,
+            "name": "Commit-0",
+            "content": "import gradio as gr\r\n\r\ndef converter_temperatura(temperatura, escala):\r\n\r\n    if escala == \"Celsius\":\r\n        return (temperatura * 9/5) + 32\r\n    else:\r\n        return (temperatura - 32) * 5/9\r\n"
+        }
+    ]
+}

@@ -1,0 +1,66 @@
+{
+    "sourceFile": "4-gradio/app_slide.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 12,
+            "patches": [
+                {
+                    "date": 1756233086060,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1756233137679,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,7 +5,9 @@\n import base64\r\n \r\n def criar_slide(titulo, texto, imagem, cor_fundo, cor_texto):\r\n     estilo =(\r\n-        f\"background-color:{cor_fundo};\"\r\n-        f\"text-color:{cor_texto};\"\r\n+        f\"background-color: {cor_fundo};\"\r\n+        f\"color: {cor_texto};\"\r\n+        f\"text-aling: center;\"\r\n+        f\"padding: 20px;\"\r\n     )\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1756233190931,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,5 +9,11 @@\n         f\"background-color: {cor_fundo};\"\r\n         f\"color: {cor_texto};\"\r\n         f\"text-aling: center;\"\r\n         f\"padding: 20px;\"\r\n-    )\n\\ No newline at end of file\n+    )\r\n+\r\n+    imagem_html = \"\"\r\n+\r\n+    if imagem is not None:\r\n+        buffered = io.BytesIO()\r\n+        Image.fromarray(imagem).save(buffered)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1756233238090,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,5 +15,6 @@\n     imagem_html = \"\"\r\n \r\n     if imagem is not None:\r\n         buffered = io.BytesIO()\r\n-        Image.fromarray(imagem).save(buffered)\n\\ No newline at end of file\n+        Image.fromarray(imagem).save(buffered, format=\"PNG\")\r\n+        img_str = base64.b64encode(buffered.getvalue()).decode()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1756233293500,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,5 +16,9 @@\n \r\n     if imagem is not None:\r\n         buffered = io.BytesIO()\r\n         Image.fromarray(imagem).save(buffered, format=\"PNG\")\r\n-        img_str = base64.b64encode(buffered.getvalue()).decode()\n\\ No newline at end of file\n+        img_str = base64.b64encode(buffered.getvalue()).decode()\r\n+\r\n+        imagem_html = (\r\n+            f\"<img src='data:image/png;base64,{img_str}'>\"\r\n+        )\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1756233444305,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,6 +19,17 @@\n         Image.fromarray(imagem).save(buffered, format=\"PNG\")\r\n         img_str = base64.b64encode(buffered.getvalue()).decode()\r\n \r\n         imagem_html = (\r\n-            f\"<img src='data:image/png;base64,{img_str}'>\"\r\n-        )\n\\ No newline at end of file\n+            f\"<img src='data:image/png;base64,{img_str}' \"\r\n+            \"style='max-width: 100%; height: auto;'>\"\r\n+        )\r\n+\r\n+    slide_html = f\"\"\"\r\n+        <div style='{estilo}'\r\n+            <h1>{titulo}</h1>\r\n+            <p>{texto}</p>\r\n+            {imagem_html}\r\n+        </div>\r\n+    \"\"\"\r\n+    return slide_html\r\n+\r\n"
+                },
+                {
+                    "date": 1756233597711,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,4 +32,15 @@\n         </div>\r\n     \"\"\"\r\n     return slide_html\r\n \r\n+iface = gr.Interface(\r\n+    fn = criar_slide,\r\n+    inputs=[\r\n+        gr.Textbox(label=\"Titulo slide\", placeholder=\"Digite o título\"),\r\n+        gr.Textbox(label=\"Texto do slide\", placeholder=\"Digite o título\"),\r\n+        gr.Image(type=\"numpy\", label=\"Imagem do slide\"),\r\n+        gr.ColorPicker(label=\"Cor de fundo\"),\r\n+        gr.ColorPicker(label=\"Cor do texto\")\r\n+    ]\r\n+)\r\n+\r\n"
+                },
+                {
+                    "date": 1756233660160,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,7 +40,10 @@\n         gr.Textbox(label=\"Texto do slide\", placeholder=\"Digite o título\"),\r\n         gr.Image(type=\"numpy\", label=\"Imagem do slide\"),\r\n         gr.ColorPicker(label=\"Cor de fundo\"),\r\n         gr.ColorPicker(label=\"Cor do texto\")\r\n-    ]\r\n+    ],\r\n+    outputs = gr.HTML(label=\"Slide customizado\"),\r\n+    title = \"Criador de slides\",\r\n+    description = \"Crie um slide personalizado\"\r\n )\r\n \r\n"
+                },
+                {
+                    "date": 1756233669362,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,4 +46,6 @@\n     title = \"Criador de slides\",\r\n     description = \"Crie um slide personalizado\"\r\n )\r\n \r\n+iface.launch()\r\n+\r\n"
+                },
+                {
+                    "date": 1756233785383,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n def criar_slide(titulo, texto, imagem, cor_fundo, cor_texto):\r\n     estilo =(\r\n         f\"background-color: {cor_fundo};\"\r\n         f\"color: {cor_texto};\"\r\n-        f\"text-aling: center;\"\r\n+        f\"text-align: center;\"\r\n         f\"padding: 20px;\"\r\n     )\r\n \r\n     imagem_html = \"\"\r\n"
+                },
+                {
+                    "date": 1756233868826,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n             \"style='max-width: 100%; height: auto;'>\"\r\n         )\r\n \r\n     slide_html = f\"\"\"\r\n-        <div style='{estilo}'\r\n+        <div style='{estilo}>'\r\n             <h1>{titulo}</h1>\r\n             <p>{texto}</p>\r\n             {imagem_html}\r\n         </div>\r\n"
+                },
+                {
+                    "date": 1756233928472,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n             \"style='max-width: 100%; height: auto;'>\"\r\n         )\r\n \r\n     slide_html = f\"\"\"\r\n-        <div style='{estilo}>'\r\n+        <div style='{estilo}'>\r\n             <h1>{titulo}</h1>\r\n             <p>{texto}</p>\r\n             {imagem_html}\r\n         </div>\r\n"
+                },
+                {
+                    "date": 1756234033375,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n \r\n def criar_slide(titulo, texto, imagem, cor_fundo, cor_texto):\r\n     estilo =(\r\n         f\"background-color: {cor_fundo};\"\r\n-        f\"color: {cor_texto};\"\r\n+        f\"text-color: {cor_texto};\"\r\n         f\"text-align: center;\"\r\n         f\"padding: 20px;\"\r\n     )\r\n \r\n"
+                }
+            ],
+            "date": 1756233086060,
+            "name": "Commit-0",
+            "content": "import gradio as gr\r\nimport numpy as np\r\nfrom PIL import Image\r\nimport io\r\nimport base64\r\n\r\ndef criar_slide(titulo, texto, imagem, cor_fundo, cor_texto):\r\n    estilo =(\r\n        f\"background-color:{cor_fundo};\"\r\n        f\"text-color:{cor_texto};\"\r\n    )"
+        }
+    ]
+}
