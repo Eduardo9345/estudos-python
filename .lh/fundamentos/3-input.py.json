@@ -1,0 +1,34 @@
+{
+    "sourceFile": "fundamentos/3-input.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1755106991966,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1755107016037,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,5 @@\n # Utilizando o input()\r\n \r\n-name = input(\"Digite o nome do filme: \")\n\\ No newline at end of file\n+name = input(\"Digite o nome do filme:\\n\")\r\n+\r\n+print(name)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755107099390,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,9 @@\n # Utilizando o input()\r\n \r\n name = input(\"Digite o nome do filme:\\n\")\r\n+year_launch = input(\"Digite o ano de lançamento do filme:\\n\")\r\n+note_movie = input(\"Digite a nota do filme:\\n\")\r\n\\ No newline at end of file\n \r\n-print(name)\n+print(name)\r\n+print(year_launch)\r\n+print(note_movie)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755107202816,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,5 +5,9 @@\n note_movie = input(\"Digite a nota do filme:\\n\")\r\n \r\n print(name)\r\n print(year_launch)\r\n-print(note_movie)\n\\ No newline at end of file\n+print(note_movie)\r\n+\r\n+print(type(name))\r\n+print(type(year_launch))\r\n+print(type(note_movie))\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755107260061,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n # Utilizando o input()\r\n \r\n name = input(\"Digite o nome do filme:\\n\")\r\n-year_launch = input(\"Digite o ano de lançamento do filme:\\n\")\r\n-note_movie = input(\"Digite a nota do filme:\\n\")\r\n+year_launch = int(input(\"Digite o ano de lançamento do filme:\\n\"))\r\n+note_movie = float(input(\"Digite a nota do filme:\\n\"))\r\n \r\n print(name)\r\n print(year_launch)\r\n print(note_movie)\r\n"
+                }
+            ],
+            "date": 1755106991966,
+            "name": "Commit-0",
+            "content": "# Utilizando o input()\r\n\r\nname = input(\"Digite o nome do filme: \")"
+        }
+    ]
+}

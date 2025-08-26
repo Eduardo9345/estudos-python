@@ -1,0 +1,26 @@
+{
+    "sourceFile": "oo/pratica/modelos/avaliacao.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1755886275645,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1755886292690,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n class Avaliacao:\r\n-    \r\n+\r\n     def __init__(self, cliente, nota):\r\n         self.__cliente = cliente\r\n         self.__nota = nota\r\n \r\n"
+                },
+                {
+                    "date": 1755887076823,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n class Avaliacao:\r\n \r\n     def __init__(self, cliente, nota):\r\n-        self.__cliente = cliente\r\n-        self.__nota = nota\r\n+        self._cliente = cliente\r\n+        self._nota = nota\r\n \r\n \r\n"
+                }
+            ],
+            "date": 1755886275645,
+            "name": "Commit-0",
+            "content": "class Avaliacao:\r\n    \r\n    def __init__(self, cliente, nota):\r\n        self.__cliente = cliente\r\n        self.__nota = nota\r\n\r\n\r\n"
+        }
+    ]
+}

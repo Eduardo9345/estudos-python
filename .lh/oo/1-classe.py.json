@@ -1,0 +1,54 @@
+{
+    "sourceFile": "oo/1-classe.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 9,
+            "patches": [
+                {
+                    "date": 1755882290924,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1755882308587,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,7 +5,9 @@\n         self.marca = marca\r\n         self.ano = ano\r\n \r\n     def __str__(self):\r\n-        return f\"Modelo: {self.modelo}\\n- Marca: {self.marca}\\n- Ano: {self.ano}\"\r\n+        return f\"- Modelo: {self.modelo}\\n- Marca: {self.marca}\\n- Ano: {self.ano}\"\r\n \r\n\\ No newline at end of file\n-carro1 = Carro(\"Palio\", \"Volgwagen\", 2013)\n+carro1 = Carro(\"Palio\", \"Volgwagen\", 2013)\r\n+\r\n+print(carro1)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755882367201,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,11 @@\n         self.ano = ano\r\n \r\n     def __str__(self):\r\n         return f\"- Modelo: {self.modelo}\\n- Marca: {self.marca}\\n- Ano: {self.ano}\"\r\n+    \r\n+    def acelerar(self):\r\n+        print(f\"O carro {self.modelo} está acelerando!\")\r\n \r\n carro1 = Carro(\"Palio\", \"Volgwagen\", 2013)\r\n \r\n print(carro1)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755882376874,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,5 +12,6 @@\n         print(f\"O carro {self.modelo} está acelerando!\")\r\n \r\n carro1 = Carro(\"Palio\", \"Volgwagen\", 2013)\r\n \r\n-print(carro1)\n\\ No newline at end of file\n+print(carro1)\r\n+carro1.acelerar()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755882495691,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,18 @@\n     \r\n     def acelerar(self):\r\n         print(f\"O carro {self.modelo} está acelerando!\")\r\n \r\n+class Caminhao(Carro):\r\n+\r\n+    def __init__(self, modelo=\"\", marca=\"\", ano=0):\r\n+        super().__init__(modelo, marca, ano)\r\n+        self.combustivel = \"Diesel\"\r\n+\r\n+    def acelerar(self):\r\n+        print(\"Queimando diesel!\")\r\n+        return super().acelerar()\r\n+\r\n carro1 = Carro(\"Palio\", \"Volgwagen\", 2013)\r\n \r\n print(carro1)\r\n carro1.acelerar()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755882598229,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,5 +23,7 @@\n \r\n carro1 = Carro(\"Palio\", \"Volgwagen\", 2013)\r\n \r\n print(carro1)\r\n-carro1.acelerar()\n\\ No newline at end of file\n+carro1.acelerar()\r\n+\r\n+carro2 = Caminhao(\"Truck\", \"Mercedes-Benz\", 2015)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755882642337,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,8 +19,11 @@\n \r\n     def acelerar(self):\r\n         print(\"Queimando diesel!\")\r\n         return super().acelerar()\r\n+    \r\n+    def get_combustivel(self):\r\n+        return self.combustivel\r\n \r\n carro1 = Carro(\"Palio\", \"Volgwagen\", 2013)\r\n \r\n print(carro1)\r\n"
+                },
+                {
+                    "date": 1755882675036,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,5 +28,9 @@\n \r\n print(carro1)\r\n carro1.acelerar()\r\n \r\n-carro2 = Caminhao(\"Truck\", \"Mercedes-Benz\", 2015)\n\\ No newline at end of file\n+carro2 = Caminhao(\"Truck\", \"Mercedes-Benz\", 2015)\r\n+\r\n+print(carro2)\r\n+print(carro2.get_combustivel())\r\n+carro2.acelerar()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755882701708,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n         print(\"Queimando diesel!\")\r\n         return super().acelerar()\r\n     \r\n     def get_combustivel(self):\r\n-        return self.combustivel\r\n+        return \"Combustível: \", self.combustivel\r\n \r\n carro1 = Carro(\"Palio\", \"Volgwagen\", 2013)\r\n \r\n print(carro1)\r\n"
+                },
+                {
+                    "date": 1755882725791,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n         print(\"Queimando diesel!\")\r\n         return super().acelerar()\r\n     \r\n     def get_combustivel(self):\r\n-        return \"Combustível: \", self.combustivel\r\n+        return f\"Combustível: {self.combustivel}\"\r\n \r\n carro1 = Carro(\"Palio\", \"Volgwagen\", 2013)\r\n \r\n print(carro1)\r\n"
+                }
+            ],
+            "date": 1755882290923,
+            "name": "Commit-0",
+            "content": "class Carro():\r\n\r\n    def __init__(self, modelo=\"\", marca=\"\", ano=0):\r\n        self.modelo = modelo\r\n        self.marca = marca\r\n        self.ano = ano\r\n\r\n    def __str__(self):\r\n        return f\"Modelo: {self.modelo}\\n- Marca: {self.marca}\\n- Ano: {self.ano}\"\r\n\r\ncarro1 = Carro(\"Palio\", \"Volgwagen\", 2013)"
+        }
+    ]
+}

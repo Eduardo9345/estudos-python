@@ -1,0 +1,35 @@
+1- Escreva uma programa que lê dois nomes e retorne uma string 
+formatada no formato "ÚltimoNome, PrimeiroNome".
+
+2- Inverta a ordem das palavras em uma string fornecida.
+
+3-Verifique se uma string fornecida é um palíndromo _
+(pode ser lida da mesma forma de trás para frente).
+
+================================================================
+Resolução:
+1)
+
+primeiro_nome = input()
+ultimo_nome = input()
+
+print(f"{ultimo_nome}, {primeiro nome}")
+
+2)
+
+texto = input()
+palavras = texto.split()
+
+texto_invertido = " ".join(palavras[::-1])
+
+print(texto_invertido)
+
+3)
+
+palavra = input().lower().replace(" ", "")
+
+invertido = palavra[::-1]
+
+palíndromo = palavra == invertido
+
+print(palíndromo)

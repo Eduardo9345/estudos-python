@@ -1,0 +1,30 @@
+{
+    "sourceFile": "fundamentos/2-dados.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1755106476514,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1755106730062,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,8 @@\n #Pythonflix\r\n+name = \"Top Gun Maverick\"\r\n+year_launch = 2023\r\n+note_movie = 9.5\r\n+plan_included = False\r\n+\r\n+print(type(name))\r\n+print(type(year_launch))\r\n"
+                },
+                {
+                    "date": 1755106768264,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,4 +5,6 @@\n plan_included = False\r\n \r\n print(type(name))\r\n print(type(year_launch))\r\n+print(type(note_movie))\r\n+print(type(plan_included))\r\n"
+                },
+                {
+                    "date": 1755106862154,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,10 @@\n year_launch = 2023\r\n note_movie = 9.5\r\n plan_included = False\r\n \r\n+print(name)\r\n+print(year_launch)\r\n print(type(name))\r\n print(type(year_launch))\r\n print(type(note_movie))\r\n print(type(plan_included))\r\n"
+                }
+            ],
+            "date": 1755106476514,
+            "name": "Commit-0",
+            "content": "#Pythonflix\r\n"
+        }
+    ]
+}

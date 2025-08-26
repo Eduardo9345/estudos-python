@@ -1,0 +1,182 @@
+{
+    "sourceFile": "modulos/os.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 41,
+            "patches": [
+                {
+                    "date": 1755696399843,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1755696421247,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,5 @@\n import os\r\n \r\n-os.system('ver')\n\\ No newline at end of file\n+os.system('ver')\r\n+\r\n+os.system('systeminfo')\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755696560791,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,9 @@\n import os\r\n \r\n os.system('ver')\r\n \r\n-os.system('systeminfo')\n\\ No newline at end of file\n+os.system('systeminfo')\r\n+\r\n+os.system('cls')\r\n+\r\n+os.system('shutdown /s')\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755696597157,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,10 @@\n import os\r\n \r\n-os.system('ver')\r\n+# os.system('ver')\r\n \r\n-os.system('systeminfo')\r\n+# os.system('systeminfo')\r\n \r\n-os.system('cls')\r\n\\ No newline at end of file\n+# os.system('cls')\r\n \r\n-os.system('shutdown /s')\n+# os.system('shutdown /s')\r\n+os.system('shutdown /a')\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755696742353,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,5 +6,19 @@\n \r\n # os.system('cls')\r\n \r\n # os.system('shutdown /s')\r\n-os.system('shutdown /a')\n\\ No newline at end of file\n+# os.system('shutdown /a')\r\n+\r\n+def shutdown_one_hour():\r\n+    os.system(\"shutdown /s /t 3600\")\r\n+\r\n+def shutdown_half_an_hour():\r\n+    os.system(\"shutdown /s /t 1800\")\r\n+\r\n+def shutdown_now():\r\n+    os.system(\"shutdown /s /t 0\")\r\n+\r\n+def cancel_shutdown():\r\n+    os.system(\"shutdown /a\")\r\n+\r\n+shutdown_one_hour()    \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755696762774,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,5 +20,6 @@\n \r\n def cancel_shutdown():\r\n     os.system(\"shutdown /a\")\r\n \r\n-shutdown_one_hour()    \n\\ No newline at end of file\n+#shutdown_one_hour()    \r\n+cancel_shutdown()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755696784936,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,6 +20,7 @@\n \r\n def cancel_shutdown():\r\n     os.system(\"shutdown /a\")\r\n \r\n-#shutdown_one_hour()    \r\n-cancel_shutdown()\n\\ No newline at end of file\n+# shutdown_one_hour()\r\n+\r\n+shutdown_half_an_hour\r\n"
+                },
+                {
+                    "date": 1755696803999,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,5 +22,7 @@\n     os.system(\"shutdown /a\")\r\n \r\n # shutdown_one_hour()\r\n \r\n-shutdown_half_an_hour\r\n+# shutdown_half_an_hour()\r\n+\r\n+cancel_shutdown()\r\n"
+                },
+                {
+                    "date": 1755696814640,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,5 +24,5 @@\n # shutdown_one_hour()\r\n \r\n # shutdown_half_an_hour()\r\n \r\n-cancel_shutdown()\r\n+#cancel_shutdown()\r\n"
+                },
+                {
+                    "date": 1755697515545,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,4 +25,6 @@\n \r\n # shutdown_half_an_hour()\r\n \r\n #cancel_shutdown()\r\n+\r\n+os.system(\"start https://google.com\")\r\n"
+                },
+                {
+                    "date": 1755697570196,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,11 +20,15 @@\n \r\n def cancel_shutdown():\r\n     os.system(\"shutdown /a\")\r\n \r\n+def open_google():\r\n+    os.system(\"start https://google.com\")\r\n+\r\n+def open_chrome():\r\n+    os.system(\"start chrome\")\r\n+\r\n # shutdown_one_hour()\r\n \r\n # shutdown_half_an_hour()\r\n \r\n #cancel_shutdown()\r\n-\r\n-os.system(\"start https://google.com\")\r\n"
+                },
+                {
+                    "date": 1755697577800,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,4 +31,6 @@\n \r\n # shutdown_half_an_hour()\r\n \r\n #cancel_shutdown()\r\n+\r\n+open_chrome()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755697639680,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,11 +26,14 @@\n \r\n def open_chrome():\r\n     os.system(\"start chrome\")\r\n \r\n+def open_suap():\r\n+    os.system(\"start https://suap.ifpb.edu.br/\")\r\n+\r\n # shutdown_one_hour()\r\n \r\n # shutdown_half_an_hour()\r\n \r\n\\ No newline at end of file\n #cancel_shutdown()\r\n \r\n-open_chrome()\n+open_suap()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755697793857,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,11 +29,14 @@\n \r\n def open_suap():\r\n     os.system(\"start https://suap.ifpb.edu.br/\")\r\n \r\n+def open_notepad():\r\n+    os.system(\"notepad\")\r\n+\r\n # shutdown_one_hour()\r\n \r\n # shutdown_half_an_hour()\r\n \r\n\\ No newline at end of file\n #cancel_shutdown()\r\n \r\n-open_suap()\n+open_notepad()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755697809934,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,8 +32,11 @@\n \r\n def open_notepad():\r\n     os.system(\"notepad\")\r\n \r\n+def open_notepad():\r\n+    os.system(\"spotfy\")\r\n+\r\n # shutdown_one_hour()\r\n \r\n # shutdown_half_an_hour()\r\n \r\n"
+                },
+                {
+                    "date": 1755697981938,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,14 +32,14 @@\n \r\n def open_notepad():\r\n     os.system(\"notepad\")\r\n \r\n-def open_notepad():\r\n-    os.system(\"spotfy\")\r\n+def open_calc():\r\n+    os.system(\"calc\")\r\n \r\n # shutdown_one_hour()\r\n \r\n # shutdown_half_an_hour()\r\n \r\n #cancel_shutdown()\r\n\\ No newline at end of file\n \r\n-open_notepad()\n+open_cals()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755698351079,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,11 +35,14 @@\n \r\n def open_calc():\r\n     os.system(\"calc\")\r\n \r\n+def open_stardew():\r\n+    os.system('r\"steam://rungameid/413150\"')    \r\n+\r\n # shutdown_one_hour()\r\n \r\n # shutdown_half_an_hour()\r\n \r\n\\ No newline at end of file\n #cancel_shutdown()\r\n \r\n-open_cals()\n+open_calc()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755698358091,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,5 +44,5 @@\n # shutdown_half_an_hour()\r\n \r\n #cancel_shutdown()\r\n \r\n-open_calc()\n\\ No newline at end of file\n+open_stardew()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755698368816,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n def open_calc():\r\n     os.system(\"calc\")\r\n \r\n def open_stardew():\r\n-    os.system('r\"steam://rungameid/413150\"')    \r\n+    os.system(\"steam://rungameid/413150\")    \r\n \r\n # shutdown_one_hour()\r\n \r\n # shutdown_half_an_hour()\r\n"
+                },
+                {
+                    "date": 1755698389111,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n def open_calc():\r\n     os.system(\"calc\")\r\n \r\n def open_stardew():\r\n-    os.system(\"steam://rungameid/413150\")    \r\n+    os.system('r\"steam://rungameid/413150\"')    \r\n \r\n # shutdown_one_hour()\r\n \r\n # shutdown_half_an_hour()\r\n"
+                },
+                {
+                    "date": 1755698687345,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n def open_calc():\r\n     os.system(\"calc\")\r\n \r\n def open_stardew():\r\n-    os.system('r\"steam://rungameid/413150\"')    \r\n+    os.system('r\"5319275A.WhatsAppDesktop_cv1g1gvanyjgm!App\"')    \r\n \r\n # shutdown_one_hour()\r\n \r\n # shutdown_half_an_hour()\r\n"
+                },
+                {
+                    "date": 1755698698330,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n def open_calc():\r\n     os.system(\"calc\")\r\n \r\n def open_stardew():\r\n-    os.system('r\"5319275A.WhatsAppDesktop_cv1g1gvanyjgm!App\"')    \r\n+    os.system(\"5319275A.WhatsAppDesktop_cv1g1gvanyjgm!App\")    \r\n \r\n # shutdown_one_hour()\r\n \r\n # shutdown_half_an_hour()\r\n"
+                },
+                {
+                    "date": 1755698946955,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,14 +35,14 @@\n \r\n def open_calc():\r\n     os.system(\"calc\")\r\n \r\n-def open_stardew():\r\n-    os.system(\"5319275A.WhatsAppDesktop_cv1g1gvanyjgm!App\")    \r\n+def open_whatsapp():\r\n+    os.system(\"start whatsapp\")\r\n \r\n # shutdown_one_hour()\r\n \r\n # shutdown_half_an_hour()\r\n \r\n #cancel_shutdown()\r\n\\ No newline at end of file\n \r\n-open_stardew()\n+open_whatsapp()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755699000312,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,8 +37,10 @@\n     os.system(\"calc\")\r\n \r\n def open_whatsapp():\r\n     os.system(\"start whatsapp\")\r\n+def open_whatsapp():\r\n+    os.system(\"start code\")\r\n \r\n # shutdown_one_hour()\r\n \r\n # shutdown_half_an_hour()\r\n"
+                },
+                {
+                    "date": 1755699014142,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,14 +37,15 @@\n     os.system(\"calc\")\r\n \r\n def open_whatsapp():\r\n     os.system(\"start whatsapp\")\r\n-def open_whatsapp():\r\n+\r\n+def open_vscode():\r\n     os.system(\"start code\")\r\n \r\n # shutdown_one_hour()\r\n \r\n # shutdown_half_an_hour()\r\n \r\n #cancel_shutdown()\r\n\\ No newline at end of file\n \r\n-open_whatsapp()\n+open_vscode()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755699127710,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n def open_calc():\r\n     os.system(\"calc\")\r\n \r\n def open_whatsapp():\r\n-    os.system(\"start whatsapp\")\r\n+    os.system(\"start 5319275A.WhatsAppDesktop_cv1g1gvanyjgm!App\")\r\n \r\n def open_vscode():\r\n     os.system(\"start code\")\r\n \r\n@@ -47,5 +47,5 @@\n # shutdown_half_an_hour()\r\n \r\n #cancel_shutdown()\r\n \r\n-open_vscode()\n\\ No newline at end of file\n+open_whatsapp()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755699156093,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n def open_calc():\r\n     os.system(\"calc\")\r\n \r\n def open_whatsapp():\r\n-    os.system(\"start 5319275A.WhatsAppDesktop_cv1g1gvanyjgm!App\")\r\n+    os.system(\"start steam://rungameid/304930\")\r\n \r\n def open_vscode():\r\n     os.system(\"start code\")\r\n \r\n"
+                },
+                {
+                    "date": 1755699223366,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,10 +35,13 @@\n \r\n def open_calc():\r\n     os.system(\"calc\")\r\n \r\n-def open_whatsapp():\r\n+def open_unturned():\r\n     os.system(\"start steam://rungameid/304930\")\r\n+    \r\n+def open_stardew():\r\n+    os.system(\"start steam://rungameid/413150\")\r\n \r\n def open_vscode():\r\n     os.system(\"start code\")\r\n \r\n@@ -47,5 +50,5 @@\n # shutdown_half_an_hour()\r\n \r\n #cancel_shutdown()\r\n \r\n-open_whatsapp()\n\\ No newline at end of file\n+open_unturned()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755699246069,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n     os.system(\"calc\")\r\n \r\n def open_unturned():\r\n     os.system(\"start steam://rungameid/304930\")\r\n-    \r\n+\r\n def open_stardew():\r\n     os.system(\"start steam://rungameid/413150\")\r\n \r\n def open_vscode():\r\n@@ -50,5 +50,5 @@\n # shutdown_half_an_hour()\r\n \r\n #cancel_shutdown()\r\n \r\n-open_unturned()\n\\ No newline at end of file\n+open_stardew()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755699375483,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,11 +44,14 @@\n \r\n def open_vscode():\r\n     os.system(\"start code\")\r\n \r\n+def open_whatsapp():\r\n+    os.system(\"start 5319275A\")\r\n+\r\n # shutdown_one_hour()\r\n \r\n # shutdown_half_an_hour()\r\n \r\n\\ No newline at end of file\n #cancel_shutdown()\r\n \r\n-open_stardew()\n+open_whatsapp()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755699402439,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n def open_vscode():\r\n     os.system(\"start code\")\r\n \r\n def open_whatsapp():\r\n-    os.system(\"start 5319275A\")\r\n+    os.system(\"start WhatsApp.WhatsAppDesktop_cv1g1gvanyjgm!App\")\r\n \r\n # shutdown_one_hour()\r\n \r\n # shutdown_half_an_hour()\r\n"
+                },
+                {
+                    "date": 1755699421511,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n def open_vscode():\r\n     os.system(\"start code\")\r\n \r\n def open_whatsapp():\r\n-    os.system(\"start WhatsApp.WhatsAppDesktop_cv1g1gvanyjgm!App\")\r\n+    os.system(\"start WhatsApp\")\r\n \r\n # shutdown_one_hour()\r\n \r\n # shutdown_half_an_hour()\r\n"
+                },
+                {
+                    "date": 1755699468572,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n def open_vscode():\r\n     os.system(\"start code\")\r\n \r\n def open_whatsapp():\r\n-    os.system(\"start WhatsApp\")\r\n+    os.system(\"start whatsapp\")\r\n \r\n # shutdown_one_hour()\r\n \r\n # shutdown_half_an_hour()\r\n"
+                },
+                {
+                    "date": 1755699485443,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n def open_vscode():\r\n     os.system(\"start code\")\r\n \r\n def open_whatsapp():\r\n-    os.system(\"start whatsapp\")\r\n+    os.system(\"start WhatsAppDesktop\")\r\n \r\n # shutdown_one_hour()\r\n \r\n # shutdown_half_an_hour()\r\n"
+                },
+                {
+                    "date": 1755699506653,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n def open_vscode():\r\n     os.system(\"start code\")\r\n \r\n def open_whatsapp():\r\n-    os.system(\"start WhatsAppDesktop\")\r\n+    os.system(\"start WhatsAppDesktop_cv1g1gvanyjgm\")\r\n \r\n # shutdown_one_hour()\r\n \r\n # shutdown_half_an_hour()\r\n"
+                },
+                {
+                    "date": 1755699513645,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n def open_vscode():\r\n     os.system(\"start code\")\r\n \r\n def open_whatsapp():\r\n-    os.system(\"start WhatsAppDesktop_cv1g1gvanyjgm\")\r\n+    os.system(\"start cv1g1gvanyjgm\")\r\n \r\n # shutdown_one_hour()\r\n \r\n # shutdown_half_an_hour()\r\n"
+                },
+                {
+                    "date": 1755699535739,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n def open_vscode():\r\n     os.system(\"start code\")\r\n \r\n def open_whatsapp():\r\n-    os.system(\"start cv1g1gvanyjgm\")\r\n+    os.system(\"start '5319275A.WhatsAppDesktop_cv1g1gvanyjgm!App'\")\r\n \r\n # shutdown_one_hour()\r\n \r\n # shutdown_half_an_hour()\r\n"
+                },
+                {
+                    "date": 1755699541821,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n def open_vscode():\r\n     os.system(\"start code\")\r\n \r\n def open_whatsapp():\r\n-    os.system(\"start '5319275A.WhatsAppDesktop_cv1g1gvanyjgm!App'\")\r\n+    os.system(\"start r'5319275A.WhatsAppDesktop_cv1g1gvanyjgm!App'\")\r\n \r\n # shutdown_one_hour()\r\n \r\n # shutdown_half_an_hour()\r\n"
+                },
+                {
+                    "date": 1755699608381,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n def open_vscode():\r\n     os.system(\"start code\")\r\n \r\n def open_whatsapp():\r\n-    os.system(\"start r'5319275A.WhatsAppDesktop_cv1g1gvanyjgm!App'\")\r\n+    os.system(\"start lupa\")\r\n \r\n # shutdown_one_hour()\r\n \r\n # shutdown_half_an_hour()\r\n"
+                },
+                {
+                    "date": 1755699629300,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n def open_vscode():\r\n     os.system(\"start code\")\r\n \r\n def open_whatsapp():\r\n-    os.system(\"start lupa\")\r\n+    os.system(\"start magnify.exe\")\r\n \r\n # shutdown_one_hour()\r\n \r\n # shutdown_half_an_hour()\r\n"
+                },
+                {
+                    "date": 1755699763212,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n def open_vscode():\r\n     os.system(\"start code\")\r\n \r\n def open_whatsapp():\r\n-    os.system(\"start magnify.exe\")\r\n+    os.system(\"explorer shell:appsFolder\\\\5319275A.WhatsAppDesktop_cv1g1gvanyjgm!App\")\r\n \r\n # shutdown_one_hour()\r\n \r\n # shutdown_half_an_hour()\r\n"
+                },
+                {
+                    "date": 1755699784815,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,5 +53,5 @@\n # shutdown_half_an_hour()\r\n \r\n #cancel_shutdown()\r\n \r\n-open_whatsapp()\n\\ No newline at end of file\n+#open_whatsapp()\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1755696399843,
+            "name": "Commit-0",
+            "content": "import os\r\n\r\nos.system('ver')"
+        }
+    ]
+}

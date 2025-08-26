@@ -1,0 +1,26 @@
+{
+    "sourceFile": "oo/pratica/modelos/itens/item_biblioteca.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1756129440909,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1756131604448,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,5 +2,8 @@\n \r\n     def __init__(self, titulo, autor, preco):\r\n         self._titulo = titulo\r\n         self._autor = autor\r\n-        self._preco = preco\n\\ No newline at end of file\n+        self._preco = preco\r\n+    \r\n+    def __str__(self):\r\n+        return f\"Título: {self._titulo} | Autor: {self._autor} | Preco: {self._preco}\"\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1756131830266,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,5 +5,5 @@\n         self._autor = autor\r\n         self._preco = preco\r\n     \r\n     def __str__(self):\r\n-        return f\"Título: {self._titulo} | Autor: {self._autor} | Preco: {self._preco}\"\n\\ No newline at end of file\n+        return f\"Titulo: {self._titulo} | Autor: {self._autor} | Preco: {self._preco}\"\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1756129440909,
+            "name": "Commit-0",
+            "content": "class ItemBiblioteca:\r\n\r\n    def __init__(self, titulo, autor, preco):\r\n        self._titulo = titulo\r\n        self._autor = autor\r\n        self._preco = preco"
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+{
+    "sourceFile": "modulos/8-tkinter.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1755806084587,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1755806109357,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import tkinter as tk\r\n \r\n-window = tk.TK()\r\n+window = tk.Tk()\r\n \r\n window.geometry(\"300x150\")\r\n window.title(\"Gerencia Frases\")\r\n \r\n"
+                },
+                {
+                    "date": 1755806390042,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,5 +4,11 @@\n \r\n window.geometry(\"300x150\")\r\n window.title(\"Gerencia Frases\")\r\n \r\n+frame = tk.Frame(window)\r\n+frame.pack(padx=10, pady=10, fill='x', expand=True)\r\n+\r\n+label = tk.Label(frame, text=\"Olá Mundo!\")\r\n+label.pack(fill='x', expand=True)\r\n+\r\n window.mainloop()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755806673366,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,5 +10,15 @@\n \r\n label = tk.Label(frame, text=\"Olá Mundo!\")\r\n label.pack(fill='x', expand=True)\r\n \r\n+frase_lab = tk.Label(frame, text=\"Frase\")\r\n+\r\n+frase_lab.pack(fill='x', expand=True)\r\n+\r\n+frase_inp = tk.Entry(frame)\r\n+\r\n+frase_inp.pack(fill='x', expand=True)\r\n+\r\n+\r\n+\r\n window.mainloop()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755806918548,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,7 +18,12 @@\n frase_inp = tk.Entry(frame)\r\n \r\n frase_inp.pack(fill='x', expand=True)\r\n \r\n+def click():\r\n+    label.config(text=frase_inp.get())\r\n \r\n+button = tk.Button(frame)\r\n \r\n+button.pack()\r\n+\r\n window.mainloop()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755806993115,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n \r\n def click():\r\n     label.config(text=frase_inp.get())\r\n \r\n-button = tk.Button(frame)\r\n+button = tk.Button(frame, text=\"Enviar\", command=click)\r\n \r\n button.pack()\r\n \r\n window.mainloop()\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1755806084587,
+            "name": "Commit-0",
+            "content": "import tkinter as tk\r\n\r\nwindow = tk.TK()\r\n\r\nwindow.geometry(\"300x150\")\r\nwindow.title(\"Gerencia Frases\")\r\n\r\nwindow.mainloop()"
+        }
+    ]
+}

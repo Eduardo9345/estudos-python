@@ -1,0 +1,26 @@
+{
+    "sourceFile": ".vscode/settings.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1755782861558,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1755787287402,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,7 +19,8 @@\n         \"titleBar.inactiveForeground\": \"#15202b99\"\r\n     },\r\n     \"peacock.color\": \"#42b883\",\r\n     \"python.analysis.extraPaths\": [\r\n-        \"./modulos\"\r\n+        \"./modulos\",\r\n+        \"./modulos/1-\"\r\n     ]\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755787301891,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,7 +20,8 @@\n     },\r\n     \"peacock.color\": \"#42b883\",\r\n     \"python.analysis.extraPaths\": [\r\n         \"./modulos\",\r\n+        \"./modulos/1-\",\r\n         \"./modulos/1-\"\r\n     ]\r\n }\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1755782861558,
+            "name": "Commit-0",
+            "content": "{\r\n    \"workbench.colorCustomizations\": {\r\n        \"activityBar.activeBackground\": \"#65c89b\",\r\n        \"activityBar.background\": \"#65c89b\",\r\n        \"activityBar.foreground\": \"#15202b\",\r\n        \"activityBar.inactiveForeground\": \"#15202b99\",\r\n        \"activityBarBadge.background\": \"#945bc4\",\r\n        \"activityBarBadge.foreground\": \"#e7e7e7\",\r\n        \"commandCenter.border\": \"#15202b99\",\r\n        \"sash.hoverBorder\": \"#65c89b\",\r\n        \"statusBar.background\": \"#42b883\",\r\n        \"statusBar.foreground\": \"#15202b\",\r\n        \"statusBarItem.hoverBackground\": \"#359268\",\r\n        \"statusBarItem.remoteBackground\": \"#42b883\",\r\n        \"statusBarItem.remoteForeground\": \"#15202b\",\r\n        \"titleBar.activeBackground\": \"#42b883\",\r\n        \"titleBar.activeForeground\": \"#15202b\",\r\n        \"titleBar.inactiveBackground\": \"#42b88399\",\r\n        \"titleBar.inactiveForeground\": \"#15202b99\"\r\n    },\r\n    \"peacock.color\": \"#42b883\",\r\n    \"python.analysis.extraPaths\": [\r\n        \"./modulos\"\r\n    ]\r\n}"
+        }
+    ]
+}

@@ -1,0 +1,54 @@
+{
+    "sourceFile": "oo/pratica/modelos/itens/livro.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 9,
+            "patches": [
+                {
+                    "date": 1756129013351,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1756129101117,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,8 @@\n from item_biblioteca import ItemBiblioteca\r\n \r\n \r\n class Livro(ItemBiblioteca):\r\n-    \n\\ No newline at end of file\n+    def __init__(self, titulo, autor, preco, isbn):\r\n+        super().__init__(titulo, autor, preco)\r\n+        self._isbn = isbn\r\n+        \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1756129262437,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,5 +4,5 @@\n class Livro(ItemBiblioteca):\r\n     def __init__(self, titulo, autor, preco, isbn):\r\n         super().__init__(titulo, autor, preco)\r\n         self._isbn = isbn\r\n-        \n\\ No newline at end of file\n+    \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1756129755404,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-from item_biblioteca import ItemBiblioteca\r\n+from .item_biblioteca import ItemBiblioteca\r\n \r\n \r\n class Livro(ItemBiblioteca):\r\n     def __init__(self, titulo, autor, preco, isbn):\r\n"
+                },
+                {
+                    "date": 1756129833688,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,4 @@\n-from .item_biblioteca import ItemBiblioteca\r\n \r\n \r\n class Livro(ItemBiblioteca):\r\n     def __init__(self, titulo, autor, preco, isbn):\r\n"
+                },
+                {
+                    "date": 1756129843987,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,9 @@\n \r\n \r\n+from oo.pratica.modelos.itens.item_biblioteca import ItemBiblioteca\r\n+\r\n+\r\n class Livro(ItemBiblioteca):\r\n     def __init__(self, titulo, autor, preco, isbn):\r\n         super().__init__(titulo, autor, preco)\r\n         self._isbn = isbn\r\n"
+                },
+                {
+                    "date": 1756129960733,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,7 @@\n+from item_biblioteca import ItemBiblioteca\r\n \r\n \r\n-from oo.pratica.modelos.itens.item_biblioteca import ItemBiblioteca\r\n-\r\n-\r\n class Livro(ItemBiblioteca):\r\n     def __init__(self, titulo, autor, preco, isbn):\r\n         super().__init__(titulo, autor, preco)\r\n         self._isbn = isbn\r\n"
+                },
+                {
+                    "date": 1756129983135,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-from item_biblioteca import ItemBiblioteca\r\n+from .item_biblioteca import ItemBiblioteca\r\n \r\n \r\n class Livro(ItemBiblioteca):\r\n     def __init__(self, titulo, autor, preco, isbn):\r\n"
+                },
+                {
+                    "date": 1756131464939,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,5 +4,7 @@\n class Livro(ItemBiblioteca):\r\n     def __init__(self, titulo, autor, preco, isbn):\r\n         super().__init__(titulo, autor, preco)\r\n         self._isbn = isbn\r\n-    \n\\ No newline at end of file\n+    \r\n+    def __str__(self):\r\n+        return super().__str__() + f\"| ISBN : {self._isbn}\"\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1756131640430,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,5 +6,5 @@\n         super().__init__(titulo, autor, preco)\r\n         self._isbn = isbn\r\n     \r\n     def __str__(self):\r\n-        return super().__str__() + f\"| ISBN : {self._isbn}\"\n\\ No newline at end of file\n+        return super().__str__() + f\" | ISBN : {self._isbn}\"\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1756129013351,
+            "name": "Commit-0",
+            "content": "from item_biblioteca import ItemBiblioteca\r\n\r\n\r\nclass Livro(ItemBiblioteca):\r\n    "
+        }
+    ]
+}

@@ -1,0 +1,78 @@
+{
+    "sourceFile": "modulos/4-re.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 15,
+            "patches": [
+                {
+                    "date": 1755788189638,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1755788339707,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,8 @@\n import re\r\n \r\n text = \"Udemy - uma plataforma com muitos cursos\"\r\n \r\n+match = re.search(r'muitos cursos', text)\r\n+\r\n+print(f'Indice inicial: {match.start()}')\r\n+print(f'Indice final: {match.end()}')\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755788405098,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,5 +4,6 @@\n \r\n match = re.search(r'muitos cursos', text)\r\n \r\n print(f'Indice inicial: {match.start()}')\r\n-print(f'Indice final: {match.end()}')\n\\ No newline at end of file\n+print(f'Indice final: {match.end()}')\r\n+print(f'Indice final: {match}')\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755788415375,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,5 +5,4 @@\n match = re.search(r'muitos cursos', text)\r\n \r\n print(f'Indice inicial: {match.start()}')\r\n print(f'Indice final: {match.end()}')\r\n-print(f'Indice final: {match}')\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755788488342,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,4 +5,10 @@\n match = re.search(r'muitos cursos', text)\r\n \r\n print(f'Indice inicial: {match.start()}')\r\n print(f'Indice final: {match.end()}')\r\n+\r\n+site = \"https://udemy.com\"\r\n+\r\n+match = re.search(r'\\.', text)\r\n+\r\n+print(match)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755788507567,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,7 +8,7 @@\n print(f'Indice final: {match.end()}')\r\n \r\n site = \"https://udemy.com\"\r\n \r\n-match = re.search(r'\\.', text)\r\n+match = re.search(r'\\.', site)\r\n \r\n print(match)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755788614345,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,5 +10,9 @@\n site = \"https://udemy.com\"\r\n \r\n match = re.search(r'\\.', site)\r\n \r\n-print(match)\n\\ No newline at end of file\n+print(match)\r\n+\r\n+pattern = \"[a-m]\" #Quais os caracteres de a-m que tem no texto\r\n+\r\n+result = re.findall(pattern, text)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755788625764,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,5 +14,7 @@\n print(match)\r\n \r\n pattern = \"[a-m]\" #Quais os caracteres de a-m que tem no texto\r\n \r\n-result = re.findall(pattern, text)\n\\ No newline at end of file\n+result = re.findall(pattern, text)\r\n+\r\n+print(result)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755788641251,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n match = re.search(r'\\.', site)\r\n \r\n print(match)\r\n \r\n-pattern = \"[a-m]\" #Quais os caracteres de a-m que tem no texto\r\n+pattern = \"[g-m]\" #Quais os caracteres de a-m que tem no texto\r\n \r\n result = re.findall(pattern, text)\r\n \r\n print(result)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755788741019,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,5 +16,9 @@\n pattern = \"[g-m]\" #Quais os caracteres de a-m que tem no texto\r\n \r\n result = re.findall(pattern, text)\r\n \r\n-print(result)\n\\ No newline at end of file\n+print(result)\r\n+\r\n+rule = r'^A'\r\n+\r\n+phrases = [\"A casa esta suja\", \"O dia está claro\"]\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755788848689,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,5 +20,11 @@\n print(result)\r\n \r\n rule = r'^A'\r\n \r\n-phrases = [\"A casa esta suja\", \"O dia está claro\"]\n\\ No newline at end of file\n+phrases = [\"A casa esta suja\", \"O dia está claro\"]\r\n+\r\n+for f in phrases:\r\n+    if re.match(rule, f):\r\n+        print(f\"Corresponde {f}\")\r\n+    else:\r\n+        print(f\"Não corresponde: {f}\")\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755788856873,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,7 +24,7 @@\n phrases = [\"A casa esta suja\", \"O dia está claro\"]\r\n \r\n for f in phrases:\r\n     if re.match(rule, f):\r\n-        print(f\"Corresponde {f}\")\r\n+        print(f\"Corresponde: {f}\")\r\n     else:\r\n         print(f\"Não corresponde: {f}\")\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755789494169,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,13 +18,19 @@\n result = re.findall(pattern, text)\r\n \r\n print(result)\r\n \r\n-rule = r'^A'\r\n+rule = r'^A' # comeco da string\r\n \r\n phrases = [\"A casa esta suja\", \"O dia está claro\"]\r\n \r\n for f in phrases:\r\n     if re.match(rule, f):\r\n         print(f\"Corresponde: {f}\")\r\n     else:\r\n\\ No newline at end of file\n-        print(f\"Não corresponde: {f}\")\n+        print(f\"Não corresponde: {f}\")\r\n+\r\n+rule_end = r'!$'\r\n+\r\n+frase = \"O dia esta lindo!\"\r\n+\r\n+match = re.search(rule_end, frase)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755789537063,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,5 +32,11 @@\n rule_end = r'!$'\r\n \r\n frase = \"O dia esta lindo!\"\r\n \r\n-match = re.search(rule_end, frase)\n\\ No newline at end of file\n+match = re.search(rule_end, frase)\r\n+\r\n+if match:\r\n+    print(\"SIM\")\r\n+\r\n+else:\r\n+    print(\"NÂO\")\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755789560225,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,15 +28,14 @@\n         print(f\"Corresponde: {f}\")\r\n     else:\r\n         print(f\"Não corresponde: {f}\")\r\n \r\n-rule_end = r'!$'\r\n+rule_end = r'@gmail.com$'\r\n \r\n frase = \"O dia esta lindo!\"\r\n \r\n match = re.search(rule_end, frase)\r\n \r\n if match:\r\n     print(\"SIM\")\r\n-\r\n else:\r\n     print(\"NÂO\")\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755789588195,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,11 +30,11 @@\n         print(f\"Não corresponde: {f}\")\r\n \r\n rule_end = r'@gmail.com$'\r\n \r\n-frase = \"O dia esta lindo!\"\r\n+email = \"eduardo@gmail.com\"\r\n \r\n-match = re.search(rule_end, frase)\r\n+match = re.search(rule_end, email)\r\n \r\n if match:\r\n     print(\"SIM\")\r\n else:\r\n"
+                }
+            ],
+            "date": 1755788189638,
+            "name": "Commit-0",
+            "content": "import re\r\n\r\ntext = \"Udemy - uma plataforma com muitos cursos\"\r\n\r\n"
+        }
+    ]
+}

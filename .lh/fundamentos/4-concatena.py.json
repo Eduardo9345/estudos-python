@@ -1,0 +1,34 @@
+{
+    "sourceFile": "fundamentos/4-concatena.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1755183141481,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1755183190218,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,8 @@\n year_launch = int(input(\"Digite o ano de lançamento do filme:\\n\"))\r\n note_movie = float(input(\"Digite a nota do filme:\\n\"))\r\n \r\n print(\"Dados filmes\")\r\n-print(\"=\" * 15)\r\n+print(\"=\" * 25)\r\n print(\"Nome do filme:\", name)\r\n print(\"Ano de lancamento:\", year_launch)\r\n print(\"Nota do filme:\", note_movie)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755183264383,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,5 +5,7 @@\n print(\"Dados filmes\")\r\n print(\"=\" * 25)\r\n print(\"Nome do filme:\", name)\r\n print(\"Ano de lancamento:\", year_launch)\r\n-print(\"Nota do filme:\", note_movie)\n\\ No newline at end of file\n+print(\"Nota do filme:\", note_movie)\r\n+\r\n+print(\"Nome do filme:\", name, \"\\nAno lancamento:\", year_launch, \"\\nNota do filme:\", note_movie)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755183528908,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,5 +7,9 @@\n print(\"Nome do filme:\", name)\r\n print(\"Ano de lancamento:\", year_launch)\r\n print(\"Nota do filme:\", note_movie)\r\n \r\n-print(\"Nome do filme:\", name, \"\\nAno lancamento:\", year_launch, \"\\nNota do filme:\", note_movie)\n\\ No newline at end of file\n+print(\"Nome do filme:\", name, \"\\nAno lancamento:\", year_launch, \"\\nNota do filme:\", note_movie)\r\n+\r\n+print(f\"Nome do filme: {name}\\n\"\r\n+      f\"Ano de lancamento: {year_launch}\\n\"\r\n+      f\"Nota do filme: {note_movie}\\n\")\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755183540002,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,11 @@\n print(\"Nome do filme:\", name)\r\n print(\"Ano de lancamento:\", year_launch)\r\n print(\"Nota do filme:\", note_movie)\r\n \r\n+print(\"=\" * 25)\r\n print(\"Nome do filme:\", name, \"\\nAno lancamento:\", year_launch, \"\\nNota do filme:\", note_movie)\r\n \r\n+print(\"=\" * 25)\r\n print(f\"Nome do filme: {name}\\n\"\r\n       f\"Ano de lancamento: {year_launch}\\n\"\r\n       f\"Nota do filme: {note_movie}\\n\")\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1755183141481,
+            "name": "Commit-0",
+            "content": "name = input(\"Digite o nome do filme:\\n\")\r\nyear_launch = int(input(\"Digite o ano de lançamento do filme:\\n\"))\r\nnote_movie = float(input(\"Digite a nota do filme:\\n\"))\r\n\r\nprint(\"Dados filmes\")\r\nprint(\"=\" * 15)\r\nprint(\"Nome do filme:\", name)\r\nprint(\"Ano de lancamento:\", year_launch)\r\nprint(\"Nota do filme:\", note_movie)"
+        }
+    ]
+}

@@ -1,0 +1,86 @@
+{
+    "sourceFile": "oo/pratica/app.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 17,
+            "patches": [
+                {
+                    "date": 1755885903626,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1755885917656,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,2 @@\n-from modelos import Biblioteca\n\\ No newline at end of file\n+from modelos import biblioteca\r\n+\r\n"
+                },
+                {
+                    "date": 1755885940447,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,3 @@\n-from modelos import biblioteca\r\n+from modelos.biblioteca import Biblioteca\r\n \r\n+\r\n"
+                },
+                {
+                    "date": 1755885953951,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,14 @@\n from modelos.biblioteca import Biblioteca\r\n \r\n+biblioteca_cidade = Biblioteca(\"Biblioteca da cidade\")\r\n \r\n+biblioteca_shopping = Biblioteca(\"Biblioteca do shopping\")\r\n+\r\n+\r\n+biblioteca_cidade.alterna_estado()\r\n+biblioteca_shopping.alterna_estado()\r\n+\r\n+\r\n+Biblioteca.listar_bibliotecas()\r\n+\r\n+\r\n"
+                },
+                {
+                    "date": 1755885972435,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n-from modelos.biblioteca import Biblioteca\r\n+from modelos.biblioteca import Biblioteca #.biblioteca entra no arquivo\r\n \r\n+\r\n biblioteca_cidade = Biblioteca(\"Biblioteca da cidade\")\r\n \r\n biblioteca_shopping = Biblioteca(\"Biblioteca do shopping\")\r\n \r\n"
+                },
+                {
+                    "date": 1755886025664,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-from modelos.biblioteca import Biblioteca #.biblioteca entra no arquivo\r\n+from modelos.biblioteca import Biblioteca #o .biblioteca entra no arquivo\r\n \r\n \r\n biblioteca_cidade = Biblioteca(\"Biblioteca da cidade\")\r\n \r\n@@ -8,8 +8,9 @@\n \r\n biblioteca_cidade.alterna_estado()\r\n biblioteca_shopping.alterna_estado()\r\n \r\n+def main():\r\n+    Biblioteca.listar_bibliotecas()\r\n \r\n-Biblioteca.listar_bibliotecas()\r\n-\r\n-\r\n+if __name__ == \"__main__\":\r\n+    main()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755886042453,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,6 +11,6 @@\n \r\n def main():\r\n     Biblioteca.listar_bibliotecas()\r\n \r\n-if __name__ == \"__main__\":\r\n+if __name__ == \"__main__\": # Se o ponto de execução for esse arquivo\r\n     main()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755886472020,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,10 @@\n \r\n biblioteca_cidade.alterna_estado()\r\n biblioteca_shopping.alterna_estado()\r\n \r\n+biblioteca_cidade.receber_avaliacao(\"Fulano\", 8.5)\r\n+\r\n def main():\r\n     Biblioteca.listar_bibliotecas()\r\n \r\n if __name__ == \"__main__\": # Se o ponto de execução for esse arquivo\r\n"
+                },
+                {
+                    "date": 1755886490310,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,9 @@\n biblioteca_cidade.alterna_estado()\r\n biblioteca_shopping.alterna_estado()\r\n \r\n biblioteca_cidade.receber_avaliacao(\"Fulano\", 8.5)\r\n+biblioteca_cidade.receber_avaliacao(\"Sicrano\", 9.5)\r\n \r\n def main():\r\n     Biblioteca.listar_bibliotecas()\r\n \r\n"
+                },
+                {
+                    "date": 1756129708540,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,14 @@\n from modelos.biblioteca import Biblioteca #o .biblioteca entra no arquivo\r\n+from modelos.itens.livro import Livro #o .biblioteca entra no arquivo\r\n+from modelos.itens.revista import Revista #o .biblioteca entra no arquivo\r\n \r\n \r\n biblioteca_cidade = Biblioteca(\"Biblioteca da cidade\")\r\n-\r\n biblioteca_shopping = Biblioteca(\"Biblioteca do shopping\")\r\n \r\n+livro1 = Livro(\"1984\", \"George Orwell\", 30.0, \"084-3245\")\r\n+revista1 = Revista(\"National Geographic\", \"Jonh Doe\", 15.0, \"Quinta\")\r\n \r\n biblioteca_cidade.alterna_estado()\r\n biblioteca_shopping.alterna_estado()\r\n \r\n@@ -13,7 +16,9 @@\n biblioteca_cidade.receber_avaliacao(\"Sicrano\", 9.5)\r\n \r\n def main():\r\n     Biblioteca.listar_bibliotecas()\r\n+    print(vars(livro1))\r\n+    print(vars(revista1))\r\n \r\n if __name__ == \"__main__\": # Se o ponto de execução for esse arquivo\r\n     main()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1756129880632,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,11 @@\n-from modelos.biblioteca import Biblioteca #o .biblioteca entra no arquivo\r\n-from modelos.itens.livro import Livro #o .biblioteca entra no arquivo\r\n-from modelos.itens.revista import Revista #o .biblioteca entra no arquivo\r\n+from modelos.biblioteca import Biblioteca\r\n+from oo.pratica.modelos.itens.livro import Livro\r\n+from oo.pratica.modelos.itens.revista import Revista #o .biblioteca entra no arquivo\r\n \r\n \r\n+\r\n+\r\n biblioteca_cidade = Biblioteca(\"Biblioteca da cidade\")\r\n biblioteca_shopping = Biblioteca(\"Biblioteca do shopping\")\r\n \r\n livro1 = Livro(\"1984\", \"George Orwell\", 30.0, \"084-3245\")\r\n"
+                },
+                {
+                    "date": 1756129898855,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n from modelos.biblioteca import Biblioteca\r\n-from oo.pratica.modelos.itens.livro import Livro\r\n-from oo.pratica.modelos.itens.revista import Revista #o .biblioteca entra no arquivo\r\n+from pratica.modelos.itens.livro import Livro\r\n+from pratica.modelos.itens.revista import Revista #o .biblioteca entra no arquivo\r\n \r\n \r\n \r\n \r\n"
+                },
+                {
+                    "date": 1756129912000,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n from modelos.biblioteca import Biblioteca\r\n-from pratica.modelos.itens.livro import Livro\r\n-from pratica.modelos.itens.revista import Revista #o .biblioteca entra no arquivo\r\n+from oo.pratica.modelos.itens.livro import Livro\r\n+from oo.pratica.modelos.itens.revista import Revista #o .biblioteca entra no arquivo\r\n \r\n \r\n \r\n \r\n"
+                },
+                {
+                    "date": 1756129931780,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n from modelos.biblioteca import Biblioteca\r\n-from oo.pratica.modelos.itens.livro import Livro\r\n-from oo.pratica.modelos.itens.revista import Revista #o .biblioteca entra no arquivo\r\n+from .modelos.itens.livro import Livro\r\n+from .modelos.itens.revista import Revista #o .biblioteca entra no arquivo\r\n \r\n \r\n \r\n \r\n"
+                },
+                {
+                    "date": 1756129939689,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n from modelos.biblioteca import Biblioteca\r\n-from .modelos.itens.livro import Livro\r\n-from .modelos.itens.revista import Revista #o .biblioteca entra no arquivo\r\n+from modelos.itens.livro import Livro\r\n+from modelos.itens.revista import Revista #o .biblioteca entra no arquivo\r\n \r\n \r\n \r\n \r\n"
+                },
+                {
+                    "date": 1756130746366,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,10 @@\n \r\n livro1 = Livro(\"1984\", \"George Orwell\", 30.0, \"084-3245\")\r\n revista1 = Revista(\"National Geographic\", \"Jonh Doe\", 15.0, \"Quinta\")\r\n \r\n+biblioteca_cidade.adicionar_item(livro1)\r\n+\r\n biblioteca_cidade.alterna_estado()\r\n biblioteca_shopping.alterna_estado()\r\n \r\n biblioteca_cidade.receber_avaliacao(\"Fulano\", 8.5)\r\n"
+                },
+                {
+                    "date": 1756130778842,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,9 @@\n livro1 = Livro(\"1984\", \"George Orwell\", 30.0, \"084-3245\")\r\n revista1 = Revista(\"National Geographic\", \"Jonh Doe\", 15.0, \"Quinta\")\r\n \r\n biblioteca_cidade.adicionar_item(livro1)\r\n+biblioteca_cidade.adicionar_item(revista1)\r\n \r\n biblioteca_cidade.alterna_estado()\r\n biblioteca_shopping.alterna_estado()\r\n \r\n"
+                },
+                {
+                    "date": 1756131699646,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,8 @@\n biblioteca_cidade.receber_avaliacao(\"Sicrano\", 9.5)\r\n \r\n def main():\r\n     Biblioteca.listar_bibliotecas()\r\n-    print(vars(livro1))\r\n-    print(vars(revista1))\r\n+    biblioteca_cidade.exibir_itens()\r\n \r\n if __name__ == \"__main__\": # Se o ponto de execução for esse arquivo\r\n     main()\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1755885903626,
+            "name": "Commit-0",
+            "content": "from modelos import Biblioteca"
+        }
+    ]
+}

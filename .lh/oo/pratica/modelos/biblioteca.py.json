@@ -1,0 +1,370 @@
+{
+    "sourceFile": "oo/pratica/modelos/biblioteca.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 88,
+            "patches": [
+                {
+                    "date": 1755883262891,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1755883315252,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,7 @@\n class Biblioteca():\r\n     nome = \"\"\r\n-    ativo = False\n\\ No newline at end of file\n+    ativo = False\r\n+    \r\n+\r\n+biblioteca_cidade = Biblioteca()\r\n+print(biblioteca_cidade)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755883348880,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,5 +3,7 @@\n     ativo = False\r\n     \r\n \r\n biblioteca_cidade = Biblioteca()\r\n+biblioteca_cidade.nome = \"Bilioteca da cidade\"\r\n+biblioteca_cidade.ativo = True\r\n print(biblioteca_cidade)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755883360910,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,5 +5,5 @@\n \r\n biblioteca_cidade = Biblioteca()\r\n biblioteca_cidade.nome = \"Bilioteca da cidade\"\r\n biblioteca_cidade.ativo = True\r\n-print(biblioteca_cidade)\n\\ No newline at end of file\n+print(vers(biblioteca_cidade))\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755883369346,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,5 +5,5 @@\n \r\n biblioteca_cidade = Biblioteca()\r\n biblioteca_cidade.nome = \"Bilioteca da cidade\"\r\n biblioteca_cidade.ativo = True\r\n-print(vers(biblioteca_cidade))\n\\ No newline at end of file\n+print(vars(biblioteca_cidade))\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755883407336,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,5 +5,9 @@\n \r\n biblioteca_cidade = Biblioteca()\r\n biblioteca_cidade.nome = \"Bilioteca da cidade\"\r\n biblioteca_cidade.ativo = True\r\n-print(vars(biblioteca_cidade))\n\\ No newline at end of file\n+\r\n+biblioteca_shopping = Biblioteca()\r\n+\r\n+print(vars(biblioteca_cidade))\r\n+print(vars(biblioteca_shopping))\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755883436660,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,6 +8,7 @@\n biblioteca_cidade.ativo = True\r\n \r\n biblioteca_shopping = Biblioteca()\r\n \r\n+bibliotecas = [biblioteca_cidade, biblioteca_shopping]\r\n print(vars(biblioteca_cidade))\r\n print(vars(biblioteca_shopping))\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755883483369,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,6 +9,9 @@\n \r\n biblioteca_shopping = Biblioteca()\r\n \r\n bibliotecas = [biblioteca_cidade, biblioteca_shopping]\r\n+\r\n print(vars(biblioteca_cidade))\r\n\\ No newline at end of file\n-print(vars(biblioteca_shopping))\n+print(vars(biblioteca_shopping))\r\n+\r\n+[print(vars(biblioteca)) for biblioteca in bibliotecas]\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755883510912,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,10 @@\n biblioteca_cidade.nome = \"Bilioteca da cidade\"\r\n biblioteca_cidade.ativo = True\r\n \r\n biblioteca_shopping = Biblioteca()\r\n+biblioteca_cidade.nome = \"Bilioteca do shopping\"\r\n+biblioteca_cidade.ativo = True\r\n \r\n bibliotecas = [biblioteca_cidade, biblioteca_shopping]\r\n \r\n print(vars(biblioteca_cidade))\r\n"
+                },
+                {
+                    "date": 1755883530659,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,10 +7,10 @@\n biblioteca_cidade.nome = \"Bilioteca da cidade\"\r\n biblioteca_cidade.ativo = True\r\n \r\n biblioteca_shopping = Biblioteca()\r\n-biblioteca_cidade.nome = \"Bilioteca do shopping\"\r\n-biblioteca_cidade.ativo = True\r\n+biblioteca_shopping.nome = \"Bilioteca do shopping\"\r\n+biblioteca_shopping.ativo = True\r\n \r\n bibliotecas = [biblioteca_cidade, biblioteca_shopping]\r\n \r\n print(vars(biblioteca_cidade))\r\n"
+                },
+                {
+                    "date": 1755883698506,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,13 @@\n class Biblioteca():\r\n-    nome = \"\"\r\n-    ativo = False\r\n+    bibliotecas = []\r\n+\r\n+    def __init__(self, nome=\"\", ativo=False):\r\n+        self.nome = nome\r\n+        self.ativo = ativo\r\n+\r\n+    def __str__(self):\r\n+        return self.nome\r\n     \r\n \r\n biblioteca_cidade = Biblioteca()\r\n biblioteca_cidade.nome = \"Bilioteca da cidade\"\r\n@@ -10,9 +16,8 @@\n biblioteca_shopping = Biblioteca()\r\n biblioteca_shopping.nome = \"Bilioteca do shopping\"\r\n biblioteca_shopping.ativo = True\r\n \r\n-bibliotecas = [biblioteca_cidade, biblioteca_shopping]\r\n \r\n print(vars(biblioteca_cidade))\r\n print(vars(biblioteca_shopping))\r\n \r\n"
+                },
+                {
+                    "date": 1755883723494,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,5 @@\n biblioteca_shopping = Biblioteca()\r\n biblioteca_shopping.nome = \"Bilioteca do shopping\"\r\n biblioteca_shopping.ativo = True\r\n \r\n-\r\n-print(vars(biblioteca_cidade))\r\n-print(vars(biblioteca_shopping))\r\n-\r\n-[print(vars(biblioteca)) for biblioteca in bibliotecas]\n\\ No newline at end of file\n+print(biblioteca_cidade)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755883818494,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,18 +1,17 @@\n class Biblioteca():\r\n     bibliotecas = []\r\n \r\n-    def __init__(self, nome=\"\", ativo=False):\r\n+    def __init__(self, nome=\"\"):\r\n         self.nome = nome\r\n-        self.ativo = ativo\r\n+        self.ativo = True\r\n+        Biblioteca.bibliotecas.append(self)\r\n \r\n     def __str__(self):\r\n         return self.nome\r\n     \r\n \r\n-biblioteca_cidade = Biblioteca()\r\n-biblioteca_cidade.nome = \"Bilioteca da cidade\"\r\n-biblioteca_cidade.ativo = True\r\n+biblioteca_cidade = Biblioteca(\"Bilioteca da cidade\")\r\n \r\n biblioteca_shopping = Biblioteca()\r\n biblioteca_shopping.nome = \"Bilioteca do shopping\"\r\n biblioteca_shopping.ativo = True\r\n"
+                },
+                {
+                    "date": 1755883847943,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,8 @@\n     \r\n \r\n biblioteca_cidade = Biblioteca(\"Bilioteca da cidade\")\r\n \r\n-biblioteca_shopping = Biblioteca()\r\n-biblioteca_shopping.nome = \"Bilioteca do shopping\"\r\n-biblioteca_shopping.ativo = True\r\n+biblioteca_shopping = Biblioteca(\"Bilioteca do shopping\")\r\n \r\n\\ No newline at end of file\n-print(biblioteca_cidade)\n+print(biblioteca_cidade)\r\n+print(biblioteca_shopping)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755883925004,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,12 @@\n \r\n     def __str__(self):\r\n         return self.nome\r\n     \r\n+    def listar_bibliotecas():\r\n+        return [biblioteca.__str__ for biblioteca in Biblioteca.bibliotecas]\r\n+    \r\n+    \r\n \r\n biblioteca_cidade = Biblioteca(\"Bilioteca da cidade\")\r\n \r\n biblioteca_shopping = Biblioteca(\"Bilioteca do shopping\")\r\n"
+                },
+                {
+                    "date": 1755883937455,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,5 +18,7 @@\n \r\n biblioteca_shopping = Biblioteca(\"Bilioteca do shopping\")\r\n \r\n print(biblioteca_cidade)\r\n-print(biblioteca_shopping)\n\\ No newline at end of file\n+print(biblioteca_shopping)\r\n+\r\n+print(Biblioteca.listar_bibliotecas())\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755883948809,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     def __str__(self):\r\n         return self.nome\r\n     \r\n     def listar_bibliotecas():\r\n-        return [biblioteca.__str__ for biblioteca in Biblioteca.bibliotecas]\r\n+        return [biblioteca for biblioteca in Biblioteca.bibliotecas]\r\n     \r\n     \r\n \r\n biblioteca_cidade = Biblioteca(\"Bilioteca da cidade\")\r\n"
+                },
+                {
+                    "date": 1755883972666,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     def __str__(self):\r\n         return self.nome\r\n     \r\n     def listar_bibliotecas():\r\n-        return [biblioteca for biblioteca in Biblioteca.bibliotecas]\r\n+        return [str(biblioteca) for biblioteca in Biblioteca.bibliotecas]\r\n     \r\n     \r\n \r\n biblioteca_cidade = Biblioteca(\"Bilioteca da cidade\")\r\n"
+                },
+                {
+                    "date": 1755883985425,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,11 +13,11 @@\n         return [str(biblioteca) for biblioteca in Biblioteca.bibliotecas]\r\n     \r\n     \r\n \r\n-biblioteca_cidade = Biblioteca(\"Bilioteca da cidade\")\r\n+biblioteca_cidade = Biblioteca(\"Biblioteca da cidade\")\r\n \r\n-biblioteca_shopping = Biblioteca(\"Bilioteca do shopping\")\r\n+biblioteca_shopping = Biblioteca(\"Biblioteca do shopping\")\r\n \r\n print(biblioteca_cidade)\r\n print(biblioteca_shopping)\r\n \r\n"
+                },
+                {
+                    "date": 1755884119916,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     def __str__(self):\r\n         return self.nome\r\n     \r\n     def listar_bibliotecas():\r\n-        return [str(biblioteca) for biblioteca in Biblioteca.bibliotecas]\r\n+        [print(f\"{biblioteca.nome} - {biblioteca.ativo}\") for biblioteca in Biblioteca.bibliotecas]\r\n     \r\n     \r\n \r\n biblioteca_cidade = Biblioteca(\"Biblioteca da cidade\")\r\n"
+                },
+                {
+                    "date": 1755884131688,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,5 +20,5 @@\n \r\n print(biblioteca_cidade)\r\n print(biblioteca_shopping)\r\n \r\n-print(Biblioteca.listar_bibliotecas())\n\\ No newline at end of file\n+Biblioteca.listar_bibliotecas()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755884172334,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,10 +10,8 @@\n         return self.nome\r\n     \r\n     def listar_bibliotecas():\r\n         [print(f\"{biblioteca.nome} - {biblioteca.ativo}\") for biblioteca in Biblioteca.bibliotecas]\r\n-    \r\n-    \r\n \r\n biblioteca_cidade = Biblioteca(\"Biblioteca da cidade\")\r\n \r\n biblioteca_shopping = Biblioteca(\"Biblioteca do shopping\")\r\n"
+                },
+                {
+                    "date": 1755884268318,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n class Biblioteca():\r\n     bibliotecas = []\r\n \r\n     def __init__(self, nome=\"\"):\r\n-        self.nome = nome\r\n-        self.ativo = True\r\n+        self._nome = nome #o _ no início informa que o atributo é privado, ou seja só é acessível dentro da classe\r\n+        self._ativo = True\r\n         Biblioteca.bibliotecas.append(self)\r\n \r\n     def __str__(self):\r\n         return self.nome\r\n"
+                },
+                {
+                    "date": 1755884285136,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,6 +17,7 @@\n biblioteca_shopping = Biblioteca(\"Biblioteca do shopping\")\r\n \r\n print(biblioteca_cidade)\r\n print(biblioteca_shopping)\r\n+print(biblioteca_cidade.nome)\r\n \r\n Biblioteca.listar_bibliotecas()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755884296637,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,7 +17,7 @@\n biblioteca_shopping = Biblioteca(\"Biblioteca do shopping\")\r\n \r\n print(biblioteca_cidade)\r\n print(biblioteca_shopping)\r\n-print(biblioteca_cidade.nome)\r\n+print(biblioteca_cidade._nome)\r\n \r\n Biblioteca.listar_bibliotecas()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755884329089,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n class Biblioteca():\r\n     bibliotecas = []\r\n \r\n     def __init__(self, nome=\"\"):\r\n-        self._nome = nome #o _ no início informa que o atributo é privado, ou seja só é acessível dentro da classe\r\n+        self.nome = nome\r\n         self._ativo = True\r\n         Biblioteca.bibliotecas.append(self)\r\n \r\n     def __str__(self):\r\n@@ -17,7 +17,6 @@\n biblioteca_shopping = Biblioteca(\"Biblioteca do shopping\")\r\n \r\n print(biblioteca_cidade)\r\n print(biblioteca_shopping)\r\n-print(biblioteca_cidade._nome)\r\n \r\n Biblioteca.listar_bibliotecas()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755884346187,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n     bibliotecas = []\r\n \r\n     def __init__(self, nome=\"\"):\r\n         self.nome = nome\r\n-        self._ativo = True\r\n+        self._ativo = True # o _ indica que é privado\r\n         Biblioteca.bibliotecas.append(self)\r\n \r\n     def __str__(self):\r\n         return self.nome\r\n"
+                },
+                {
+                    "date": 1755884409168,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,17 +2,20 @@\n     bibliotecas = []\r\n \r\n     def __init__(self, nome=\"\"):\r\n         self.nome = nome\r\n-        self._ativo = True # o _ indica que é privado\r\n+        self.__ativo = True # o __ indica que é privado\r\n         Biblioteca.bibliotecas.append(self)\r\n \r\n     def __str__(self):\r\n         return self.nome\r\n     \r\n     def listar_bibliotecas():\r\n         [print(f\"{biblioteca.nome} - {biblioteca.ativo}\") for biblioteca in Biblioteca.bibliotecas]\r\n \r\n+    def alterna_estado(self):\r\n+        self.ativo = not self.ativo\r\n+\r\n biblioteca_cidade = Biblioteca(\"Biblioteca da cidade\")\r\n \r\n biblioteca_shopping = Biblioteca(\"Biblioteca do shopping\")\r\n \r\n"
+                },
+                {
+                    "date": 1755884458740,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,10 @@\n \r\n     def alterna_estado(self):\r\n         self.ativo = not self.ativo\r\n \r\n+    @property #retornar - getter\r\n+\r\n biblioteca_cidade = Biblioteca(\"Biblioteca da cidade\")\r\n \r\n biblioteca_shopping = Biblioteca(\"Biblioteca do shopping\")\r\n \r\n"
+                },
+                {
+                    "date": 1755884476097,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,10 @@\n     def alterna_estado(self):\r\n         self.ativo = not self.ativo\r\n \r\n     @property #retornar - getter\r\n+    def ativo(self):\r\n+        return ativo\r\n \r\n biblioteca_cidade = Biblioteca(\"Biblioteca da cidade\")\r\n \r\n biblioteca_shopping = Biblioteca(\"Biblioteca do shopping\")\r\n"
+                },
+                {
+                    "date": 1755884519968,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n         self.ativo = not self.ativo\r\n \r\n     @property #retornar - getter\r\n     def ativo(self):\r\n-        return ativo\r\n+        \"ativada\" if self.__ativo else \"desativada\"\r\n \r\n biblioteca_cidade = Biblioteca(\"Biblioteca da cidade\")\r\n \r\n biblioteca_shopping = Biblioteca(\"Biblioteca do shopping\")\r\n"
+                },
+                {
+                    "date": 1755884542177,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n     bibliotecas = []\r\n \r\n     def __init__(self, nome=\"\"):\r\n         self.nome = nome\r\n-        self.__ativo = True # o __ indica que é privado\r\n+        self.__ativo = False # o __ indica que é privado\r\n         Biblioteca.bibliotecas.append(self)\r\n \r\n     def __str__(self):\r\n         return self.nome\r\n"
+                },
+                {
+                    "date": 1755884555284,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n         self.ativo = not self.ativo\r\n \r\n     @property #retornar - getter\r\n     def ativo(self):\r\n-        \"ativada\" if self.__ativo else \"desativada\"\r\n+        return \"ativada\" if self.__ativo else \"desativada\"\r\n \r\n biblioteca_cidade = Biblioteca(\"Biblioteca da cidade\")\r\n \r\n biblioteca_shopping = Biblioteca(\"Biblioteca do shopping\")\r\n"
+                },
+                {
+                    "date": 1755884578987,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,7 +23,8 @@\n \r\n biblioteca_shopping = Biblioteca(\"Biblioteca do shopping\")\r\n \r\n print(biblioteca_cidade)\r\n+biblioteca_cidade.alterna_estado()\r\n print(biblioteca_shopping)\r\n \r\n Biblioteca.listar_bibliotecas()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755884592319,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,10 @@\n biblioteca_cidade = Biblioteca(\"Biblioteca da cidade\")\r\n \r\n biblioteca_shopping = Biblioteca(\"Biblioteca do shopping\")\r\n \r\n-print(biblioteca_cidade)\r\n+\r\n biblioteca_cidade.alterna_estado()\r\n-print(biblioteca_shopping)\r\n+biblioteca_shopping.alterna_estado()\r\n \r\n+\r\n Biblioteca.listar_bibliotecas()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755884606087,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     def listar_bibliotecas():\r\n         [print(f\"{biblioteca.nome} - {biblioteca.ativo}\") for biblioteca in Biblioteca.bibliotecas]\r\n \r\n     def alterna_estado(self):\r\n-        self.ativo = not self.ativo\r\n+        self.__ativo = not self.__ativo\r\n \r\n     @property #retornar - getter\r\n     def ativo(self):\r\n         return \"ativada\" if self.__ativo else \"desativada\"\r\n"
+                },
+                {
+                    "date": 1755884654894,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,17 +9,18 @@\n     def __str__(self):\r\n         return self.nome\r\n     \r\n     def listar_bibliotecas():\r\n-        [print(f\"{biblioteca.nome} - {biblioteca.ativo}\") for biblioteca in Biblioteca.bibliotecas]\r\n+        [print(f\"{biblioteca.nome} - {biblioteca.__ativo}\") for biblioteca in Biblioteca.bibliotecas]\r\n \r\n     def alterna_estado(self):\r\n         self.__ativo = not self.__ativo\r\n \r\n     @property #retornar - getter\r\n     def ativo(self):\r\n         return \"ativada\" if self.__ativo else \"desativada\"\r\n \r\n+\r\n biblioteca_cidade = Biblioteca(\"Biblioteca da cidade\")\r\n \r\n biblioteca_shopping = Biblioteca(\"Biblioteca do shopping\")\r\n \r\n"
+                },
+                {
+                    "date": 1755884671723,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     def __str__(self):\r\n         return self.nome\r\n     \r\n     def listar_bibliotecas():\r\n-        [print(f\"{biblioteca.nome} - {biblioteca.__ativo}\") for biblioteca in Biblioteca.bibliotecas]\r\n+        [print(f\"{biblioteca.nome} - {biblioteca.ativo()}\") for biblioteca in Biblioteca.bibliotecas]\r\n \r\n     def alterna_estado(self):\r\n         self.__ativo = not self.__ativo\r\n \r\n"
+                },
+                {
+                    "date": 1755884678638,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     def __str__(self):\r\n         return self.nome\r\n     \r\n     def listar_bibliotecas():\r\n-        [print(f\"{biblioteca.nome} - {biblioteca.ativo()}\") for biblioteca in Biblioteca.bibliotecas]\r\n+        [print(f\"{biblioteca.nome} - {biblioteca.ativo}\") for biblioteca in Biblioteca.bibliotecas]\r\n \r\n     def alterna_estado(self):\r\n         self.__ativo = not self.__ativo\r\n \r\n"
+                },
+                {
+                    "date": 1755885507232,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,10 @@\n \r\n     def __str__(self):\r\n         return self.nome\r\n     \r\n-    def listar_bibliotecas():\r\n+    @classmethod #Anotation que indica que é um class method\r\n+    def listar_bibliotecas(cls): #cls referente a classe\r\n         [print(f\"{biblioteca.nome} - {biblioteca.ativo}\") for biblioteca in Biblioteca.bibliotecas]\r\n \r\n     def alterna_estado(self):\r\n         self.__ativo = not self.__ativo\r\n"
+                },
+                {
+                    "date": 1755885631975,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,9 @@\n         return self.nome\r\n     \r\n     @classmethod #Anotation que indica que é um class method\r\n     def listar_bibliotecas(cls): #cls referente a classe\r\n+        print(f\"{'Nome da biblioteca'.ljust(25)} | {'Status'}\")\r\n         [print(f\"{biblioteca.nome} - {biblioteca.ativo}\") for biblioteca in Biblioteca.bibliotecas]\r\n \r\n     def alterna_estado(self):\r\n         self.__ativo = not self.__ativo\r\n"
+                },
+                {
+                    "date": 1755885643021,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n     \r\n     @classmethod #Anotation que indica que é um class method\r\n     def listar_bibliotecas(cls): #cls referente a classe\r\n         print(f\"{'Nome da biblioteca'.ljust(25)} | {'Status'}\")\r\n-        [print(f\"{biblioteca.nome} - {biblioteca.ativo}\") for biblioteca in Biblioteca.bibliotecas]\r\n+        [print(f\"{biblioteca.nome.ljust(25)} - {biblioteca.ativo}\") for biblioteca in Biblioteca.bibliotecas]\r\n \r\n     def alterna_estado(self):\r\n         self.__ativo = not self.__ativo\r\n \r\n"
+                },
+                {
+                    "date": 1755885652957,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n     \r\n     @classmethod #Anotation que indica que é um class method\r\n     def listar_bibliotecas(cls): #cls referente a classe\r\n         print(f\"{'Nome da biblioteca'.ljust(25)} | {'Status'}\")\r\n-        [print(f\"{biblioteca.nome.ljust(25)} - {biblioteca.ativo}\") for biblioteca in Biblioteca.bibliotecas]\r\n+        [print(f\"{biblioteca.nome.ljust(25)} | {biblioteca.ativo}\") for biblioteca in Biblioteca.bibliotecas]\r\n \r\n     def alterna_estado(self):\r\n         self.__ativo = not self.__ativo\r\n \r\n"
+                },
+                {
+                    "date": 1755885713965,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,11 @@\n         return self.nome\r\n     \r\n     @classmethod #Anotation que indica que é um class method\r\n     def listar_bibliotecas(cls): #cls referente a classe\r\n-        print(f\"{'Nome da biblioteca'.ljust(25)} | {'Status'}\")\r\n+        title = f\"{'Nome da biblioteca'.ljust(25)} | {'Status'}\"\r\n+        print(title)\r\n+        print(\"-\" * title.__len__)\r\n         [print(f\"{biblioteca.nome.ljust(25)} | {biblioteca.ativo}\") for biblioteca in Biblioteca.bibliotecas]\r\n \r\n     def alterna_estado(self):\r\n         self.__ativo = not self.__ativo\r\n"
+                },
+                {
+                    "date": 1755885722794,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     @classmethod #Anotation que indica que é um class method\r\n     def listar_bibliotecas(cls): #cls referente a classe\r\n         title = f\"{'Nome da biblioteca'.ljust(25)} | {'Status'}\"\r\n         print(title)\r\n-        print(\"-\" * title.__len__)\r\n+        print(\"-\" * len(title))\r\n         [print(f\"{biblioteca.nome.ljust(25)} | {biblioteca.ativo}\") for biblioteca in Biblioteca.bibliotecas]\r\n \r\n     def alterna_estado(self):\r\n         self.__ativo = not self.__ativo\r\n"
+                },
+                {
+                    "date": 1755885768114,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     @classmethod #Anotation que indica que é um class method\r\n     def listar_bibliotecas(cls): #cls referente a classe\r\n         title = f\"{'Nome da biblioteca'.ljust(25)} | {'Status'}\"\r\n         print(title)\r\n-        print(\"-\" * len(title))\r\n+        print(\"-\" * len(title) + 3)\r\n         [print(f\"{biblioteca.nome.ljust(25)} | {biblioteca.ativo}\") for biblioteca in Biblioteca.bibliotecas]\r\n \r\n     def alterna_estado(self):\r\n         self.__ativo = not self.__ativo\r\n"
+                },
+                {
+                    "date": 1755885774810,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     @classmethod #Anotation que indica que é um class method\r\n     def listar_bibliotecas(cls): #cls referente a classe\r\n         title = f\"{'Nome da biblioteca'.ljust(25)} | {'Status'}\"\r\n         print(title)\r\n-        print(\"-\" * len(title) + 3)\r\n+        print(\"-\" * (len(title) + 3))\r\n         [print(f\"{biblioteca.nome.ljust(25)} | {biblioteca.ativo}\") for biblioteca in Biblioteca.bibliotecas]\r\n \r\n     def alterna_estado(self):\r\n         self.__ativo = not self.__ativo\r\n"
+                },
+                {
+                    "date": 1755885808946,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     @classmethod #Anotation que indica que é um class method\r\n     def listar_bibliotecas(cls): #cls referente a classe\r\n         title = f\"{'Nome da biblioteca'.ljust(25)} | {'Status'}\"\r\n         print(title)\r\n-        print(\"-\" * (len(title) + 3))\r\n+        print(\"-\" * len(title))\r\n         [print(f\"{biblioteca.nome.ljust(25)} | {biblioteca.ativo}\") for biblioteca in Biblioteca.bibliotecas]\r\n \r\n     def alterna_estado(self):\r\n         self.__ativo = not self.__ativo\r\n"
+                },
+                {
+                    "date": 1755885825578,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     @classmethod #Anotation que indica que é um class method\r\n     def listar_bibliotecas(cls): #cls referente a classe\r\n         title = f\"{'Nome da biblioteca'.ljust(25)} | {'Status'}\"\r\n         print(title)\r\n-        print(\"-\" * len(title))\r\n+        print(\"--\" * len(title))\r\n         [print(f\"{biblioteca.nome.ljust(25)} | {biblioteca.ativo}\") for biblioteca in Biblioteca.bibliotecas]\r\n \r\n     def alterna_estado(self):\r\n         self.__ativo = not self.__ativo\r\n"
+                },
+                {
+                    "date": 1755885832037,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     @classmethod #Anotation que indica que é um class method\r\n     def listar_bibliotecas(cls): #cls referente a classe\r\n         title = f\"{'Nome da biblioteca'.ljust(25)} | {'Status'}\"\r\n         print(title)\r\n-        print(\"--\" * len(title))\r\n+        print(\"-\" * len(title))\r\n         [print(f\"{biblioteca.nome.ljust(25)} | {biblioteca.ativo}\") for biblioteca in Biblioteca.bibliotecas]\r\n \r\n     def alterna_estado(self):\r\n         self.__ativo = not self.__ativo\r\n"
+                },
+                {
+                    "date": 1755885846972,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,16 +21,4 @@\n \r\n     @property #retornar - getter\r\n     def ativo(self):\r\n         return \"ativada\" if self.__ativo else \"desativada\"\r\n-\r\n-\r\n-biblioteca_cidade = Biblioteca(\"Biblioteca da cidade\")\r\n-\r\n-biblioteca_shopping = Biblioteca(\"Biblioteca do shopping\")\r\n-\r\n-\r\n-biblioteca_cidade.alterna_estado()\r\n-biblioteca_shopping.alterna_estado()\r\n-\r\n-\r\n-Biblioteca.listar_bibliotecas()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1755886328623,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n \r\n     def __init__(self, nome=\"\"):\r\n         self.nome = nome\r\n         self.__ativo = False # o __ indica que é privado\r\n+        self.__avaliacoes =\r\n         Biblioteca.bibliotecas.append(self)\r\n \r\n     def __str__(self):\r\n         return self.nome\r\n"
+                },
+                {
+                    "date": 1755886343976,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,5 @@\n+import Avaliacao\r\n class Biblioteca():\r\n     bibliotecas = []\r\n \r\n     def __init__(self, nome=\"\"):\r\n"
+                },
+                {
+                    "date": 1755886355898,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,13 @@\n import Avaliacao\r\n+\r\n class Biblioteca():\r\n     bibliotecas = []\r\n \r\n     def __init__(self, nome=\"\"):\r\n         self.nome = nome\r\n         self.__ativo = False # o __ indica que é privado\r\n-        self.__avaliacoes =\r\n+        self.__avaliacoes = []\r\n         Biblioteca.bibliotecas.append(self)\r\n \r\n     def __str__(self):\r\n         return self.nome\r\n"
+                },
+                {
+                    "date": 1755886381863,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,4 +24,7 @@\n \r\n     @property #retornar - getter\r\n     def ativo(self):\r\n         return \"ativada\" if self.__ativo else \"desativada\"\r\n+    \r\n+    def receber_avaliacao(self, cliente, nota):\r\n+\r\n"
+                },
+                {
+                    "date": 1755886412460,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,5 +26,7 @@\n     def ativo(self):\r\n         return \"ativada\" if self.__ativo else \"desativada\"\r\n     \r\n     def receber_avaliacao(self, cliente, nota):\r\n+        avaliacao = Avaliacao(cliente, nota)\r\n+        self.__avaliacoes.append(avaliacao)\r\n \r\n"
+                },
+                {
+                    "date": 1755886440574,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import Avaliacao\r\n+from avaliacao import Avaliacao\r\n \r\n class Biblioteca():\r\n     bibliotecas = []\r\n \r\n"
+                },
+                {
+                    "date": 1755886520241,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-from avaliacao import Avaliacao\r\n+from .avaliacao import Avaliacao\r\n \r\n class Biblioteca():\r\n     bibliotecas = []\r\n \r\n"
+                },
+                {
+                    "date": 1755886631585,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n \r\n     def alterna_estado(self):\r\n         self.__ativo = not self.__ativo\r\n \r\n-    @property #retornar - getter\r\n+    @property #retornar - getter usa - se como se fosse um atributo\r\n     def ativo(self):\r\n         return \"ativada\" if self.__ativo else \"desativada\"\r\n     \r\n     def receber_avaliacao(self, cliente, nota):\r\n"
+                },
+                {
+                    "date": 1755886640851,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n \r\n     def alterna_estado(self):\r\n         self.__ativo = not self.__ativo\r\n \r\n-    @property #retornar - getter usa - se como se fosse um atributo\r\n+    @property #retornar - getter usa - se como se fosse um atributo, mas é um método\r\n     def ativo(self):\r\n         return \"ativada\" if self.__ativo else \"desativada\"\r\n     \r\n     def receber_avaliacao(self, cliente, nota):\r\n"
+                },
+                {
+                    "date": 1755886679045,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,5 +28,9 @@\n     \r\n     def receber_avaliacao(self, cliente, nota):\r\n         avaliacao = Avaliacao(cliente, nota)\r\n         self.__avaliacoes.append(avaliacao)\r\n+    \r\n+    @property\r\n+    def media_avaliacoes(self):\r\n \r\n+\r\n"
+                },
+                {
+                    "date": 1755886783775,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,6 +31,8 @@\n         self.__avaliacoes.append(avaliacao)\r\n     \r\n     @property\r\n     def media_avaliacoes(self):\r\n+        if not self.__avaliacoes:\r\n+            return \"-\"\r\n+        soma = sum(avaliacao.nota for avaliacao in self.__avaliacoes)\r\n \r\n-\r\n"
+                },
+                {
+                    "date": 1755886810158,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,5 +34,6 @@\n     def media_avaliacoes(self):\r\n         if not self.__avaliacoes:\r\n             return \"-\"\r\n         soma = sum(avaliacao.nota for avaliacao in self.__avaliacoes)\r\n+        return soma / len(self.__avaliacoes)\r\n \r\n"
+                },
+                {
+                    "date": 1755886828162,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,6 +34,6 @@\n     def media_avaliacoes(self):\r\n         if not self.__avaliacoes:\r\n             return \"-\"\r\n         soma = sum(avaliacao.nota for avaliacao in self.__avaliacoes)\r\n-        return soma / len(self.__avaliacoes)\r\n+        return round(soma / len(self.__avaliacoes), 1)\r\n \r\n"
+                },
+                {
+                    "date": 1755886899917,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n         return self.nome\r\n     \r\n     @classmethod #Anotation que indica que é um class method\r\n     def listar_bibliotecas(cls): #cls referente a classe\r\n-        title = f\"{'Nome da biblioteca'.ljust(25)} | {'Status'}\"\r\n+        title = f\"{'Nome da biblioteca'.ljust(25)} | {'Status'} |{'Nota média'.ljust(25)}\"\r\n         print(title)\r\n         print(\"-\" * len(title))\r\n         [print(f\"{biblioteca.nome.ljust(25)} | {biblioteca.ativo}\") for biblioteca in Biblioteca.bibliotecas]\r\n \r\n"
+                },
+                {
+                    "date": 1755886942448,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n     def listar_bibliotecas(cls): #cls referente a classe\r\n         title = f\"{'Nome da biblioteca'.ljust(25)} | {'Status'} |{'Nota média'.ljust(25)}\"\r\n         print(title)\r\n         print(\"-\" * len(title))\r\n-        [print(f\"{biblioteca.nome.ljust(25)} | {biblioteca.ativo}\") for biblioteca in Biblioteca.bibliotecas]\r\n+        [print(f\"{biblioteca.nome.ljust(25)} | {biblioteca.ativo} | {biblioteca.media_avaliacoes.ljust(25)}\") for biblioteca in Biblioteca.bibliotecas]\r\n \r\n     def alterna_estado(self):\r\n         self.__ativo = not self.__ativo\r\n \r\n"
+                },
+                {
+                    "date": 1755886963465,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-from .avaliacao import Avaliacao\r\n+from avaliacao import Avaliacao\r\n \r\n class Biblioteca():\r\n     bibliotecas = []\r\n \r\n"
+                },
+                {
+                    "date": 1755886973984,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-from avaliacao import Avaliacao\r\n+from .avaliacao import Avaliacao\r\n \r\n class Biblioteca():\r\n     bibliotecas = []\r\n \r\n"
+                },
+                {
+                    "date": 1755887012325,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,7 +33,7 @@\n     @property\r\n     def media_avaliacoes(self):\r\n         if not self.__avaliacoes:\r\n             return \"-\"\r\n-        soma = sum(avaliacao.nota for avaliacao in self.__avaliacoes)\r\n+        soma = sum(avaliacao.__nota for avaliacao in self.__avaliacoes)\r\n         return round(soma / len(self.__avaliacoes), 1)\r\n \r\n"
+                },
+                {
+                    "date": 1755887031297,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,7 +33,7 @@\n     @property\r\n     def media_avaliacoes(self):\r\n         if not self.__avaliacoes:\r\n             return \"-\"\r\n-        soma = sum(avaliacao.__nota for avaliacao in self.__avaliacoes)\r\n+        soma = sum(avaliacao._nota for avaliacao in self.__avaliacoes)\r\n         return round(soma / len(self.__avaliacoes), 1)\r\n \r\n"
+                },
+                {
+                    "date": 1755887048914,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n \r\n     def __init__(self, nome=\"\"):\r\n         self.nome = nome\r\n         self.__ativo = False # o __ indica que é privado\r\n-        self.__avaliacoes = []\r\n+        self._avaliacoes = []\r\n         Biblioteca.bibliotecas.append(self)\r\n \r\n     def __str__(self):\r\n         return self.nome\r\n@@ -27,13 +27,13 @@\n         return \"ativada\" if self.__ativo else \"desativada\"\r\n     \r\n     def receber_avaliacao(self, cliente, nota):\r\n         avaliacao = Avaliacao(cliente, nota)\r\n-        self.__avaliacoes.append(avaliacao)\r\n+        self._avaliacoes.append(avaliacao)\r\n     \r\n     @property\r\n     def media_avaliacoes(self):\r\n-        if not self.__avaliacoes:\r\n+        if not self._avaliacoes:\r\n             return \"-\"\r\n-        soma = sum(avaliacao._nota for avaliacao in self.__avaliacoes)\r\n-        return round(soma / len(self.__avaliacoes), 1)\r\n+        soma = sum(avaliacao._nota for avaliacao in self._avaliacoes)\r\n+        return round(soma / len(self._avaliacoes), 1)\r\n \r\n"
+                },
+                {
+                    "date": 1755887069946,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n     bibliotecas = []\r\n \r\n     def __init__(self, nome=\"\"):\r\n         self.nome = nome\r\n-        self.__ativo = False # o __ indica que é privado\r\n+        self._ativo = False # o __ indica que é privado\r\n         self._avaliacoes = []\r\n         Biblioteca.bibliotecas.append(self)\r\n \r\n     def __str__(self):\r\n@@ -19,13 +19,13 @@\n         print(\"-\" * len(title))\r\n         [print(f\"{biblioteca.nome.ljust(25)} | {biblioteca.ativo} | {biblioteca.media_avaliacoes.ljust(25)}\") for biblioteca in Biblioteca.bibliotecas]\r\n \r\n     def alterna_estado(self):\r\n-        self.__ativo = not self.__ativo\r\n+        self._ativo = not self._ativo\r\n \r\n     @property #retornar - getter usa - se como se fosse um atributo, mas é um método\r\n     def ativo(self):\r\n-        return \"ativada\" if self.__ativo else \"desativada\"\r\n+        return \"ativada\" if self._ativo else \"desativada\"\r\n     \r\n     def receber_avaliacao(self, cliente, nota):\r\n         avaliacao = Avaliacao(cliente, nota)\r\n         self._avaliacoes.append(avaliacao)\r\n"
+                },
+                {
+                    "date": 1755887100391,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n     def listar_bibliotecas(cls): #cls referente a classe\r\n         title = f\"{'Nome da biblioteca'.ljust(25)} | {'Status'} |{'Nota média'.ljust(25)}\"\r\n         print(title)\r\n         print(\"-\" * len(title))\r\n-        [print(f\"{biblioteca.nome.ljust(25)} | {biblioteca.ativo} | {biblioteca.media_avaliacoes.ljust(25)}\") for biblioteca in Biblioteca.bibliotecas]\r\n+        [print(f\"{biblioteca.nome.ljust(25)} | {biblioteca.ativo} | {str(biblioteca.media_avaliacoes).ljust(25)}\") for biblioteca in Biblioteca.bibliotecas]\r\n \r\n     def alterna_estado(self):\r\n         self._ativo = not self._ativo\r\n \r\n"
+                },
+                {
+                    "date": 1755887163638,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,12 +13,12 @@\n         return self.nome\r\n     \r\n     @classmethod #Anotation que indica que é um class method\r\n     def listar_bibliotecas(cls): #cls referente a classe\r\n-        title = f\"{'Nome da biblioteca'.ljust(25)} | {'Status'} |{'Nota média'.ljust(25)}\"\r\n+        title = f\"{'Nome da biblioteca'.ljust(25)}|{'Nota média'.ljust(25)}|{'Status'}|\"\r\n         print(title)\r\n         print(\"-\" * len(title))\r\n-        [print(f\"{biblioteca.nome.ljust(25)} | {biblioteca.ativo} | {str(biblioteca.media_avaliacoes).ljust(25)}\") for biblioteca in Biblioteca.bibliotecas]\r\n+        [print(f\"{biblioteca.nome.ljust(25)} |{str(biblioteca.media_avaliacoes).ljust(25)}| {biblioteca.ativo} |\") for biblioteca in Biblioteca.bibliotecas]\r\n \r\n     def alterna_estado(self):\r\n         self._ativo = not self._ativo\r\n \r\n"
+                },
+                {
+                    "date": 1755887187494,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n         return self.nome\r\n     \r\n     @classmethod #Anotation que indica que é um class method\r\n     def listar_bibliotecas(cls): #cls referente a classe\r\n-        title = f\"{'Nome da biblioteca'.ljust(25)}|{'Nota média'.ljust(25)}|{'Status'}|\"\r\n+        title = f\"{'Nome da biblioteca'.ljust(25)}|{'Nota média'.ljust(25)}| {'Status'} |\"\r\n         print(title)\r\n         print(\"-\" * len(title))\r\n         [print(f\"{biblioteca.nome.ljust(25)} |{str(biblioteca.media_avaliacoes).ljust(25)}| {biblioteca.ativo} |\") for biblioteca in Biblioteca.bibliotecas]\r\n \r\n"
+                },
+                {
+                    "date": 1755887209092,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n     def listar_bibliotecas(cls): #cls referente a classe\r\n         title = f\"{'Nome da biblioteca'.ljust(25)}|{'Nota média'.ljust(25)}| {'Status'} |\"\r\n         print(title)\r\n         print(\"-\" * len(title))\r\n-        [print(f\"{biblioteca.nome.ljust(25)} |{str(biblioteca.media_avaliacoes).ljust(25)}| {biblioteca.ativo} |\") for biblioteca in Biblioteca.bibliotecas]\r\n+        [print(f\"{biblioteca.nome.ljust(25)}|{str(biblioteca.media_avaliacoes).ljust(25)}| {biblioteca.ativo} |\") for biblioteca in Biblioteca.bibliotecas]\r\n \r\n     def alterna_estado(self):\r\n         self._ativo = not self._ativo\r\n \r\n"
+                },
+                {
+                    "date": 1755887411213,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n         return self.nome\r\n     \r\n     @classmethod #Anotation que indica que é um class method\r\n     def listar_bibliotecas(cls): #cls referente a classe\r\n-        title = f\"{'Nome da biblioteca'.ljust(25)}|{'Nota média'.ljust(25)}| {'Status'} |\"\r\n+        title = f\"{'Nome da biblioteca'.ljust(25)}|{'Nota média'.ljust(24)}| {'Status'} |\"\r\n         print(title)\r\n         print(\"-\" * len(title))\r\n         [print(f\"{biblioteca.nome.ljust(25)}|{str(biblioteca.media_avaliacoes).ljust(25)}| {biblioteca.ativo} |\") for biblioteca in Biblioteca.bibliotecas]\r\n \r\n"
+                },
+                {
+                    "date": 1755887427622,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n         return self.nome\r\n     \r\n     @classmethod #Anotation que indica que é um class method\r\n     def listar_bibliotecas(cls): #cls referente a classe\r\n-        title = f\"{'Nome da biblioteca'.ljust(25)}|{'Nota média'.ljust(24)}| {'Status'} |\"\r\n+        title = f\"{'Nome da biblioteca'.ljust(25)}|{'Nota média'.ljust(25)}| {'Status'} |\"\r\n         print(title)\r\n         print(\"-\" * len(title))\r\n         [print(f\"{biblioteca.nome.ljust(25)}|{str(biblioteca.media_avaliacoes).ljust(25)}| {biblioteca.ativo} |\") for biblioteca in Biblioteca.bibliotecas]\r\n \r\n"
+                },
+                {
+                    "date": 1756130657664,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,5 @@\n+from itens.item_biblioteca import ItemBiblioteca\r\n from .avaliacao import Avaliacao\r\n \r\n class Biblioteca():\r\n     bibliotecas = []\r\n@@ -35,5 +36,9 @@\n         if not self._avaliacoes:\r\n             return \"-\"\r\n         soma = sum(avaliacao._nota for avaliacao in self._avaliacoes)\r\n         return round(soma / len(self._avaliacoes), 1)\r\n+    \r\n+    def adicionar_item(self, item):\r\n+        if isinstance(item, ItemBiblioteca):\r\n+            pass\r\n \r\n"
+                },
+                {
+                    "date": 1756130693933,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,9 @@\n     def __init__(self, nome=\"\"):\r\n         self.nome = nome\r\n         self._ativo = False # o __ indica que é privado\r\n         self._avaliacoes = []\r\n+        self._itens = []\r\n         Biblioteca.bibliotecas.append(self)\r\n \r\n     def __str__(self):\r\n         return self.nome\r\n"
+                },
+                {
+                    "date": 1756130724338,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,6 +40,6 @@\n         return round(soma / len(self._avaliacoes), 1)\r\n     \r\n     def adicionar_item(self, item):\r\n         if isinstance(item, ItemBiblioteca):\r\n-            pass\r\n+            self._itens.append(item)\r\n \r\n"
+                },
+                {
+                    "date": 1756131630966,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,20 +26,26 @@\n \r\n     @property #retornar - getter usa - se como se fosse um atributo, mas é um método\r\n     def ativo(self):\r\n         return \"ativada\" if self._ativo else \"desativada\"\r\n-    \r\n+\r\n     def receber_avaliacao(self, cliente, nota):\r\n         avaliacao = Avaliacao(cliente, nota)\r\n         self._avaliacoes.append(avaliacao)\r\n-    \r\n+\r\n     @property\r\n     def media_avaliacoes(self):\r\n         if not self._avaliacoes:\r\n             return \"-\"\r\n         soma = sum(avaliacao._nota for avaliacao in self._avaliacoes)\r\n         return round(soma / len(self._avaliacoes), 1)\r\n-    \r\n+\r\n     def adicionar_item(self, item):\r\n         if isinstance(item, ItemBiblioteca):\r\n             self._itens.append(item)\r\n \r\n+    def exibir_itens(self):\r\n+        print(f\"Itens da biblioteca {self.nome}\\n\")\r\n+\r\n+        for i, item in enumerate(self._itens, start=1):\r\n+            msg = str(item)\r\n+\r\n"
+                },
+                {
+                    "date": 1756131676160,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,5 +47,5 @@\n         print(f\"Itens da biblioteca {self.nome}\\n\")\r\n \r\n         for i, item in enumerate(self._itens, start=1):\r\n             msg = str(item)\r\n-\r\n+            print(msg)\r\n"
+                },
+                {
+                    "date": 1756131736578,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-from itens.item_biblioteca import ItemBiblioteca\r\n+from .itens.item_biblioteca import ItemBiblioteca\r\n from .avaliacao import Avaliacao\r\n \r\n class Biblioteca():\r\n     bibliotecas = []\r\n"
+                },
+                {
+                    "date": 1756131755090,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-from .itens.item_biblioteca import ItemBiblioteca\r\n+from itens.item_biblioteca import ItemBiblioteca\r\n from .avaliacao import Avaliacao\r\n \r\n class Biblioteca():\r\n     bibliotecas = []\r\n"
+                },
+                {
+                    "date": 1756131788666,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-from itens.item_biblioteca import ItemBiblioteca\r\n+\r\n from .avaliacao import Avaliacao\r\n \r\n class Biblioteca():\r\n     bibliotecas = []\r\n"
+                },
+                {
+                    "date": 1756131804708,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n \r\n+from oo.pratica.modelos.itens.item_biblioteca import ItemBiblioteca\r\n from .avaliacao import Avaliacao\r\n \r\n class Biblioteca():\r\n     bibliotecas = []\r\n"
+                },
+                {
+                    "date": 1756131813787,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n \r\n-from oo.pratica.modelos.itens.item_biblioteca import ItemBiblioteca\r\n+from modelos.itens.item_biblioteca import ItemBiblioteca\r\n from .avaliacao import Avaliacao\r\n \r\n class Biblioteca():\r\n     bibliotecas = []\r\n"
+                },
+                {
+                    "date": 1756131881043,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,6 +47,6 @@\n     def exibir_itens(self):\r\n         print(f\"Itens da biblioteca {self.nome}\\n\")\r\n \r\n         for i, item in enumerate(self._itens, start=1):\r\n-            msg = str(item)\r\n+            msg = f\"{i}. \" + str(item)\r\n             print(msg)\r\n"
+                }
+            ],
+            "date": 1755883262891,
+            "name": "Commit-0",
+            "content": "class Biblioteca():\r\n    nome = \"\"\r\n    ativo = False"
+        }
+    ]
+}

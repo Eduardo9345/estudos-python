@@ -1,0 +1,30 @@
+{
+    "sourceFile": "oo/pratica/modelos/itens/revista.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1756129336001,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1756129966624,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-from oo.pratica.modelos.itens.item_biblioteca import ItemBiblioteca\r\n+from item_biblioteca import ItemBiblioteca\r\n \r\n \r\n class Revista(ItemBiblioteca):\r\n     def __init__(self, titulo, autor, preco, edicao):\r\n"
+                },
+                {
+                    "date": 1756129983141,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-from item_biblioteca import ItemBiblioteca\r\n+from .item_biblioteca import ItemBiblioteca\r\n \r\n \r\n class Revista(ItemBiblioteca):\r\n     def __init__(self, titulo, autor, preco, edicao):\r\n"
+                },
+                {
+                    "date": 1756131494533,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,5 +3,8 @@\n \r\n class Revista(ItemBiblioteca):\r\n     def __init__(self, titulo, autor, preco, edicao):\r\n         super().__init__(titulo, autor, preco)\r\n-        self._edicao = edicao\n\\ No newline at end of file\n+        self._edicao = edicao\r\n+\r\n+    def __str__(self):\r\n+        return super().__str__() + f\" | Edicao : {self._edicao}\"\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1756129336001,
+            "name": "Commit-0",
+            "content": "from oo.pratica.modelos.itens.item_biblioteca import ItemBiblioteca\r\n\r\n\r\nclass Revista(ItemBiblioteca):\r\n    def __init__(self, titulo, autor, preco, edicao):\r\n        super().__init__(titulo, autor, preco)\r\n        self._edicao = edicao"
+        }
+    ]
+}

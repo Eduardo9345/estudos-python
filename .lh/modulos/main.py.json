@@ -1,0 +1,22 @@
+{
+    "sourceFile": "modulos/main.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1755695809937,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1755695824073,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,5 +3,4 @@\n print(soma(1,2))\r\n print(subtracao(1,2))\r\n print(multiplicacao(1,2))\r\n print(divisao(10,2))\r\n-print(divisao(10,0))\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1755695809937,
+            "name": "Commit-0",
+            "content": "from math_module import *\r\n\r\nprint(soma(1,2))\r\nprint(subtracao(1,2))\r\nprint(multiplicacao(1,2))\r\nprint(divisao(10,2))\r\nprint(divisao(10,0))"
+        }
+    ]
+}

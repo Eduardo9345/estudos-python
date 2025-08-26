@@ -1,0 +1,18 @@
+{
+    "sourceFile": "modulos/1-os_modulos.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1755787311819,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1755787311819,
+            "name": "Commit-0",
+            "content": "import os\r\n\r\n# os.system('ver')\r\n\r\n# os.system('systeminfo')\r\n\r\n# os.system('cls')\r\n\r\n# os.system('shutdown /s')\r\n# os.system('shutdown /a')\r\n\r\ndef shutdown_one_hour():\r\n    os.system(\"shutdown /s /t 3600\")\r\n\r\ndef shutdown_half_an_hour():\r\n    os.system(\"shutdown /s /t 1800\")\r\n\r\ndef shutdown_now():\r\n    os.system(\"shutdown /s /t 0\")\r\n\r\ndef cancel_shutdown():\r\n    os.system(\"shutdown /a\")\r\n\r\ndef open_google():\r\n    os.system(\"start https://google.com\")\r\n\r\ndef open_notion():\r\n    os.system(\"start https://www.notion.so/home-2023-4cb7f8e6ab964dea85875c110c8bcd73\")\r\n\r\ndef open_classroom():\r\n    os.system(\"start https://classroom.google.com/u/0/h\")    \r\n\r\ndef open_spotfy():\r\n    os.system(\"start https://open.spotify.com/intl-pt/\")    \r\n\r\ndef open_udemy():\r\n    os.system(\"start https://www.udemy.com/\")    \r\n\r\ndef open_chrome():\r\n    os.system(\"start chrome\")\r\n\r\ndef open_suap():\r\n    os.system(\"start https://suap.ifpb.edu.br/\")\r\n\r\ndef open_gpt():\r\n    os.system(\"start https://chatgpt.com/?model=auto\")\r\n\r\ndef open_notepad():\r\n    os.system(\"notepad\")\r\n\r\ndef open_calc():\r\n    os.system(\"calc\")\r\n\r\ndef open_unturned():\r\n    os.system(\"start steam://rungameid/304930\")\r\n\r\ndef open_stardew():\r\n    os.system(\"start steam://rungameid/413150\")\r\n\r\ndef open_discord():\r\n    os.system(\"explorer shell:appsFolder\\\\com.squirrel.Discord.Discord\")\r\n\r\ndef open_vscode():\r\n    os.system(\"start code\")\r\n\r\ndef open_whatsapp():\r\n    os.system(\"explorer shell:appsFolder\\\\5319275A.WhatsAppDesktop_cv1g1gvanyjgm!App\")\r\n\r\n\r\n# shutdown_one_hour()\r\n\r\n# shutdown_half_an_hour()\r\n\r\n#cancel_shutdown()\r\n\r\n#open_whatsapp()"
+        }
+    ]
+}

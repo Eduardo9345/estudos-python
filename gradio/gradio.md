@@ -1,0 +1,81 @@
+﻿# Gradio
+
+* Mais simples
+* Web
+* Construir aplicações machine learning
+* Front end
+*  Interface de usuário
+
+Exemplo:
+```python
+import gradio as gr
+
+def saudacao(name):
+    return "Hello " + name + "!"
+
+demo = gr.Interface(fn = saudacao, inputs = "text", outputs = "text")
+demo.launch()
+```
+Instalação:
+```
+pip install gradio
+```
+## Aplicações com gradio
+### Soma 
+
+```python
+import gradio as gr
+
+def somar(num1, num2):
+    return num1 + num2
+
+interface = gr.Interface(
+         fn = somar,
+         inputs = ["number", "number"],
+         outputs = "number",
+         title = "Calculadora",
+         description = "Insira dois numeros para serem somados: "
+         theme = "default"
+)
+interface.launch()
+```
+Roda no ``http://{ip}:7860``
+
+### Texto
+```python
+import gradio as gr
+
+def inverter_texto(texto):
+    return texto[::-1]
+
+iface = gr.Interface(
+		fn = inverter_texto,
+		inputs = "text",
+		outputs = "text",
+		title = "Reverter",
+		description = "insira um texto para reverter"
+)
+iface.launch()
+```
+
+### Fatorial
+
+```python
+import gradio as gr
+import math
+
+def fatorial(num):
+	if num < 0:
+		return "Fatorial não definido para números negativos!"
+	return math.factorial(num)
+
+iface = gr.Interface(
+	fn = fatorial,
+	inputs = "number",
+	outputs = "text",
+	title = "Calculadora fatorial"
+	description = "insira um númeropara obter o fatorial"
+)
+
+iface.launch()
+```
