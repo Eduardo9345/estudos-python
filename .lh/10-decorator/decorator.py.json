@@ -1,0 +1,18 @@
+{
+    "sourceFile": "10-decorator/decorator.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1756753866086,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1756753866086,
+            "name": "Commit-0",
+            "content": "def my_decorator(function):\r\n    def wrapper():\r\n        print(\"Antes de executar a funcao\")\r\n        function()\r\n        print(\"Depois de executar a funcao\")\r\n    \r\n    return wrapper"
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "sourceFile": "10-decorator/meu_decorator.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1756754747406,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1756754830775,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,6 +9,6 @@\n def split_string(function):\r\n     def wrapper():\r\n         string = function()\r\n         splited_string = string.split()\r\n-        return split_string\r\n+        return splited_string\r\n     return wrapper\r\n"
+                },
+                {
+                    "date": 1756754909662,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,5 +10,6 @@\n     def wrapper():\r\n         string = function()\r\n         splited_string = string.split()\r\n         return splited_string\r\n+    \r\n     return wrapper\r\n"
+                },
+                {
+                    "date": 1756754971036,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,6 +10,5 @@\n     def wrapper():\r\n         string = function()\r\n         splited_string = string.split()\r\n         return splited_string\r\n-    \r\n     return wrapper\r\n"
+                }
+            ],
+            "date": 1756754747406,
+            "name": "Commit-0",
+            "content": "def my_decorator(function):\r\n    def wrapper():\r\n        print(\"Antes de executar a funcao\")\r\n        function()\r\n        print(\"Depois de executar a funcao\")\r\n    \r\n    return wrapper\r\n\r\ndef split_string(function):\r\n    def wrapper():\r\n        string = function()\r\n        splited_string = string.split()\r\n        return split_string\r\n    return wrapper\r\n"
+        }
+    ]
+}
