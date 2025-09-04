@@ -1,0 +1,38 @@
+{
+    "sourceFile": "17-manipulacao_de_arquivos/arquivos_txt/projeto_agenda_contatos/main.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1757008062714,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1757008244690,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,20 @@\n-from agenda import add_contact, view_contacts, delete_contacts\n\\ No newline at end of file\n+from agenda import add_contact, view_contacts, delete_contacts\r\n+\r\n+def main():\r\n+    while True:\r\n+        print(\"\\nAgenda de Contatos\")\r\n+        print(\"1. Adicionar contatos\")\r\n+        print(\"2. Listar Contatos\")\r\n+        print(\"3. Remover contatos\")\r\n+        print(\"4. Sair\")\r\n+\r\n+        choice = input(\"Escolha a opção (1 - 4):\\n\")\r\n+\r\n+        if choice == \"1\":\r\n+            add_contact()\r\n+\r\n+        elif choice == \"2\":\r\n+            view_contacts()\r\n+\r\n+        elif choice == \"3\":\r\n+            delete_contacts()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757008251882,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,5 +16,8 @@\n         elif choice == \"2\":\r\n             view_contacts()\r\n \r\n         elif choice == \"3\":\r\n-            delete_contacts()\n\\ No newline at end of file\n+            delete_contacts()\r\n+\r\n+        else:\r\n+            break\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757008267734,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,6 +18,6 @@\n \r\n         elif choice == \"3\":\r\n             delete_contacts()\r\n \r\n-        else:\r\n+        elif choice == \"4\":\r\n             break\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757008291633,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,5 +19,8 @@\n         elif choice == \"3\":\r\n             delete_contacts()\r\n \r\n         elif choice == \"4\":\r\n-            break\n\\ No newline at end of file\n+            break\r\n+\r\n+        else:\r\n+            print(\"Informe uma opção válida!\")\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757008317038,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,5 +22,8 @@\n         elif choice == \"4\":\r\n             break\r\n \r\n         else:\r\n-            print(\"Informe uma opção válida!\")\n\\ No newline at end of file\n+            print(\"Informe uma opção válida!\")\r\n+\r\n+if __name__ == \"__main__\":\r\n+    main()\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1757008062714,
+            "name": "Commit-0",
+            "content": "from agenda import add_contact, view_contacts, delete_contacts"
+        }
+    ]
+}

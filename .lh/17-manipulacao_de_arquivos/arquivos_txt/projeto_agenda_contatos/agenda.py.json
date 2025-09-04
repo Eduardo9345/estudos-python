@@ -1,0 +1,126 @@
+{
+    "sourceFile": "17-manipulacao_de_arquivos/arquivos_txt/projeto_agenda_contatos/agenda.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 27,
+            "patches": [
+                {
+                    "date": 1757007552182,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1757007603862,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,6 @@\n import os\r\n+\r\n+\r\n+def add_contact():\r\n+    name = input(\"Informe o nome:\\n\")\r\n+    address = input(\"Informe o endereço:\\n\")\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757007692645,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,5 +2,8 @@\n \r\n \r\n def add_contact():\r\n     name = input(\"Informe o nome:\\n\")\r\n-    address = input(\"Informe o endereço:\\n\")\n\\ No newline at end of file\n+    address = input(\"Informe o endereço:\\n\")\r\n+    phone = input(\"Informe o telefone:\\n\")\r\n+\r\n+    contact = f\"Nome: {name} \\n Endereco: {address} \\n Telefone: {phone} \\n\\n\"\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757007711625,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,5 +5,5 @@\n     name = input(\"Informe o nome:\\n\")\r\n     address = input(\"Informe o endereço:\\n\")\r\n     phone = input(\"Informe o telefone:\\n\")\r\n \r\n-    contact = f\"Nome: {name} \\n Endereco: {address} \\n Telefone: {phone} \\n\\n\"\n\\ No newline at end of file\n+    contact = f\"Nome: {name} \\nEndereco: {address} \\nTelefone: {phone}\\n\"\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757007764592,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,5 +5,8 @@\n     name = input(\"Informe o nome:\\n\")\r\n     address = input(\"Informe o endereço:\\n\")\r\n     phone = input(\"Informe o telefone:\\n\")\r\n \r\n-    contact = f\"Nome: {name} \\nEndereco: {address} \\nTelefone: {phone}\\n\"\n\\ No newline at end of file\n+    contact = f\"Nome: {name} \\nEndereco: {address} \\nTelefone: {phone}\\n\"\r\n+\r\n+    with open(\"dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n+        file.write(contact)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757007922051,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,5 +8,16 @@\n \r\n     contact = f\"Nome: {name} \\nEndereco: {address} \\nTelefone: {phone}\\n\"\r\n \r\n     with open(\"dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n-        file.write(contact)\n\\ No newline at end of file\n+        file.write(contact)\r\n+\r\n+def view_contacts():\r\n+    if not os.path.exists(\"dados/contatos.txt\"):\r\n+        print(\"Lista de contatos está vazia!\")\r\n+        return\r\n+    \r\n+    with open(\"dados/contatos.txt\", \"r\", encoding=\"utf-8\") as file:\r\n+        contacts = file.read()\r\n+\r\n+    print(\"Lista de contatos:\\n\")\r\n+    print(contacts)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757007927401,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,6 +18,6 @@\n     \r\n     with open(\"dados/contatos.txt\", \"r\", encoding=\"utf-8\") as file:\r\n         contacts = file.read()\r\n \r\n-    print(\"Lista de contatos:\\n\")\r\n+    print(\"Lista de contatos:\")\r\n     print(contacts)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757007981722,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,5 +19,13 @@\n     with open(\"dados/contatos.txt\", \"r\", encoding=\"utf-8\") as file:\r\n         contacts = file.read()\r\n \r\n     print(\"Lista de contatos:\")\r\n-    print(contacts)\n\\ No newline at end of file\n+    print(contacts)\r\n+\r\n+def delete_contacts():\r\n+    if not os.path.exists(\"dados/contatos.txt\"):\r\n+        print(\"Lista de contatos está vazia!\")\r\n+        return\r\n+    \r\n+    with open(\"dados/contatos.txt\", \"w\", encoding=\"utf-8\") as file:\r\n+        file.write(\"\")\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757007998374,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,5 +27,7 @@\n         print(\"Lista de contatos está vazia!\")\r\n         return\r\n     \r\n     with open(\"dados/contatos.txt\", \"w\", encoding=\"utf-8\") as file:\r\n-        file.write(\"\")\n\\ No newline at end of file\n+        file.write(\"\")\r\n+    \r\n+    print(\"Contatos excluidos com sucesso!\")\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757008024632,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,27 +7,27 @@\n     phone = input(\"Informe o telefone:\\n\")\r\n \r\n     contact = f\"Nome: {name} \\nEndereco: {address} \\nTelefone: {phone}\\n\"\r\n \r\n-    with open(\"dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n+    with open(\"./dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n         file.write(contact)\r\n \r\n def view_contacts():\r\n-    if not os.path.exists(\"dados/contatos.txt\"):\r\n+    if not os.path.exists(\"./dados/contatos.txt\"):\r\n         print(\"Lista de contatos está vazia!\")\r\n         return\r\n     \r\n-    with open(\"dados/contatos.txt\", \"r\", encoding=\"utf-8\") as file:\r\n+    with open(\"./dados/contatos.txt\", \"r\", encoding=\"utf-8\") as file:\r\n         contacts = file.read()\r\n \r\n     print(\"Lista de contatos:\")\r\n     print(contacts)\r\n \r\n def delete_contacts():\r\n-    if not os.path.exists(\"dados/contatos.txt\"):\r\n+    if not os.path.exists(\"./dados/contatos.txt\"):\r\n         print(\"Lista de contatos está vazia!\")\r\n         return\r\n     \r\n-    with open(\"dados/contatos.txt\", \"w\", encoding=\"utf-8\") as file:\r\n+    with open(\"./dados/contatos.txt\", \"w\", encoding=\"utf-8\") as file:\r\n         file.write(\"\")\r\n     \r\n     print(\"Contatos excluidos com sucesso!\")\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757008354540,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,27 +7,27 @@\n     phone = input(\"Informe o telefone:\\n\")\r\n \r\n     contact = f\"Nome: {name} \\nEndereco: {address} \\nTelefone: {phone}\\n\"\r\n \r\n-    with open(\"./dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n+    with open(\"../dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n         file.write(contact)\r\n \r\n def view_contacts():\r\n-    if not os.path.exists(\"./dados/contatos.txt\"):\r\n+    if not os.path.exists(\"../dados/contatos.txt\"):\r\n         print(\"Lista de contatos está vazia!\")\r\n         return\r\n     \r\n-    with open(\"./dados/contatos.txt\", \"r\", encoding=\"utf-8\") as file:\r\n+    with open(\"../dados/contatos.txt\", \"r\", encoding=\"utf-8\") as file:\r\n         contacts = file.read()\r\n \r\n     print(\"Lista de contatos:\")\r\n     print(contacts)\r\n \r\n def delete_contacts():\r\n-    if not os.path.exists(\"./dados/contatos.txt\"):\r\n+    if not os.path.exists(\"../dados/contatos.txt\"):\r\n         print(\"Lista de contatos está vazia!\")\r\n         return\r\n     \r\n-    with open(\"./dados/contatos.txt\", \"w\", encoding=\"utf-8\") as file:\r\n+    with open(\"../dados/contatos.txt\", \"w\", encoding=\"utf-8\") as file:\r\n         file.write(\"\")\r\n     \r\n     print(\"Contatos excluidos com sucesso!\")\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757008373633,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     phone = input(\"Informe o telefone:\\n\")\r\n \r\n     contact = f\"Nome: {name} \\nEndereco: {address} \\nTelefone: {phone}\\n\"\r\n \r\n-    with open(\"../dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n+    with open(\"././dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n         file.write(contact)\r\n \r\n def view_contacts():\r\n     if not os.path.exists(\"../dados/contatos.txt\"):\r\n"
+                },
+                {
+                    "date": 1757008386272,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,23 +11,23 @@\n     with open(\"././dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n         file.write(contact)\r\n \r\n def view_contacts():\r\n-    if not os.path.exists(\"../dados/contatos.txt\"):\r\n+    if not os.path.exists(\"././dados/contatos.txt\"):\r\n         print(\"Lista de contatos está vazia!\")\r\n         return\r\n     \r\n-    with open(\"../dados/contatos.txt\", \"r\", encoding=\"utf-8\") as file:\r\n+    with open(\"././dados/contatos.txt\", \"r\", encoding=\"utf-8\") as file:\r\n         contacts = file.read()\r\n \r\n     print(\"Lista de contatos:\")\r\n     print(contacts)\r\n \r\n def delete_contacts():\r\n-    if not os.path.exists(\"../dados/contatos.txt\"):\r\n+    if not os.path.exists(\"././dados/contatos.txt\"):\r\n         print(\"Lista de contatos está vazia!\")\r\n         return\r\n     \r\n-    with open(\"../dados/contatos.txt\", \"w\", encoding=\"utf-8\") as file:\r\n+    with open(\"././dados/contatos.txt\", \"w\", encoding=\"utf-8\") as file:\r\n         file.write(\"\")\r\n     \r\n     print(\"Contatos excluidos com sucesso!\")\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757008407542,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,27 +7,27 @@\n     phone = input(\"Informe o telefone:\\n\")\r\n \r\n     contact = f\"Nome: {name} \\nEndereco: {address} \\nTelefone: {phone}\\n\"\r\n \r\n-    with open(\"././dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n+    with open(\"dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n         file.write(contact)\r\n \r\n def view_contacts():\r\n-    if not os.path.exists(\"././dados/contatos.txt\"):\r\n+    if not os.path.exists(\"dados/contatos.txt\"):\r\n         print(\"Lista de contatos está vazia!\")\r\n         return\r\n     \r\n-    with open(\"././dados/contatos.txt\", \"r\", encoding=\"utf-8\") as file:\r\n+    with open(\"dados/contatos.txt\", \"r\", encoding=\"utf-8\") as file:\r\n         contacts = file.read()\r\n \r\n     print(\"Lista de contatos:\")\r\n     print(contacts)\r\n \r\n def delete_contacts():\r\n-    if not os.path.exists(\"././dados/contatos.txt\"):\r\n+    if not os.path.exists(\"dados/contatos.txt\"):\r\n         print(\"Lista de contatos está vazia!\")\r\n         return\r\n     \r\n-    with open(\"././dados/contatos.txt\", \"w\", encoding=\"utf-8\") as file:\r\n+    with open(\"dados/contatos.txt\", \"w\", encoding=\"utf-8\") as file:\r\n         file.write(\"\")\r\n     \r\n     print(\"Contatos excluidos com sucesso!\")\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757008470899,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     phone = input(\"Informe o telefone:\\n\")\r\n \r\n     contact = f\"Nome: {name} \\nEndereco: {address} \\nTelefone: {phone}\\n\"\r\n \r\n-    with open(\"dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n+    with open(\"./dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n         file.write(contact)\r\n \r\n def view_contacts():\r\n     if not os.path.exists(\"dados/contatos.txt\"):\r\n"
+                },
+                {
+                    "date": 1757008554430,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     phone = input(\"Informe o telefone:\\n\")\r\n \r\n     contact = f\"Nome: {name} \\nEndereco: {address} \\nTelefone: {phone}\\n\"\r\n \r\n-    with open(\"./dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n+    with open(\"../dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n         file.write(contact)\r\n \r\n def view_contacts():\r\n     if not os.path.exists(\"dados/contatos.txt\"):\r\n"
+                },
+                {
+                    "date": 1757008563492,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,15 @@\n import os\r\n \r\n \r\n def add_contact():\r\n-    name = input(\"Informe o nome:\\n\")\r\n-    address = input(\"Informe o endereço:\\n\")\r\n-    phone = input(\"Informe o telefone:\\n\")\r\n+    with open(\"../dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n+        name = input(\"Informe o nome:\\n\")\r\n+        address = input(\"Informe o endereço:\\n\")\r\n+        phone = input(\"Informe o telefone:\\n\")\r\n \r\n-    contact = f\"Nome: {name} \\nEndereco: {address} \\nTelefone: {phone}\\n\"\r\n+        contact = f\"Nome: {name} \\nEndereco: {address} \\nTelefone: {phone}\\n\"\r\n \r\n-    with open(\"../dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n         file.write(contact)\r\n \r\n def view_contacts():\r\n     if not os.path.exists(\"dados/contatos.txt\"):\r\n"
+                },
+                {
+                    "date": 1757008581189,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import os\r\n \r\n \r\n def add_contact():\r\n-    with open(\"../dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n+    with open(\"./dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n         name = input(\"Informe o nome:\\n\")\r\n         address = input(\"Informe o endereço:\\n\")\r\n         phone = input(\"Informe o telefone:\\n\")\r\n \r\n"
+                },
+                {
+                    "date": 1757008621886,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import os\r\n \r\n \r\n def add_contact():\r\n-    with open(\"./dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n+    with open(\"dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n         name = input(\"Informe o nome:\\n\")\r\n         address = input(\"Informe o endereço:\\n\")\r\n         phone = input(\"Informe o telefone:\\n\")\r\n \r\n"
+                },
+                {
+                    "date": 1757008652978,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import os\r\n \r\n \r\n def add_contact():\r\n-    with open(\"dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n+    with open(\"./dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n         name = input(\"Informe o nome:\\n\")\r\n         address = input(\"Informe o endereço:\\n\")\r\n         phone = input(\"Informe o telefone:\\n\")\r\n \r\n"
+                },
+                {
+                    "date": 1757008670703,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import os\r\n \r\n \r\n def add_contact():\r\n-    with open(\"./dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n+    with open(\"../dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n         name = input(\"Informe o nome:\\n\")\r\n         address = input(\"Informe o endereço:\\n\")\r\n         phone = input(\"Informe o telefone:\\n\")\r\n \r\n"
+                },
+                {
+                    "date": 1757008708670,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import os\r\n \r\n \r\n def add_contact():\r\n-    with open(\"../dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n+    with open(\"././dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n         name = input(\"Informe o nome:\\n\")\r\n         address = input(\"Informe o endereço:\\n\")\r\n         phone = input(\"Informe o telefone:\\n\")\r\n \r\n"
+                },
+                {
+                    "date": 1757008735157,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import os\r\n \r\n \r\n def add_contact():\r\n-    with open(\"././dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n+    with open(\"\", \"a\", encoding=\"utf-8\") as file:\r\n         name = input(\"Informe o nome:\\n\")\r\n         address = input(\"Informe o endereço:\\n\")\r\n         phone = input(\"Informe o telefone:\\n\")\r\n \r\n"
+                },
+                {
+                    "date": 1757008745484,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import os\r\n \r\n \r\n def add_contact():\r\n-    with open(\"\", \"a\", encoding=\"utf-8\") as file:\r\n+    with open(\"17-manipulacao_de_arquivos\\arquivos_txt\\projeto_agenda_contatos\\dados\\contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n         name = input(\"Informe o nome:\\n\")\r\n         address = input(\"Informe o endereço:\\n\")\r\n         phone = input(\"Informe o telefone:\\n\")\r\n \r\n"
+                },
+                {
+                    "date": 1757008771690,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import os\r\n \r\n \r\n def add_contact():\r\n-    with open(\"17-manipulacao_de_arquivos\\arquivos_txt\\projeto_agenda_contatos\\dados\\contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n+    with open(\"17-manipulacao_de_arquivos/arquivos_txt/projeto_agenda_contatos/dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n         name = input(\"Informe o nome:\\n\")\r\n         address = input(\"Informe o endereço:\\n\")\r\n         phone = input(\"Informe o telefone:\\n\")\r\n \r\n"
+                },
+                {
+                    "date": 1757008791135,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import os\r\n \r\n \r\n def add_contact():\r\n-    with open(\"17-manipulacao_de_arquivos/arquivos_txt/projeto_agenda_contatos/dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n+    with open(\"./././dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n         name = input(\"Informe o nome:\\n\")\r\n         address = input(\"Informe o endereço:\\n\")\r\n         phone = input(\"Informe o telefone:\\n\")\r\n \r\n"
+                },
+                {
+                    "date": 1757008812739,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import os\r\n \r\n \r\n def add_contact():\r\n-    with open(\"./././dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n+    with open(\".../dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n         name = input(\"Informe o nome:\\n\")\r\n         address = input(\"Informe o endereço:\\n\")\r\n         phone = input(\"Informe o telefone:\\n\")\r\n \r\n"
+                },
+                {
+                    "date": 1757008859700,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import os\r\n \r\n \r\n def add_contact():\r\n-    with open(\".../dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n+    with open(\"17-manipulacao_de_arquivos/arquivos_txt/projeto_agenda_contatos/dados/contatos.txt\", \"a\", encoding=\"utf-8\") as file:\r\n         name = input(\"Informe o nome:\\n\")\r\n         address = input(\"Informe o endereço:\\n\")\r\n         phone = input(\"Informe o telefone:\\n\")\r\n \r\n@@ -11,23 +11,23 @@\n \r\n         file.write(contact)\r\n \r\n def view_contacts():\r\n-    if not os.path.exists(\"dados/contatos.txt\"):\r\n+    if not os.path.exists(\"17-manipulacao_de_arquivos/arquivos_txt/projeto_agenda_contatos/dados/contatos.txt\"):\r\n         print(\"Lista de contatos está vazia!\")\r\n         return\r\n     \r\n-    with open(\"dados/contatos.txt\", \"r\", encoding=\"utf-8\") as file:\r\n+    with open(\"17-manipulacao_de_arquivos/arquivos_txt/projeto_agenda_contatos/dados/contatos.txt\", \"r\", encoding=\"utf-8\") as file:\r\n         contacts = file.read()\r\n \r\n     print(\"Lista de contatos:\")\r\n     print(contacts)\r\n \r\n def delete_contacts():\r\n-    if not os.path.exists(\"dados/contatos.txt\"):\r\n+    if not os.path.exists(\"17-manipulacao_de_arquivos/arquivos_txt/projeto_agenda_contatos/dados/contatos.txt\"):\r\n         print(\"Lista de contatos está vazia!\")\r\n         return\r\n     \r\n-    with open(\"dados/contatos.txt\", \"w\", encoding=\"utf-8\") as file:\r\n+    with open(\"17-manipulacao_de_arquivos/arquivos_txt/projeto_agenda_contatos/dados/contatos.txt\", \"w\", encoding=\"utf-8\") as file:\r\n         file.write(\"\")\r\n     \r\n     print(\"Contatos excluidos com sucesso!\")\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1757007552182,
+            "name": "Commit-0",
+            "content": "import os\r\n"
+        }
+    ]
+}
