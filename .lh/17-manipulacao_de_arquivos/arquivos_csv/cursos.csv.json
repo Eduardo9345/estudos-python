@@ -1,0 +1,34 @@
+{
+    "sourceFile": "17-manipulacao_de_arquivos/arquivos_csv/cursos.csv",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1757094713646,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1757094787735,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,7 @@\n-language,category\n\\ No newline at end of file\n+language,category\r\n+Python,Automacao\r\n+Python,Análise de Dados\r\n+Python, IA\r\n+Javascript,Backend\r\n+Javascript,Frontend\r\n+Javascript,Mobile\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757094869771,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,5 +3,11 @@\n Python,Análise de Dados\r\n Python, IA\r\n Javascript,Backend\r\n Javascript,Frontend\r\n-Javascript,Mobile\n\\ No newline at end of file\n+Javascript,Mobile\r\n+Ruby,Backend\r\n+Java,Sistemas Comerciais\r\n+Lua,Desenvolvimento de jogos\r\n+Solidity,Smart Contracts\r\n+Go,Concorrencia\r\n+C#,Jogos\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757095486485,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n language,category\r\n Python,Automacao\r\n Python,Análise de Dados\r\n-Python, IA\r\n+Python,IA\r\n Javascript,Backend\r\n Javascript,Frontend\r\n Javascript,Mobile\r\n Ruby,Backend\r\n"
+                },
+                {
+                    "date": 1757096066052,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,5 +9,6 @@\n Java,Sistemas Comerciais\r\n Lua,Desenvolvimento de jogos\r\n Solidity,Smart Contracts\r\n Go,Concorrencia\r\n-C#,Jogos\n\\ No newline at end of file\n+C#,Jogos\r\n+HTML,Frontend\r\n"
+                }
+            ],
+            "date": 1757094713646,
+            "name": "Commit-0",
+            "content": "language,category"
+        }
+    ]
+}
