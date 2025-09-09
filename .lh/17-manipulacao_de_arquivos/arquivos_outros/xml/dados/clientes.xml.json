@@ -1,0 +1,26 @@
+{
+    "sourceFile": "17-manipulacao_de_arquivos/arquivos_outros/xml/dados/clientes.xml",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1757440487623,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1757440499302,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-<?xml version='1.0' encoding='utf-8'>\r\n+<?xml version='1.0' encoding='utf-8'?>\r\n <clientes>\r\n     <cliente>\r\n         <id>1</id>\r\n         <nome>Rodrigo</nome>\r\n"
+                },
+                {
+                    "date": 1757441080734,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,5 +11,11 @@\n         <nome>Fulano</nome>\r\n         <idade>22</idade>\r\n         <cidade>SP</cidade>\r\n     </cliente>\r\n-</clientes>\r\n+    <cliente>\r\n+        <id>5</id>\r\n+        <nome>Marcos</nome>\r\n+        <idade>28</idade>\r\n+        <cidade>Porto Alegre</cidade>\r\n+    </cliente>\r\n+</clientes>\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1757440487623,
+            "name": "Commit-0",
+            "content": "<?xml version='1.0' encoding='utf-8'>\r\n<clientes>\r\n    <cliente>\r\n        <id>1</id>\r\n        <nome>Rodrigo</nome>\r\n        <idade>30</idade>\r\n        <cidade>BH</cidade>\r\n    </cliente>\r\n    <cliente>\r\n        <id>2</id>\r\n        <nome>Fulano</nome>\r\n        <idade>22</idade>\r\n        <cidade>SP</cidade>\r\n    </cliente>\r\n</clientes>\r\n"
+        }
+    ]
+}

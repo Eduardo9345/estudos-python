@@ -1,0 +1,18 @@
+{
+    "sourceFile": "17-manipulacao_de_arquivos/arquivos_outros/json/dados/clientes",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1757438321929,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1757438321929,
+            "name": "Commit-0",
+            "content": "{\r\n    \"clientes\": [\r\n        {\r\n            \"id\": 1,\r\n            \"nome\": \"Ana\",\r\n            \"idade\": 25,\r\n            \"cidade\": \"S\\u00e3o Paulo\"\r\n        },\r\n        {\r\n            \"id\": 2,\r\n            \"nome\": \"Carlos\",\r\n            \"idade\": 20,\r\n            \"cidade\": \"Rio de Janeiro\"\r\n        },\r\n        {\r\n            \"id\": 3,\r\n            \"nome\": \"Fernanda\",\r\n            \"idade\": 22,\r\n            \"cidade\": \"Curitiba\"\r\n        },\r\n        {\r\n            \"id\": 4,\r\n            \"nome\": \"Jo\\u00e3o\",\r\n            \"idade\": 25,\r\n            \"cidade\": \"Belo Horizonte\"\r\n        },\r\n        {\r\n            \"id\": 5,\r\n            \"nome\": \"Samylli\",\r\n            \"idade\": 28,\r\n            \"cidade\": \"Florian\\u00f3polis\"\r\n        }\r\n    ]\r\n}"
+        }
+    ]
+}
