@@ -1,0 +1,38 @@
+{
+    "sourceFile": "18-banco_de_dados/4-leitura.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1757530252189,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1757530305602,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,3 @@\n import sqlite3\r\n \r\n+conexao = sqlite3.connect(\"19-banco_de_dados/titulo.db\")\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757530367445,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,13 @@\n import sqlite3\r\n \r\n-conexao = sqlite3.connect(\"19-banco_de_dados/titulo.db\")\n\\ No newline at end of file\n+conexao = sqlite3.connect(\"18-banco_de_dados/titulo.db\")\r\n+\r\n+cursor = conexao.cursor()\r\n+\r\n+dados = cursor.execute(\r\n+    \"\"\"\r\n+    \r\n+    \"\"\"\r\n+)\r\n+\r\n+conexao.close()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757530404569,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,11 +3,14 @@\n conexao = sqlite3.connect(\"18-banco_de_dados/titulo.db\")\r\n \r\n cursor = conexao.cursor()\r\n \r\n+# Lendo os dados\r\n dados = cursor.execute(\r\n     \"\"\"\r\n-    \r\n+    SELECT * FROM filmes\r\n     \"\"\"\r\n )\r\n \r\n+print(dados)\r\n+\r\n conexao.close()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757530425322,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,7 +10,7 @@\n     SELECT * FROM filmes\r\n     \"\"\"\r\n )\r\n \r\n-print(dados)\r\n+print(dados.fetchall())\r\n \r\n conexao.close()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757530475029,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,7 +10,7 @@\n     SELECT * FROM filmes\r\n     \"\"\"\r\n )\r\n \r\n-print(dados.fetchall())\r\n+print(dados.fetchall()) # Fetchall transforma em uma lista iterável\r\n \r\n conexao.close()\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1757530252189,
+            "name": "Commit-0",
+            "content": "import sqlite3\r\n\r\n"
+        }
+    ]
+}

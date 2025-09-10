@@ -1,0 +1,38 @@
+{
+    "sourceFile": "18-banco_de_dados/3-dados.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1757529944148,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1757530047506,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,15 @@\n import sqlite3\r\n \r\n conexao = sqlite3.connect(\"18-banco_de_dados/titulo.db\")\r\n \r\n+cursor = conexao.cursor()\r\n+\r\n+# Inserindo dados\r\n+cursor.execute(\r\n+    \"\"\"\r\n+        INSERT INTO filmes(nome, ano, nota)\r\n+        VALUES ('Super Mario Bros', 2022, 9.5);\r\n+    \"\"\"\r\n+)\r\n+\r\n conexao.close()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757530138079,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,5 +11,7 @@\n         VALUES ('Super Mario Bros', 2022, 9.5);\r\n     \"\"\"\r\n )\r\n \r\n+conexao.commit() # Só salva a alteração no banco quando tudo estiver pronto\r\n+\r\n conexao.close()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757530178029,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,7 +11,9 @@\n         VALUES ('Super Mario Bros', 2022, 9.5);\r\n     \"\"\"\r\n )\r\n \r\n-conexao.commit() # Só salva a alteração no banco quando tudo estiver pronto\r\n+conexao.commit() # Só salva a alteração no banco quando tudo estiver pronto (ou tudo ou nada)\r\n \r\n\\ No newline at end of file\n-conexao.close()\n+conexao.close()\r\n+\r\n+print(\"Dados inseridos na tabela\")\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757530204315,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n # Inserindo dados\r\n cursor.execute(\r\n     \"\"\"\r\n         INSERT INTO filmes(nome, ano, nota)\r\n-        VALUES ('Super Mario Bros', 2022, 9.5);\r\n+        VALUES ('Top Gun Maverick', 2022, 9.0);\r\n     \"\"\"\r\n )\r\n \r\n conexao.commit() # Só salva a alteração no banco quando tudo estiver pronto (ou tudo ou nada)\r\n"
+                },
+                {
+                    "date": 1757530224397,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n # Inserindo dados\r\n cursor.execute(\r\n     \"\"\"\r\n         INSERT INTO filmes(nome, ano, nota)\r\n-        VALUES ('Top Gun Maverick', 2022, 9.0);\r\n+        VALUES ('Sonic', 2020, 8.0);\r\n     \"\"\"\r\n )\r\n \r\n conexao.commit() # Só salva a alteração no banco quando tudo estiver pronto (ou tudo ou nada)\r\n"
+                }
+            ],
+            "date": 1757529944148,
+            "name": "Commit-0",
+            "content": "import sqlite3\r\n\r\nconexao = sqlite3.connect(\"18-banco_de_dados/titulo.db\")\r\n\r\nconexao.close()"
+        }
+    ]
+}
