@@ -1,0 +1,30 @@
+{
+    "sourceFile": "18-banco_de_dados/5-atualiza_dados.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1757530577962,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1757530611903,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,8 @@\n import sqlite3\r\n \r\n conexao = sqlite3.connect(\"18-banco_de_dados/titulo.db\")\r\n \r\n+cursor = conexao.cursor()\r\n+\r\n+# Atualizando dados\r\n conexao.close()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757530713840,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,5 +4,14 @@\n \r\n cursor = conexao.cursor()\r\n \r\n # Atualizando dados\r\n+id = 1\r\n+cursor.execute(\r\n+    \"\"\"\r\n+        UPDATE filmes SET nome = ?\r\n+        WHERE id = ?\r\n+    \"\"\",\r\n+    (\"Homem Aranha\", id) # Parâmetros da query aonde serão adicionados onde tem ?\r\n+)\r\n+\r\n conexao.close()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757530737273,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,5 +13,7 @@\n     \"\"\",\r\n     (\"Homem Aranha\", id) # Parâmetros da query aonde serão adicionados onde tem ?\r\n )\r\n \r\n+conexao.commit() # Salvar as alterações no banco\r\n+\r\n conexao.close()\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1757530577962,
+            "name": "Commit-0",
+            "content": "import sqlite3\r\n\r\nconexao = sqlite3.connect(\"18-banco_de_dados/titulo.db\")\r\n\r\nconexao.close()"
+        }
+    ]
+}

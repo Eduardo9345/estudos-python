@@ -1,0 +1,26 @@
+{
+    "sourceFile": "18-banco_de_dados/6-excluir.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1757530789065,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1757530835350,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,15 +4,16 @@\n \r\n cursor = conexao.cursor()\r\n \r\n # Atualizando dados\r\n-id = 1\r\n+id = (1, 2)\r\n+\r\n cursor.execute(\r\n     \"\"\"\r\n-        UPDATE filmes SET nome = ?\r\n-        WHERE id = ?\r\n+        DELETE from filmes\r\n+        WHERE id in (?, ?)\r\n     \"\"\",\r\n-    (\"Homem Aranha\", id) # Parâmetros da query aonde serão adicionados onde tem ?\r\n+    id # Parâmetros da query aonde serão adicionados onde tem ?\r\n )\r\n \r\n conexao.commit() # Salvar as alterações no banco\r\n \r\n"
+                },
+                {
+                    "date": 1757530846573,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n conexao = sqlite3.connect(\"18-banco_de_dados/titulo.db\")\r\n \r\n cursor = conexao.cursor()\r\n \r\n-# Atualizando dados\r\n+# Excluindo dados\r\n id = (1, 2)\r\n \r\n cursor.execute(\r\n     \"\"\"\r\n"
+                }
+            ],
+            "date": 1757530789065,
+            "name": "Commit-0",
+            "content": "import sqlite3\r\n\r\nconexao = sqlite3.connect(\"18-banco_de_dados/titulo.db\")\r\n\r\ncursor = conexao.cursor()\r\n\r\n# Atualizando dados\r\nid = 1\r\ncursor.execute(\r\n    \"\"\"\r\n        UPDATE filmes SET nome = ?\r\n        WHERE id = ?\r\n    \"\"\",\r\n    (\"Homem Aranha\", id) # Parâmetros da query aonde serão adicionados onde tem ?\r\n)\r\n\r\nconexao.commit() # Salvar as alterações no banco\r\n\r\nconexao.close()"
+        }
+    ]
+}
