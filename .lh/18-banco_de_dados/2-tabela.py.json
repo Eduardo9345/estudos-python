@@ -1,0 +1,26 @@
+{
+    "sourceFile": "18-banco_de_dados/2-tabela.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1757529468050,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1757529530586,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,7 @@\n import sqlite3\r\n \r\n # 2 - Conectando no BD\r\n+conexao = sqlite3.connect('18-banco_de_dados/titulo.db')\r\n \r\n+# 3 - Criando o cursor (serve para realizar operações no banco)\r\n+cursor = conexao.cursor()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757529736675,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,5 +3,21 @@\n # 2 - Conectando no BD\r\n conexao = sqlite3.connect('18-banco_de_dados/titulo.db')\r\n \r\n # 3 - Criando o cursor (serve para realizar operações no banco)\r\n-cursor = conexao.cursor()\n\\ No newline at end of file\n+cursor = conexao.cursor()\r\n+\r\n+# 4 - Criando a tabela\r\n+cursor.execute(\r\n+    \"\"\"\r\n+        CREATE TABLE filmes(\r\n+            id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,\r\n+            nome TEXT NOT NULL,\r\n+            ano INTEGER NOT NULL,\r\n+            nota REAL NOT NULL\r\n+        );\r\n+    \"\"\"\r\n+)\r\n+\r\n+# 5 - Fecha conexão\r\n+conexao.close()\r\n+print(\"Tabela foi criada!\")\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1757529468050,
+            "name": "Commit-0",
+            "content": "import sqlite3\r\n\r\n# 2 - Conectando no BD\r\n\r\n"
+        }
+    ]
+}
