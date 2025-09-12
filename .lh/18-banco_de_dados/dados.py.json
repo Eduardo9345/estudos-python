@@ -1,0 +1,86 @@
+{
+    "sourceFile": "18-banco_de_dados/dados.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 17,
+            "patches": [
+                {
+                    "date": 1757695661309,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1757695749780,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,5 +22,9 @@\n     conexao.commit()\r\n     \r\n     conexao.close()\r\n \r\n-\r\n+def obter_dados():\r\n+    conexao = conecta_db()\r\n+    \r\n+    cursor = conexao.cursor()\r\n+    dados = cursor.execute(\"SELECT * FROM filmes\")\r\n"
+                },
+                {
+                    "date": 1757695765862,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,4 +27,6 @@\n     conexao = conecta_db()\r\n     \r\n     cursor = conexao.cursor()\r\n     dados = cursor.execute(\"SELECT * FROM filmes\")\r\n+    \r\n+    return dados.fetchall()\r\n"
+                },
+                {
+                    "date": 1757695799673,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,5 +28,7 @@\n     \r\n     cursor = conexao.cursor()\r\n     dados = cursor.execute(\"SELECT * FROM filmes\")\r\n     \r\n+    conexao.close()\r\n+    \r\n     return dados.fetchall()\r\n"
+                },
+                {
+                    "date": 1757695811711,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,8 +22,9 @@\n     conexao.commit()\r\n     \r\n     conexao.close()\r\n \r\n+# 3 - Obter os dados\r\n def obter_dados():\r\n     conexao = conecta_db()\r\n     \r\n     cursor = conexao.cursor()\r\n"
+                },
+                {
+                    "date": 1757695820619,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,4 +32,5 @@\n     \r\n     conexao.close()\r\n     \r\n     return dados.fetchall()\r\n+\r\n"
+                },
+                {
+                    "date": 1757696037470,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n \r\n     cursor.execute(\r\n         \"\"\"\r\n             INSERT INTO filmes(nome, ano, nota)\r\n-            VALUES (?, ?, ?);\r\n+            VALUES (?, ?, ?)\r\n         \"\"\", \r\n         (nome, ano, nota)\r\n     )\r\n     \r\n"
+                },
+                {
+                    "date": 1757696080329,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import sqlite3\r\n \r\n # 1 - Conectar no BD\r\n def conecta_db():\r\n-    conexao = sqlite3.connect(\"titulo.db\")\r\n+    conexao = sqlite3.connect(\"18-banco_de_dados/titulo.db\")\r\n     return conexao\r\n \r\n # 2 - Inserir dados\r\n def insere_dados(nome, ano, nota):\r\n"
+                },
+                {
+                    "date": 1757696114135,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import sqlite3\r\n \r\n # 1 - Conectar no BD\r\n def conecta_db():\r\n-    conexao = sqlite3.connect(\"18-banco_de_dados/titulo.db\")\r\n+    conexao = sqlite3.connect(\"titulo.db\")\r\n     return conexao\r\n \r\n # 2 - Inserir dados\r\n def insere_dados(nome, ano, nota):\r\n"
+                },
+                {
+                    "date": 1757696208464,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import sqlite3\r\n \r\n # 1 - Conectar no BD\r\n def conecta_db():\r\n-    conexao = sqlite3.connect(\"titulo.db\")\r\n+    conexao = sqlite3.connect(\"./titulo.db\")\r\n     return conexao\r\n \r\n # 2 - Inserir dados\r\n def insere_dados(nome, ano, nota):\r\n"
+                },
+                {
+                    "date": 1757696283994,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import sqlite3\r\n \r\n # 1 - Conectar no BD\r\n def conecta_db():\r\n-    conexao = sqlite3.connect(\"./titulo.db\")\r\n+    conexao = sqlite3.connect(\"18-banco_de_dados/titulo.db\")\r\n     return conexao\r\n \r\n # 2 - Inserir dados\r\n def insere_dados(nome, ano, nota):\r\n"
+                },
+                {
+                    "date": 1757696313999,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import sqlite3\r\n \r\n # 1 - Conectar no BD\r\n def conecta_db():\r\n-    conexao = sqlite3.connect(\"18-banco_de_dados/titulo.db\")\r\n+    conexao = sqlite3.connect(\"../titulo.db\")\r\n     return conexao\r\n \r\n # 2 - Inserir dados\r\n def insere_dados(nome, ano, nota):\r\n"
+                },
+                {
+                    "date": 1757696332116,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import sqlite3\r\n \r\n # 1 - Conectar no BD\r\n def conecta_db():\r\n-    conexao = sqlite3.connect(\"../titulo.db\")\r\n+    conexao = sqlite3.connect(\"./titulo.db\")\r\n     return conexao\r\n \r\n # 2 - Inserir dados\r\n def insere_dados(nome, ano, nota):\r\n"
+                },
+                {
+                    "date": 1757696380145,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n \r\n     cursor.execute(\r\n         \"\"\"\r\n             INSERT INTO filmes(nome, ano, nota)\r\n-            VALUES (?, ?, ?)\r\n+            VALUES ('Sonic', 2020, 8.0);\r\n         \"\"\", \r\n         (nome, ano, nota)\r\n     )\r\n     \r\n"
+                },
+                {
+                    "date": 1757696391256,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n \r\n     cursor.execute(\r\n         \"\"\"\r\n             INSERT INTO filmes(nome, ano, nota)\r\n-            VALUES ('Sonic', 2020, 8.0);\r\n+            VALUES (?, ?, ?)\r\n         \"\"\", \r\n         (nome, ano, nota)\r\n     )\r\n     \r\n"
+                },
+                {
+                    "date": 1757696490827,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,12 +11,12 @@\n \r\n     cursor = conexao.cursor()\r\n \r\n     cursor.execute(\r\n-        \"\"\"\r\n-            INSERT INTO filmes(nome, ano, nota)\r\n-            VALUES (?, ?, ?)\r\n-        \"\"\", \r\n+\"\"\"\r\n+    INSERT INTO filmes(nome, ano, nota)\r\n+    VALUES (?, ?, ?)\r\n+\"\"\", \r\n         (nome, ano, nota)\r\n     )\r\n     \r\n     conexao.commit()\r\n"
+                },
+                {
+                    "date": 1757696759911,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,8 +29,8 @@\n     \r\n     cursor = conexao.cursor()\r\n     dados = cursor.execute(\"SELECT * FROM filmes\")\r\n     \r\n-    conexao.close()\r\n+    cursor.close()\r\n     \r\n     return dados.fetchall()\r\n \r\n"
+                },
+                {
+                    "date": 1757696770972,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,8 +29,6 @@\n     \r\n     cursor = conexao.cursor()\r\n     dados = cursor.execute(\"SELECT * FROM filmes\")\r\n     \r\n-    cursor.close()\r\n-    \r\n     return dados.fetchall()\r\n \r\n"
+                }
+            ],
+            "date": 1757695661309,
+            "name": "Commit-0",
+            "content": "import sqlite3\r\n\r\n# 1 - Conectar no BD\r\ndef conecta_db():\r\n    conexao = sqlite3.connect(\"titulo.db\")\r\n    return conexao\r\n\r\n# 2 - Inserir dados\r\ndef insere_dados(nome, ano, nota):\r\n    conexao = conecta_db()\r\n\r\n    cursor = conexao.cursor()\r\n\r\n    cursor.execute(\r\n        \"\"\"\r\n            INSERT INTO filmes(nome, ano, nota)\r\n            VALUES (?, ?, ?);\r\n        \"\"\", \r\n        (nome, ano, nota)\r\n    )\r\n    \r\n    conexao.commit()\r\n    \r\n    conexao.close()\r\n\r\n\r\n"
+        }
+    ]
+}

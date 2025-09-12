@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 6,
+            "activePatchIndex": 10,
             "patches": [
                 {
                     "date": 1757610547754,
@@ -32,6 +32,22 @@
                 {
                     "date": 1757612104212,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,5 +7,7 @@\n st.title(\"Filmes\")\r\n \r\n nome = st.text_input(\"Nome do filme:\")\r\n \r\n-ano = st.number_input(\"Insira o ano do filme:\")\n\\ No newline at end of file\n+ano = st.number_input(\"Insira o ano do filme:\", min_value=2010, max_value=2024)\r\n+\r\n+nota_filme = st.slider(\"Nota do filme:\", min_value=0.0, max_value=10.0)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757695842182,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import streamlit as st\r\n+import dados\r\n \r\n # streamlit biblioteca para criar apps com poucas linhas de código\r\n \r\n # streamlit run .\\form.py roda a aplicação\r\n"
+                },
+                {
+                    "date": 1757695882665,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,5 +10,8 @@\n nome = st.text_input(\"Nome do filme:\")\r\n \r\n ano = st.number_input(\"Insira o ano do filme:\", min_value=2010, max_value=2024)\r\n \r\n-nota_filme = st.slider(\"Nota do filme:\", min_value=0.0, max_value=10.0)\n\\ No newline at end of file\n+nota_filme = st.slider(\"Nota do filme:\", min_value=0.0, max_value=10.0)\r\n+\r\n+if st.button(\"Adicionar\"):\r\n+    dados.insere_dados(nome, ano, nota_filme)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757695910587,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,5 +13,6 @@\n \r\n nota_filme = st.slider(\"Nota do filme:\", min_value=0.0, max_value=10.0)\r\n \r\n if st.button(\"Adicionar\"):\r\n-    dados.insere_dados(nome, ano, nota_filme)\n\\ No newline at end of file\n+    dados.insere_dados(nome, ano, nota_filme)\r\n+    st.success(\"Filme cadastrado!\")\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757696729390,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,5 +14,10 @@\n nota_filme = st.slider(\"Nota do filme:\", min_value=0.0, max_value=10.0)\r\n \r\n if st.button(\"Adicionar\"):\r\n     dados.insere_dados(nome, ano, nota_filme)\r\n-    st.success(\"Filme cadastrado!\")\n\\ No newline at end of file\n+    st.success(\"Filme cadastrado!\")\r\n+    \r\n+filmes = dados.obter_dados()\r\n+\r\n+st.header(\"Lista de filmes cadastrados:\")\r\n+st.table(filmes)\n\\ No newline at end of file\n"
                 }
             ],
             "date": 1757610547754,
