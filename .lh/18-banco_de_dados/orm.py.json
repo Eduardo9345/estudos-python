@@ -1,0 +1,86 @@
+{
+    "sourceFile": "18-banco_de_dados/orm.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 17,
+            "patches": [
+                {
+                    "date": 1757697571743,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1757697577963,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,3 @@\n # Mapeamento Objeto-Relacional - Usado para usar o banco de dados junto com o paradigma orientado a objetos de forma a não usar SQL no código\r\n-# pip install SQLAlchemy\n\\ No newline at end of file\n+# pip install SQLAlchemy\r\n+\r\n"
+                },
+                {
+                    "date": 1757697903519,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,11 @@\n # Mapeamento Objeto-Relacional - Usado para usar o banco de dados junto com o paradigma orientado a objetos de forma a não usar SQL no código\r\n # pip install SQLAlchemy\r\n \r\n+# Configuração inicial\r\n+\r\n+from sqlalchemy import create_engine, Column, Integer, String, Float\r\n+from sqlalchemy.ext.declarative import declarative_base\r\n+from sqlalchemy.orm import sessionmaker\r\n+\r\n+engine = create_engine(\"sqlite:///banco.db\", echo=True)\r\n+\r\n"
+                },
+                {
+                    "date": 1757697918277,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,4 +8,5 @@\n from sqlalchemy.orm import sessionmaker\r\n \r\n engine = create_engine(\"sqlite:///banco.db\", echo=True)\r\n \r\n+Base = declarative_base()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757698191686,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,22 @@\n # Mapeamento Objeto-Relacional - Usado para usar o banco de dados junto com o paradigma orientado a objetos de forma a não usar SQL no código\r\n # pip install SQLAlchemy\r\n \r\n-# Configuração inicial\r\n+# Configuração inicial (default)\r\n \r\n from sqlalchemy import create_engine, Column, Integer, String, Float\r\n from sqlalchemy.ext.declarative import declarative_base\r\n from sqlalchemy.orm import sessionmaker\r\n \r\n engine = create_engine(\"sqlite:///banco.db\", echo=True)\r\n \r\n\\ No newline at end of file\n-Base = declarative_base()\n+Base = declarative_base()\r\n+\r\n+# Herdar de Base faz com que a Classe possa ser convertida em tabela\r\n+class Filme(Base):\r\n+    __tablename__ = \"filmes\"\r\n+    \r\n+    id = Column(Integer, primary_key=True) # Column(tipo de sqlalchemy)\r\n+    nome = Column(String, nullable=False)\r\n+    ano = Column(Integer, nullable=False)\r\n+    nota = Column(Float, nullable=False)\r\n+\r\n"
+                },
+                {
+                    "date": 1757698249196,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,4 +18,7 @@\n     id = Column(Integer, primary_key=True) # Column(tipo de sqlalchemy)\r\n     nome = Column(String, nullable=False)\r\n     ano = Column(Integer, nullable=False)\r\n     nota = Column(Float, nullable=False)\r\n+    \r\n+# Cria a tabela\r\n+Base.metadata.create_all(engine)\r\n"
+                },
+                {
+                    "date": 1757698303004,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n from sqlalchemy import create_engine, Column, Integer, String, Float\r\n from sqlalchemy.ext.declarative import declarative_base\r\n from sqlalchemy.orm import sessionmaker\r\n \r\n-engine = create_engine(\"sqlite:///banco.db\", echo=True)\r\n+engine = create_engine(\"sqlite:///18-banco_de_dados/banco.db\", echo=True)\r\n \r\n Base = declarative_base()\r\n \r\n # Herdar de Base faz com que a Classe possa ser convertida em tabela\r\n"
+                },
+                {
+                    "date": 1757698327834,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,6 +19,6 @@\n     nome = Column(String, nullable=False)\r\n     ano = Column(Integer, nullable=False)\r\n     nota = Column(Float, nullable=False)\r\n     \r\n-# Cria a tabela\r\n+# Cria a tabela sem SQL\r\n Base.metadata.create_all(engine)\r\n"
+                },
+                {
+                    "date": 1757698415974,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,4 +21,10 @@\n     nota = Column(Float, nullable=False)\r\n     \r\n # Cria a tabela sem SQL\r\n Base.metadata.create_all(engine)\r\n+\r\n+# Inserir dados\r\n+def adiciona_filme(nome, ano, nota):\r\n+    Session = sessionmaker(bind=engine)\r\n+    session = Session()\r\n+    filme = Filme(nome=nome, ano=ano, nota=nota)\r\n"
+                },
+                {
+                    "date": 1757698440988,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,4 +27,8 @@\n def adiciona_filme(nome, ano, nota):\r\n     Session = sessionmaker(bind=engine)\r\n     session = Session()\r\n     filme = Filme(nome=nome, ano=ano, nota=nota)\r\n+    \r\n+    session.add(filme)\r\n+    session.commit()\r\n+    session.close()\r\n"
+                },
+                {
+                    "date": 1757698448920,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,8 +26,9 @@\n # Inserir dados\r\n def adiciona_filme(nome, ano, nota):\r\n     Session = sessionmaker(bind=engine)\r\n     session = Session()\r\n+    \r\n     filme = Filme(nome=nome, ano=ano, nota=nota)\r\n     \r\n     session.add(filme)\r\n     session.commit()\r\n"
+                },
+                {
+                    "date": 1757698481510,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,4 +32,7 @@\n     \r\n     session.add(filme)\r\n     session.commit()\r\n     session.close()\r\n+\r\n+adiciona_filme(\"Mario\", 2022, 9.5)\r\n+adiciona_filme(\"Sonic\", 2019, 8.5)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757698716605,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,5 +34,20 @@\n     session.commit()\r\n     session.close()\r\n \r\n adiciona_filme(\"Mario\", 2022, 9.5)\r\n-adiciona_filme(\"Sonic\", 2019, 8.5)\n\\ No newline at end of file\n+adiciona_filme(\"Sonic\", 2019, 8.5)\r\n+\r\n+\r\n+def atualiza_filme(id, nome=None, ano=None, nota=None):\r\n+    Session = sessionmaker(bind=engine)\r\n+    session = Session()\r\n+    \r\n+    filme = session.query(Filme).filter_by(id=id).first()\r\n+    \r\n+    if filme:\r\n+        if nome is not None:\r\n+            filme.nome = nome\r\n+        if ano is not None:\r\n+            filme.ano = ano\r\n+        if nota is not None:\r\n+            filme.nota = nota\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757698738242,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,5 +49,10 @@\n             filme.nome = nome\r\n         if ano is not None:\r\n             filme.ano = ano\r\n         if nota is not None:\r\n-            filme.nota = nota\n\\ No newline at end of file\n+            filme.nota = nota\r\n+    \r\n+    session.add(filme)\r\n+    session.commit()\r\n+    session.close()\r\n+    \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757698753165,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,7 @@\n         if ano is not None:\r\n             filme.ano = ano\r\n         if nota is not None:\r\n             filme.nota = nota\r\n-    \r\n-    session.add(filme)\r\n-    session.commit()\r\n-    session.close()\r\n-    \n\\ No newline at end of file\n+\r\n+        session.commit()\r\n+        session.close()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757698788529,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,5 +52,7 @@\n         if nota is not None:\r\n             filme.nota = nota\r\n \r\n         session.commit()\r\n-        session.close()\n\\ No newline at end of file\n+        session.close()\r\n+    \r\n+atualiza_filme(1, \"Homem Aranha\", 2016, 9.7)\r\n"
+                },
+                {
+                    "date": 1757698884214,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,10 +33,10 @@\n     session.add(filme)\r\n     session.commit()\r\n     session.close()\r\n \r\n-adiciona_filme(\"Mario\", 2022, 9.5)\r\n-adiciona_filme(\"Sonic\", 2019, 8.5)\r\n+#adiciona_filme(\"Mario\", 2022, 9.5)\r\n+#adiciona_filme(\"Sonic\", 2019, 8.5)\r\n \r\n \r\n def atualiza_filme(id, nome=None, ano=None, nota=None):\r\n     Session = sessionmaker(bind=engine)\r\n@@ -54,5 +54,17 @@\n \r\n         session.commit()\r\n         session.close()\r\n     \r\n-atualiza_filme(1, \"Homem Aranha\", 2016, 9.7)\r\n+#atualiza_filme(1, \"Homem Aranha\", 2016, 9.7)\r\n+\r\n+def exclui_filme(id):\r\n+    Session = sessionmaker(bind=engine)\r\n+    session = Session()\r\n+    \r\n+    filme = session.query(Filme).filter_by(id=id).first()\r\n+    \r\n+    if filme:\r\n+        session.delete(filme)\r\n+    \r\n+    session.commit()\r\n+    session.close()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757698891857,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -66,5 +66,7 @@\n     if filme:\r\n         session.delete(filme)\r\n     \r\n     session.commit()\r\n-    session.close()\n\\ No newline at end of file\n+    session.close()\r\n+    \r\n+exclui_filme(2)\r\n"
+                }
+            ],
+            "date": 1757697571743,
+            "name": "Commit-0",
+            "content": "# Mapeamento Objeto-Relacional - Usado para usar o banco de dados junto com o paradigma orientado a objetos de forma a não usar SQL no código\r\n# pip install SQLAlchemy"
+        }
+    ]
+}
