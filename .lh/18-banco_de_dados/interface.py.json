@@ -1,0 +1,70 @@
+{
+    "sourceFile": "18-banco_de_dados/interface.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 13,
+            "patches": [
+                {
+                    "date": 1757961074014,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1757961120529,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,11 @@\n import tkinter as tk\r\n import orm\r\n from tkinter import messagebox\r\n \r\n+# Interface gráfica\r\n+\r\n+root = tk.Tk()\r\n+\r\n+root.title(\"Gerenciador de Filmes\")\r\n+\r\n+root.mainloop()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757961273431,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,5 +7,12 @@\n root = tk.Tk()\r\n \r\n root.title(\"Gerenciador de Filmes\")\r\n \r\n+#Rótulos e campos de entrada\r\n+label_id = tk.Label(root, text=\"ID:\")\r\n+label_id.grid(row=0, column=0)\r\n+\r\n+entry_id = tk.Entry(root, width=50)\r\n+entry_id.grid(row=0, column=1, padx=10, pady=5)\r\n+\r\n root.mainloop()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757961329262,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,14 @@\n \r\n #Rótulos e campos de entrada\r\n label_id = tk.Label(root, text=\"ID:\")\r\n label_id.grid(row=0, column=0)\r\n-\r\n entry_id = tk.Entry(root, width=50)\r\n entry_id.grid(row=0, column=1, padx=10, pady=5)\r\n \r\n+label_nome = tk.Label(root, text=\"ID:\")\r\n+label_nome.grid(row=0, column=0)\r\n+entry_nome = tk.Entry(root, width=50)\r\n+entry_nome.grid(row=0, column=1, padx=10, pady=5)\r\n+\r\n+\r\n root.mainloop()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757961349487,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,10 +14,10 @@\n entry_id = tk.Entry(root, width=50)\r\n entry_id.grid(row=0, column=1, padx=10, pady=5)\r\n \r\n label_nome = tk.Label(root, text=\"ID:\")\r\n-label_nome.grid(row=0, column=0)\r\n+label_nome.grid(row=1, column=0)\r\n entry_nome = tk.Entry(root, width=50)\r\n-entry_nome.grid(row=0, column=1, padx=10, pady=5)\r\n+entry_nome.grid(row=1, column=1, padx=10, pady=5)\r\n \r\n \r\n root.mainloop()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757961366689,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n label_id.grid(row=0, column=0)\r\n entry_id = tk.Entry(root, width=50)\r\n entry_id.grid(row=0, column=1, padx=10, pady=5)\r\n \r\n-label_nome = tk.Label(root, text=\"ID:\")\r\n+label_nome = tk.Label(root, text=\"Nome:\")\r\n label_nome.grid(row=1, column=0)\r\n entry_nome = tk.Entry(root, width=50)\r\n entry_nome.grid(row=1, column=1, padx=10, pady=5)\r\n \r\n"
+                },
+                {
+                    "date": 1757961409091,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,6 +18,11 @@\n label_nome.grid(row=1, column=0)\r\n entry_nome = tk.Entry(root, width=50)\r\n entry_nome.grid(row=1, column=1, padx=10, pady=5)\r\n \r\n+label_ano = tk.Label(root, text=\"Ano:\")\r\n+label_ano.grid(row=2, column=0)\r\n+entry_ano = tk.Entry(root, width=50)\r\n+entry_ano.grid(row=2, column=1, padx=10, pady=5)\r\n \r\n+\r\n root.mainloop()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757961456303,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,6 +23,11 @@\n label_ano.grid(row=2, column=0)\r\n entry_ano = tk.Entry(root, width=50)\r\n entry_ano.grid(row=2, column=1, padx=10, pady=5)\r\n \r\n+label_nota = tk.Label(root, text=\"Nota:\")\r\n+label_nota.grid(row=2, column=0)\r\n+entry_nota = tk.Entry(root, width=50)\r\n+entry_nota.grid(row=2, column=1, padx=10, pady=5)\r\n \r\n+\r\n root.mainloop()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757961462235,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,10 +24,10 @@\n entry_ano = tk.Entry(root, width=50)\r\n entry_ano.grid(row=2, column=1, padx=10, pady=5)\r\n \r\n label_nota = tk.Label(root, text=\"Nota:\")\r\n-label_nota.grid(row=2, column=0)\r\n+label_nota.grid(row=3, column=0)\r\n entry_nota = tk.Entry(root, width=50)\r\n-entry_nota.grid(row=2, column=1, padx=10, pady=5)\r\n+entry_nota.grid(row=3, column=1, padx=10, pady=5)\r\n \r\n \r\n root.mainloop()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757961594722,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,16 @@\n import tkinter as tk\r\n import orm\r\n from tkinter import messagebox\r\n \r\n+def adicionar_filme():\r\n+    nome = entry_nome.get()\r\n+    ano = entry_ano.get()\r\n+    nota = entry_nota.get()\r\n+    \r\n+    orm.adiciona_filme(nome, ano, nota)\r\n+    messagebox.showinfo(\"Sucesso!\", \"Filme cadastrado com sucesso!\")\r\n+    \r\n # Interface gráfica\r\n \r\n root = tk.Tk()\r\n \r\n"
+                },
+                {
+                    "date": 1757961661267,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,17 @@\n     \r\n     orm.adiciona_filme(nome, ano, nota)\r\n     messagebox.showinfo(\"Sucesso!\", \"Filme cadastrado com sucesso!\")\r\n     \r\n+def atualizar_filme():\r\n+    id = entry_id.get()\r\n+    nome = entry_nome.get()\r\n+    ano = entry_ano.get()\r\n+    nota = entry_nota.get()\r\n+    \r\n+    orm.atualiza_filme(id, nome, ano, nota)\r\n+    messagebox.showinfo(\"Sucesso!\", \"Filme atualizado com sucesso!\")\r\n+    \r\n # Interface gráfica\r\n \r\n root = tk.Tk()\r\n \r\n"
+                },
+                {
+                    "date": 1757961711792,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,8 +18,13 @@\n     \r\n     orm.atualiza_filme(id, nome, ano, nota)\r\n     messagebox.showinfo(\"Sucesso!\", \"Filme atualizado com sucesso!\")\r\n     \r\n+def excluir_filme():\r\n+    id = entry_id.get()\r\n+    orm.exclui_filme(id)\r\n+    messagebox.showinfo(\"Sucesso!\", \"Filme excluido com sucesso!\")\r\n+    \r\n # Interface gráfica\r\n \r\n root = tk.Tk()\r\n \r\n"
+                },
+                {
+                    "date": 1757961892939,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,5 +51,14 @@\n entry_nota = tk.Entry(root, width=50)\r\n entry_nota.grid(row=3, column=1, padx=10, pady=5)\r\n \r\n \r\n+button_adicionar = tk.Button(root, text=\"Adicionar filme\", command=adicionar_filme)\r\n+button_adicionar.grid(row=4, column=0, columnspan=2, pady=5)\r\n+\r\n+button_atualizar = tk.Button(root, text=\"Atualizar filme\", command=atualizar_filme)\r\n+button_atualizar.grid(row=5, column=0, columnspan=2, pady=5)\r\n+\r\n+button_excluir = tk.Button(root, text=\"Excluir filme\", command=adicionar_filme)\r\n+button_excluir.grid(row=6, column=0, columnspan=2, pady=5)\r\n+\r\n root.mainloop()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757961908865,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -57,8 +57,8 @@\n \r\n button_atualizar = tk.Button(root, text=\"Atualizar filme\", command=atualizar_filme)\r\n button_atualizar.grid(row=5, column=0, columnspan=2, pady=5)\r\n \r\n-button_excluir = tk.Button(root, text=\"Excluir filme\", command=adicionar_filme)\r\n+button_excluir = tk.Button(root, text=\"Excluir filme\", command=excluir_filme)\r\n button_excluir.grid(row=6, column=0, columnspan=2, pady=5)\r\n \r\n root.mainloop()\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1757961074014,
+            "name": "Commit-0",
+            "content": "import tkinter as tk\r\nimport orm\r\nfrom tkinter import messagebox\r\n\r\n"
+        }
+    ]
+}

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 17,
+            "activePatchIndex": 18,
             "patches": [
                 {
                     "date": 1757697571743,
@@ -76,6 +76,10 @@
                 {
                     "date": 1757698891857,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -66,5 +66,7 @@\n     if filme:\r\n         session.delete(filme)\r\n     \r\n     session.commit()\r\n-    session.close()\n\\ No newline at end of file\n+    session.close()\r\n+    \r\n+exclui_filme(2)\r\n"
+                },
+                {
+                    "date": 1757960958572,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -68,5 +68,5 @@\n     \r\n     session.commit()\r\n     session.close()\r\n     \r\n-exclui_filme(2)\r\n+# exclui_filme(2)\n\\ No newline at end of file\n"
                 }
             ],
             "date": 1757697571743,
