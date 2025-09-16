@@ -1,0 +1,30 @@
+{
+    "sourceFile": "18-banco_de_dados/8-atualizando_deletando_pg.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1758047523931,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1758047581856,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,5 +7,8 @@\n     SET NAME = %s\r\n     WHERE ID = %s\r\n \"\"\"\r\n \r\n-cursor.execute(sql, (\"Fifa\", 3))\n\\ No newline at end of file\n+cursor.execute(sql, (\"Fifa\", 3))\r\n+\r\n+conn.commit()\r\n+print(\"Dados atualizados!\")\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758047718881,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,23 @@\n from conexao_post import conn\r\n \r\n cursor = conn.cursor()\r\n \r\n+# sql = \"\"\"\r\n+#     UPDATE games\r\n+#     SET NAME = %s\r\n+#     WHERE ID = %s\r\n+# \"\"\"\r\n+\r\n+# cursor.execute(sql, (\"Fifa\", 3))\r\n+\r\n+# conn.commit()\r\n+# print(\"Dados atualizados!\")\r\n\\ No newline at end of file\n+\r\n sql = \"\"\"\r\n-    UPDATE games\r\n-    SET NAME = %s\r\n-    WHERE ID = %s\r\n+    DELETE FROM games\r\n+    WHERE id == %s\r\n \"\"\"\r\n \r\n-cursor.execute(sql, (\"Fifa\", 3))\r\n-\r\n+cursor.execute(sql, (5, ))\r\n conn.commit()\r\n-print(\"Dados atualizados!\")\n+print(\"Dados deletados!\")\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758047726385,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n # print(\"Dados atualizados!\")\r\n \r\n sql = \"\"\"\r\n     DELETE FROM games\r\n-    WHERE id == %s\r\n+    WHERE id = %s\r\n \"\"\"\r\n \r\n cursor.execute(sql, (5, ))\r\n conn.commit()\r\n"
+                }
+            ],
+            "date": 1758047523931,
+            "name": "Commit-0",
+            "content": "from conexao_post import conn\r\n\r\ncursor = conn.cursor()\r\n\r\nsql = \"\"\"\r\n    UPDATE games\r\n    SET NAME = %s\r\n    WHERE ID = %s\r\n\"\"\"\r\n\r\ncursor.execute(sql, (\"Fifa\", 3))"
+        }
+    ]
+}
