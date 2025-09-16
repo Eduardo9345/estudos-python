@@ -1,0 +1,1 @@
+# instalar o psycopg2

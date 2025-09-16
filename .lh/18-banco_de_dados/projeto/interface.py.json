@@ -1,0 +1,74 @@
+{
+    "sourceFile": "18-banco_de_dados/projeto/interface.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 14,
+            "patches": [
+                {
+                    "date": 1758045493876,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1758045693549,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,11 @@\n import streamlit as st\r\n \r\n import dados_compras\r\n \r\n+st.title(\"Produtos\")\r\n+\r\n+nome_produto = st.text_input(\"Nome do produto:\")\r\n+\r\n+preco_produto = st.number_input(\"Insira o preço do produto:\", format=\"%0.2f\")\r\n+\r\n+quantidade = st.number_input(\"Insira a quantidade do produto:\")\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758045873488,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,5 +7,18 @@\n nome_produto = st.text_input(\"Nome do produto:\")\r\n \r\n preco_produto = st.number_input(\"Insira o preço do produto:\", format=\"%0.2f\")\r\n \r\n-quantidade = st.number_input(\"Insira a quantidade do produto:\")\n\\ No newline at end of file\n+quantidade = st.number_input(\"Insira a quantidade do produto:\")\r\n+\r\n+btn_adicionar = st.button(\"Adicionar produto\")\r\n+\r\n+if btn_adicionar:\r\n+    dados_compras.insere_produto(nome_produto, preco_produto, quantidade)\r\n+    st.success(\"Produto cadastrado!\")\r\n+    \r\n+    \r\n+produtos = dados_compras.obter_produtos()\r\n+\r\n+if produtos:\r\n+    st.header(\"Lista de produtos:\")\r\n+    st.table(produtos)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758045918147,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,10 @@\n import dados_compras\r\n \r\n st.title(\"Produtos\")\r\n \r\n+dados_compras.criar_tabela()\r\n+\r\n nome_produto = st.text_input(\"Nome do produto:\")\r\n \r\n preco_produto = st.number_input(\"Insira o preço do produto:\", format=\"%0.2f\")\r\n \r\n"
+                },
+                {
+                    "date": 1758045950977,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import dados_compras\r\n \r\n st.title(\"Produtos\")\r\n \r\n-dados_compras.criar_tabela()\r\n+#dados_compras.criar_tabela()\r\n \r\n nome_produto = st.text_input(\"Nome do produto:\")\r\n \r\n preco_produto = st.number_input(\"Insira o preço do produto:\", format=\"%0.2f\")\r\n"
+                },
+                {
+                    "date": 1758046283821,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,5 +22,14 @@\n produtos = dados_compras.obter_produtos()\r\n \r\n if produtos:\r\n     st.header(\"Lista de produtos:\")\r\n-    st.table(produtos)\n\\ No newline at end of file\n+    st.table(produtos)\r\n+    \r\n+produto_id = st.number_input(\"Insira o id do produto:\")\r\n+\r\n+btn_deletar = st.button(\"Deletar produto\")\r\n+\r\n+if(btn_deletar):\r\n+    dados_compras.deletar(id)\r\n+    \r\n+    st.success(\"Produto deletado!\")\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758046400088,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,6 +30,5 @@\n btn_deletar = st.button(\"Deletar produto\")\r\n \r\n if(btn_deletar):\r\n     dados_compras.deletar(id)\r\n-    \r\n     st.success(\"Produto deletado!\")\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758046652335,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,6 +29,6 @@\n \r\n btn_deletar = st.button(\"Deletar produto\")\r\n \r\n if(btn_deletar):\r\n-    dados_compras.deletar(id)\r\n+    dados_compras.deletar(produto_id)\r\n     st.success(\"Produto deletado!\")\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758046743044,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,11 +24,11 @@\n if produtos:\r\n     st.header(\"Lista de produtos:\")\r\n     st.table(produtos)\r\n     \r\n-produto_id = st.number_input(\"Insira o id do produto:\")\r\n+    produto_id = st.number_input(\"Insira o id do produto:\")\r\n \r\n-btn_deletar = st.button(\"Deletar produto\")\r\n+    btn_deletar = st.button(\"Deletar produto\")\r\n \r\n-if(btn_deletar):\r\n\\ No newline at end of file\n-    dados_compras.deletar(produto_id)\r\n-    st.success(\"Produto deletado!\")\n+    if(btn_deletar):\r\n+        dados_compras.deletar(produto_id)\r\n+        st.success(\"Produto deletado!\")\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758046807606,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,8 +24,9 @@\n if produtos:\r\n     st.header(\"Lista de produtos:\")\r\n     st.table(produtos)\r\n     \r\n+    st.header(\"Deletar produto\")\r\n     produto_id = st.number_input(\"Insira o id do produto:\")\r\n \r\n     btn_deletar = st.button(\"Deletar produto\")\r\n \r\n"
+                },
+                {
+                    "date": 1758046815291,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n if produtos:\r\n     st.header(\"Lista de produtos:\")\r\n     st.table(produtos)\r\n     \r\n-    st.header(\"Deletar produto\")\r\n+    st.text(\"Deletar produto\")\r\n     produto_id = st.number_input(\"Insira o id do produto:\")\r\n \r\n     btn_deletar = st.button(\"Deletar produto\")\r\n \r\n"
+                },
+                {
+                    "date": 1758046828136,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n if produtos:\r\n     st.header(\"Lista de produtos:\")\r\n     st.table(produtos)\r\n     \r\n-    st.text(\"Deletar produto\")\r\n+    st.header(\"Deletar produto\")\r\n     produto_id = st.number_input(\"Insira o id do produto:\")\r\n \r\n     btn_deletar = st.button(\"Deletar produto\")\r\n \r\n"
+                },
+                {
+                    "date": 1758046904235,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n st.title(\"Produtos\")\r\n \r\n #dados_compras.criar_tabela()\r\n \r\n+#ADICIONAR PRODUTOS======================================================================\r\n nome_produto = st.text_input(\"Nome do produto:\")\r\n \r\n preco_produto = st.number_input(\"Insira o preço do produto:\", format=\"%0.2f\")\r\n \r\n@@ -21,11 +22,13 @@\n     \r\n produtos = dados_compras.obter_produtos()\r\n \r\n if produtos:\r\n+    #LISTAR PRODUTOS======================================================================\r\n     st.header(\"Lista de produtos:\")\r\n     st.table(produtos)\r\n     \r\n+    # DELETAR PRODUTOS ===================================================================\r\n     st.header(\"Deletar produto\")\r\n     produto_id = st.number_input(\"Insira o id do produto:\")\r\n \r\n     btn_deletar = st.button(\"Deletar produto\")\r\n"
+                },
+                {
+                    "date": 1758046931717,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,8 +21,9 @@\n     \r\n     \r\n produtos = dados_compras.obter_produtos()\r\n \r\n+# Se existirem produtos salvos no banco\r\n if produtos:\r\n     #LISTAR PRODUTOS======================================================================\r\n     st.header(\"Lista de produtos:\")\r\n     st.table(produtos)\r\n"
+                },
+                {
+                    "date": 1758046978956,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n if btn_adicionar:\r\n     dados_compras.insere_produto(nome_produto, preco_produto, quantidade)\r\n     st.success(\"Produto cadastrado!\")\r\n     \r\n-    \r\n+#========================================================================================\r\n produtos = dados_compras.obter_produtos()\r\n \r\n # Se existirem produtos salvos no banco\r\n if produtos:\r\n"
+                }
+            ],
+            "date": 1758045493876,
+            "name": "Commit-0",
+            "content": "import streamlit as st\r\n\r\nimport dados_compras\r\n\r\n"
+        }
+    ]
+}

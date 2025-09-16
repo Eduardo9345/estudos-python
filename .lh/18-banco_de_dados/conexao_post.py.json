@@ -1,0 +1,30 @@
+{
+    "sourceFile": "18-banco_de_dados/conexao_post.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1757964023825,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1757964896896,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,5 +5,12 @@\n     user = 'eduardo',\r\n     password = 'eduardo',\r\n     host = 'localhost',\r\n     port = '5432'\r\n-)\n\\ No newline at end of file\n+)\r\n+\r\n+cur = conn.cursor()\r\n+cur.execute(\"SELECT version();\")\r\n+print(cur.fetchone())\r\n+\r\n+cur.close()\r\n+conn.close()\r\n"
+                },
+                {
+                    "date": 1757964966354,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,28 @@\n import psycopg2\r\n \r\n-conn = psycopg2.connect(\r\n-    database = 'postgres',\r\n-    user = 'eduardo',\r\n-    password = 'eduardo',\r\n-    host = 'localhost',\r\n-    port = '5432'\r\n-)\r\n+try:\r\n+    # Conexão com o banco\r\n+    conn = psycopg2.connect(\r\n+        database=\"postgres\",\r\n+        user=\"eduardo\",\r\n+        password=\"eduardo\",\r\n+        host=\"localhost\",\r\n+        port=\"5432\"\r\n+    )\r\n \r\n-cur = conn.cursor()\r\n-cur.execute(\"SELECT version();\")\r\n-print(cur.fetchone())\r\n+    # Cria um cursor\r\n+    cur = conn.cursor()\r\n \r\n-cur.close()\r\n-conn.close()\r\n+    # Executa um comando SQL de teste\r\n+    cur.execute(\"SELECT version();\")\r\n+\r\n+    # Pega o resultado\r\n+    versao = cur.fetchone()\r\n+    print(\"Versão do PostgreSQL:\", versao)\r\n+\r\n+    # Fecha cursor e conexão\r\n+    cur.close()\r\n+    conn.close()\r\n+\r\n+except Exception as e:\r\n+    print(\"Erro:\", e)\r\n"
+                },
+                {
+                    "date": 1757965132100,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,28 +1,14 @@\n import psycopg2\r\n \r\n-try:\r\n-    # Conexão com o banco\r\n-    conn = psycopg2.connect(\r\n-        database=\"postgres\",\r\n-        user=\"eduardo\",\r\n-        password=\"eduardo\",\r\n-        host=\"localhost\",\r\n-        port=\"5432\"\r\n-    )\r\n \r\n-    # Cria um cursor\r\n-    cur = conn.cursor()\r\n+# Conexão com o banco\r\n+conn = psycopg2.connect(\r\n+    database=\"postgres\",\r\n+    user=\"eduardo\",\r\n+    password=\"eduardo\",\r\n+    host=\"localhost\",\r\n+    port=\"5432\"\r\n+)\r\n \r\n-    # Executa um comando SQL de teste\r\n-    cur.execute(\"SELECT version();\")\r\n \r\n-    # Pega o resultado\r\n-    versao = cur.fetchone()\r\n-    print(\"Versão do PostgreSQL:\", versao)\r\n \r\n-    # Fecha cursor e conexão\r\n-    cur.close()\r\n-    conn.close()\r\n-\r\n-except Exception as e:\r\n-    print(\"Erro:\", e)\r\n"
+                }
+            ],
+            "date": 1757964023825,
+            "name": "Commit-0",
+            "content": "import psycopg2\r\n\r\nconn = psycopg2.connect(\r\n    database = 'postgres',\r\n    user = 'eduardo',\r\n    password = 'eduardo',\r\n    host = 'localhost',\r\n    port = '5432'\r\n)"
+        }
+    ]
+}

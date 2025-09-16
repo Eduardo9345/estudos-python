@@ -1,0 +1,18 @@
+{
+    "sourceFile": "18-banco_de_dados/docker-compose.yml",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1757963314827,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1757963314827,
+            "name": "Commit-0",
+            "content": "version: \"3.9\"\r\n\r\nservices:\r\n  postgres:\r\n    image: postgres:15\r\n    container_name: postgres-python\r\n    restart: always\r\n    environment:\r\n      POSTGRES_USER: eduardo\r\n      POSTGRES_PASSWORD: eduardo\r\n      POSTGRES_DB: postgres\r\n    ports:\r\n      - \"5432:5432\"\r\n    volumes:\r\n      - ./postgres_data:/var/lib/postgresql/data\r\n"
+        }
+    ]
+}

@@ -1,0 +1,39 @@
+import streamlit as st
+
+import dados_compras
+
+st.title("Produtos")
+
+#dados_compras.criar_tabela()
+
+#ADICIONAR PRODUTOS======================================================================
+nome_produto = st.text_input("Nome do produto:")
+
+preco_produto = st.number_input("Insira o preço do produto:", format="%0.2f")
+
+quantidade = st.number_input("Insira a quantidade do produto:")
+
+btn_adicionar = st.button("Adicionar produto")
+
+if btn_adicionar:
+    dados_compras.insere_produto(nome_produto, preco_produto, quantidade)
+    st.success("Produto cadastrado!")
+    
+    
+produtos = dados_compras.obter_produtos()
+
+# Se existirem produtos salvos no banco
+if produtos:
+    #LISTAR PRODUTOS======================================================================
+    st.header("Lista de produtos:")
+    st.table(produtos)
+    
+    # DELETAR PRODUTOS ===================================================================
+    st.header("Deletar produto")
+    produto_id = st.number_input("Insira o id do produto:")
+
+    btn_deletar = st.button("Deletar produto")
+
+    if(btn_deletar):
+        dados_compras.deletar(produto_id)
+        st.success("Produto deletado!")

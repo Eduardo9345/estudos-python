@@ -1,0 +1,50 @@
+{
+    "sourceFile": "18-banco_de_dados/7-inserindo_dados_pg.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1757963913407,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1757963926935,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-# instalar o psycopg\r\n+# instalar o psycopg2\r\n"
+                },
+                {
+                    "date": 1757964030660,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-# instalar o psycopg2\r\n+# instalar o psycopg2\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757964231885,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,18 @@\n-# instalar o psycopg2\n\\ No newline at end of file\n+# instalar o psycopg2\r\n+\r\n+from conexao_post import conn\r\n+\r\n+cursor_obj = conn.cursor()\r\n+\r\n+games = [\r\n+    ('Star Wars Survivor', 2023, 9.0),\r\n+    ('Luigis Mansion 3', 2019, 9.0)\r\n+]\r\n+\r\n+for game in games:\r\n+    cursor_obj.execute(\r\n+        \"\"\"\r\n+        INSERT INTO games(name, year, score)\r\n+        VALUES (%s, %s, %s)\r\n+        \"\"\", game\r\n+    )\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757964278151,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,5 +14,9 @@\n         \"\"\"\r\n         INSERT INTO games(name, year, score)\r\n         VALUES (%s, %s, %s)\r\n         \"\"\", game\r\n-    )\n\\ No newline at end of file\n+    )\r\n+    \r\n+conn.commit()\r\n+print(\"Dados inseridos com sucesso!\")\r\n+conn.close()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757964501446,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,7 +16,7 @@\n         VALUES (%s, %s, %s)\r\n         \"\"\", game\r\n     )\r\n     \r\n-conn.commit()\r\n+conn.comit()\r\n print(\"Dados inseridos com sucesso!\")\r\n conn.close()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757964548748,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,7 +16,7 @@\n         VALUES (%s, %s, %s)\r\n         \"\"\", game\r\n     )\r\n     \r\n-conn.comit()\r\n+cursor_obj.commit()\r\n print(\"Dados inseridos com sucesso!\")\r\n conn.close()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757964600564,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,7 +16,7 @@\n         VALUES (%s, %s, %s)\r\n         \"\"\", game\r\n     )\r\n     \r\n-cursor_obj.commit()\r\n+conn.commit()\r\n print(\"Dados inseridos com sucesso!\")\r\n conn.close()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1757964800938,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \r\n from conexao_post import conn\r\n \r\n cursor_obj = conn.cursor()\r\n-\r\n+print(\"Cursor pronto!\")\r\n games = [\r\n     ('Star Wars Survivor', 2023, 9.0),\r\n     ('Luigis Mansion 3', 2019, 9.0)\r\n ]\r\n"
+                }
+            ],
+            "date": 1757963913407,
+            "name": "Commit-0",
+            "content": "# instalar o psycopg\r\n"
+        }
+    ]
+}
