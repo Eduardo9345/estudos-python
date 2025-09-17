@@ -1,0 +1,146 @@
+{
+    "sourceFile": "18-banco_de_dados/sqlalchemy/produto.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 32,
+            "patches": [
+                {
+                    "date": 1758129965649,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1758130024536,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,6 @@\n from sqlalchemy import create_engine\r\n from sqlalchemy.orm import sessionmaker, declarative_base\r\n from sqlalchemy import Column, String, Integer\r\n \r\n+db = create_engine(\"sqlite:///produto.db\")\r\n+\r\n"
+                },
+                {
+                    "date": 1758130432042,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,34 @@\n from sqlalchemy import create_engine\r\n from sqlalchemy.orm import sessionmaker, declarative_base\r\n-from sqlalchemy import Column, String, Integer\r\n+from sqlalchemy import Column, String, Integer, Double\r\n \r\n db = create_engine(\"sqlite:///produto.db\")\r\n \r\n+Session = sessionmaker(bind=db)\r\n+session = Session()\r\n+Base = declarative_base()\r\n+\r\n+class Produto(Base):\r\n+    \r\n+    __tablename__ = \"tb_produtos\"\r\n+    \r\n+    id = Column(Integer, primary_key=True, autoincrement=True)\r\n+    nome = Column(String, nullable=False)\r\n+    qtd_produto = Column(Integer, nullable=False)\r\n+    preco_unitario = Column(Double, nullable=False)\r\n+    \r\n+    def __init__(self, nome, qtd_produto, preco_unitario):\r\n+        self.nome = nome\r\n+        self.qtd_produto = qtd_produto\r\n+        self.preco_unitario = preco_unitario\r\n+    \r\n+    def __valor_total__(self):\r\n+        return self.qtd_produto * self.preco_unitario\r\n+\r\n+Base.metadata.create_all(bind = db)\r\n+\r\n+def adiciona_produto(nome, qtd_produto, preco_unitario):\r\n+    produto = Produto(nome, qtd_produto, preco_unitario)\r\n+    session.add(produto)\r\n+    session.commit()\r\n+\r\n"
+                },
+                {
+                    "date": 1758130626900,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,4 +31,9 @@\n     produto = Produto(nome, qtd_produto, preco_unitario)\r\n     session.add(produto)\r\n     session.commit()\r\n \r\n+def update_produto(id, nome, qtd_produto, preco_unitario):\r\n+    produto = session.query(Produto).filter_by(id = id).first()\r\n+    produto.nome = nome\r\n+    produto.qtd_produto = qtd_produto\r\n+    produto.preco_unitario = preco_unitario\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758130646348,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,5 +35,7 @@\n def update_produto(id, nome, qtd_produto, preco_unitario):\r\n     produto = session.query(Produto).filter_by(id = id).first()\r\n     produto.nome = nome\r\n     produto.qtd_produto = qtd_produto\r\n-    produto.preco_unitario = preco_unitario\n\\ No newline at end of file\n+    produto.preco_unitario = preco_unitario\r\n+    session.add(produto)\r\n+    session.commit()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758130701841,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,5 +37,10 @@\n     produto.nome = nome\r\n     produto.qtd_produto = qtd_produto\r\n     produto.preco_unitario = preco_unitario\r\n     session.add(produto)\r\n+    session.commit()\r\n+\r\n+def delete_produto(id):\r\n+    produto = session.query(Produto).filter_by(id = id).first()\r\n+    session.delete(produto)\r\n     session.commit()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758130790433,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,15 +32,21 @@\n     session.add(produto)\r\n     session.commit()\r\n \r\n def update_produto(id, nome, qtd_produto, preco_unitario):\r\n-    produto = session.query(Produto).filter_by(id = id).first()\r\n+    produto = get_produto_by_id(id)\r\n     produto.nome = nome\r\n     produto.qtd_produto = qtd_produto\r\n     produto.preco_unitario = preco_unitario\r\n     session.add(produto)\r\n     session.commit()\r\n \r\n def delete_produto(id):\r\n-    produto = session.query(Produto).filter_by(id = id).first()\r\n+    produto = get_produto_by_id(id)\r\n\\ No newline at end of file\n     session.delete(produto)\r\n-    session.commit()\n+    session.commit()\r\n+\r\n+def get_produto_by_id(id):\r\n+    return session.query(Produto).filter_by(id = id).first()\r\n+\r\n+def get_produto_by_name(name):\r\n+    return session.query(Produto).filter_by(name = name).first()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758131450965,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,5 +48,8 @@\n def get_produto_by_id(id):\r\n     return session.query(Produto).filter_by(id = id).first()\r\n \r\n def get_produto_by_name(name):\r\n-    return session.query(Produto).filter_by(name = name).first()\n\\ No newline at end of file\n+    return session.query(Produto).filter_by(name = name).first()\r\n+\r\n+def get_all_produtos():\r\n+    return session.query(Produto).all()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758131982121,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n from sqlalchemy import create_engine\r\n from sqlalchemy.orm import sessionmaker, declarative_base\r\n from sqlalchemy import Column, String, Integer, Double\r\n \r\n-db = create_engine(\"sqlite:///produto.db\")\r\n+db = create_engine(\"sqlite:///18-banco_de_dados/produto.db\")\r\n \r\n Session = sessionmaker(bind=db)\r\n session = Session()\r\n Base = declarative_base()\r\n"
+                },
+                {
+                    "date": 1758132121826,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n from sqlalchemy import create_engine\r\n from sqlalchemy.orm import sessionmaker, declarative_base\r\n from sqlalchemy import Column, String, Integer, Double\r\n \r\n-db = create_engine(\"sqlite:///18-banco_de_dados/produto.db\")\r\n+db = create_engine(\"sqlite:///18-banco_de_dados/sqlalchemy/produto.db\")\r\n \r\n Session = sessionmaker(bind=db)\r\n session = Session()\r\n Base = declarative_base()\r\n"
+                },
+                {
+                    "date": 1758132310427,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,8 +23,11 @@\n         self.preco_unitario = preco_unitario\r\n     \r\n     def __valor_total__(self):\r\n         return self.qtd_produto * self.preco_unitario\r\n+    \r\n+    def __str__(self):\r\n+        return f\"{self.nome} - Preco: {self.preco_unitario} - Quantidade: {self.qtd_produto} - Total: {self.__valor_total__}\"\r\n \r\n Base.metadata.create_all(bind = db)\r\n \r\n def adiciona_produto(nome, qtd_produto, preco_unitario):\r\n"
+                },
+                {
+                    "date": 1758132406004,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,5 +54,6 @@\n def get_produto_by_name(name):\r\n     return session.query(Produto).filter_by(name = name).first()\r\n \r\n def get_all_produtos():\r\n-    return session.query(Produto).all()\n\\ No newline at end of file\n+    lista = session.query(Produto).all()\r\n+    return [str(prod) for prod in lista]\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758132447848,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,13 +21,13 @@\n         self.nome = nome\r\n         self.qtd_produto = qtd_produto\r\n         self.preco_unitario = preco_unitario\r\n     \r\n-    def __valor_total__(self):\r\n+    def get_valor_total(self):\r\n         return self.qtd_produto * self.preco_unitario\r\n     \r\n     def __str__(self):\r\n-        return f\"{self.nome} - Preco: {self.preco_unitario} - Quantidade: {self.qtd_produto} - Total: {self.__valor_total__}\"\r\n+        return f\"{self.nome} - Preco: {self.preco_unitario} - Quantidade: {self.qtd_produto} - Total: {self.get_valor_total()}\"\r\n \r\n Base.metadata.create_all(bind = db)\r\n \r\n def adiciona_produto(nome, qtd_produto, preco_unitario):\r\n"
+                },
+                {
+                    "date": 1758132487229,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n     def get_valor_total(self):\r\n         return self.qtd_produto * self.preco_unitario\r\n     \r\n     def __str__(self):\r\n-        return f\"{self.nome} - Preco: {self.preco_unitario} - Quantidade: {self.qtd_produto} - Total: {self.get_valor_total()}\"\r\n+        return f\"{self.nome} Preco: {self.preco_unitario} Quantidade: {self.qtd_produto} Total: {self.get_valor_total()}\"\r\n \r\n Base.metadata.create_all(bind = db)\r\n \r\n def adiciona_produto(nome, qtd_produto, preco_unitario):\r\n"
+                },
+                {
+                    "date": 1758132618334,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,7 +53,9 @@\n \r\n def get_produto_by_name(name):\r\n     return session.query(Produto).filter_by(name = name).first()\r\n \r\n-def get_all_produtos():\r\n+def get_all_produtos_string():\r\n     lista = session.query(Produto).all()\r\n\\ No newline at end of file\n-    return [str(prod) for prod in lista]\n+    produtos_str = \"Lista produtos:\\n\"\r\n+    [produtos_str.append(str(prod), \"\\n\") for prod in lista]\r\n+    return produtos_str\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758132666913,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,6 +56,6 @@\n \r\n def get_all_produtos_string():\r\n     lista = session.query(Produto).all()\r\n     produtos_str = \"Lista produtos:\\n\"\r\n-    [produtos_str.append(str(prod), \"\\n\") for prod in lista]\r\n+    [produtos_str + (str(prod), \"\\n\") for prod in lista]\r\n     return produtos_str\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758132674145,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,6 +56,6 @@\n \r\n def get_all_produtos_string():\r\n     lista = session.query(Produto).all()\r\n     produtos_str = \"Lista produtos:\\n\"\r\n-    [produtos_str + (str(prod), \"\\n\") for prod in lista]\r\n+    [produtos_str += (str(prod), \"\\n\") for prod in lista]\r\n     return produtos_str\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758132707580,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,6 +56,6 @@\n \r\n def get_all_produtos_string():\r\n     lista = session.query(Produto).all()\r\n     produtos_str = \"Lista produtos:\\n\"\r\n-    [produtos_str += (str(prod), \"\\n\") for prod in lista]\r\n+    [(produtos_str.join(str(prod), \"\\n\")) for prod in lista]\r\n     return produtos_str\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758132727668,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,6 +56,6 @@\n \r\n def get_all_produtos_string():\r\n     lista = session.query(Produto).all()\r\n     produtos_str = \"Lista produtos:\\n\"\r\n-    [(produtos_str.join(str(prod), \"\\n\")) for prod in lista]\r\n+    [(produtos_str.join(str(prod))) for prod in lista]\r\n     return produtos_str\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758132745318,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,6 +56,6 @@\n \r\n def get_all_produtos_string():\r\n     lista = session.query(Produto).all()\r\n     produtos_str = \"Lista produtos:\\n\"\r\n-    [(produtos_str.join(str(prod))) for prod in lista]\r\n+    [(produtos_str.join(f\"{str(prod)}\\n\")) for prod in lista]\r\n     return produtos_str\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758132784472,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,7 +55,7 @@\n     return session.query(Produto).filter_by(name = name).first()\r\n \r\n def get_all_produtos_string():\r\n     lista = session.query(Produto).all()\r\n-    produtos_str = \"Lista produtos:\\n\"\r\n+    produtos_str = \"\"\r\n     [(produtos_str.join(f\"{str(prod)}\\n\")) for prod in lista]\r\n     return produtos_str\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758132799124,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,6 +56,6 @@\n \r\n def get_all_produtos_string():\r\n     lista = session.query(Produto).all()\r\n     produtos_str = \"\"\r\n-    [(produtos_str.join(f\"{str(prod)}\\n\")) for prod in lista]\r\n+    [(produtos_str.join(f\"{prod}\\n\")) for prod in lista]\r\n     return produtos_str\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758132869491,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,6 +56,7 @@\n \r\n def get_all_produtos_string():\r\n     lista = session.query(Produto).all()\r\n     produtos_str = \"\"\r\n-    [(produtos_str.join(f\"{prod}\\n\")) for prod in lista]\r\n+    for prod in lista:\r\n+        (produtos_str.join(f\"{prod}\\n\"))\r\n     return produtos_str\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758132878232,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -57,6 +57,6 @@\n def get_all_produtos_string():\r\n     lista = session.query(Produto).all()\r\n     produtos_str = \"\"\r\n     for prod in lista:\r\n-        (produtos_str.join(f\"{prod}\\n\"))\r\n+        produtos_str = (produtos_str.join(f\"{prod}\\n\"))\r\n     return produtos_str\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758132917053,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -57,6 +57,7 @@\n def get_all_produtos_string():\r\n     lista = session.query(Produto).all()\r\n     produtos_str = \"\"\r\n     for prod in lista:\r\n-        produtos_str = (produtos_str.join(f\"{prod}\\n\"))\r\n+        (produtos_str.join(f\"{prod}\\n\"))\r\n+        \r\n     return produtos_str\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758132952465,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -57,7 +57,7 @@\n def get_all_produtos_string():\r\n     lista = session.query(Produto).all()\r\n     produtos_str = \"\"\r\n     for prod in lista:\r\n-        (produtos_str.join(f\"{prod}\\n\"))\r\n+        produtos_str += f\"{prod}\\n\"\r\n         \r\n     return produtos_str\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758133165632,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n     def get_valor_total(self):\r\n         return self.qtd_produto * self.preco_unitario\r\n     \r\n     def __str__(self):\r\n-        return f\"{self.nome} Preco: {self.preco_unitario} Quantidade: {self.qtd_produto} Total: {self.get_valor_total()}\"\r\n+        return f\"{self.nome} | {self.preco_unitario} | {self.qtd_produto} | {self.get_valor_total()}\"\r\n \r\n Base.metadata.create_all(bind = db)\r\n \r\n def adiciona_produto(nome, qtd_produto, preco_unitario):\r\n"
+                },
+                {
+                    "date": 1758133463245,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n     def get_valor_total(self):\r\n         return self.qtd_produto * self.preco_unitario\r\n     \r\n     def __str__(self):\r\n-        return f\"{self.nome} | {self.preco_unitario} | {self.qtd_produto} | {self.get_valor_total()}\"\r\n+        return f\"{self.nome.ljust(10)} | {self.preco_unitario.ljust(10)} | {self.qtd_produto.ljust(10)} | {self.get_valor_total()}\"\r\n \r\n Base.metadata.create_all(bind = db)\r\n \r\n def adiciona_produto(nome, qtd_produto, preco_unitario):\r\n"
+                },
+                {
+                    "date": 1758133524130,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n     def get_valor_total(self):\r\n         return self.qtd_produto * self.preco_unitario\r\n     \r\n     def __str__(self):\r\n-        return f\"{self.nome.ljust(10)} | {self.preco_unitario.ljust(10)} | {self.qtd_produto.ljust(10)} | {self.get_valor_total()}\"\r\n+        return f\"{str(self.nome).ljust(10)} | {str(self.preco_unitario).ljust(10)} | {str(self.qtd_produto).ljust(10)} | {self.get_valor_total()}\"\r\n \r\n Base.metadata.create_all(bind = db)\r\n \r\n def adiciona_produto(nome, qtd_produto, preco_unitario):\r\n"
+                },
+                {
+                    "date": 1758134099597,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,9 @@\n def get_produto_by_id(id):\r\n     return session.query(Produto).filter_by(id = id).first()\r\n \r\n def get_produto_by_name(name):\r\n-    return session.query(Produto).filter_by(name = name).first()\r\n+    return session.query(Produto).filter_by(nome = name).first()\r\n \r\n def get_all_produtos_string():\r\n     lista = session.query(Produto).all()\r\n     produtos_str = \"\"\r\n"
+                },
+                {
+                    "date": 1758134122079,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,9 @@\n def get_produto_by_id(id):\r\n     return session.query(Produto).filter_by(id = id).first()\r\n \r\n def get_produto_by_name(name):\r\n-    return session.query(Produto).filter_by(nome = name).first()\r\n+    return session.query(Produto).filter_by(nome = name.lower()).first()\r\n \r\n def get_all_produtos_string():\r\n     lista = session.query(Produto).all()\r\n     produtos_str = \"\"\r\n"
+                },
+                {
+                    "date": 1758134155248,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,15 +30,15 @@\n \r\n Base.metadata.create_all(bind = db)\r\n \r\n def adiciona_produto(nome, qtd_produto, preco_unitario):\r\n-    produto = Produto(nome, qtd_produto, preco_unitario)\r\n+    produto = Produto(nome.lower(), qtd_produto, preco_unitario)\r\n     session.add(produto)\r\n     session.commit()\r\n \r\n def update_produto(id, nome, qtd_produto, preco_unitario):\r\n     produto = get_produto_by_id(id)\r\n-    produto.nome = nome\r\n+    produto.nome = nome.lower()\r\n     produto.qtd_produto = qtd_produto\r\n     produto.preco_unitario = preco_unitario\r\n     session.add(produto)\r\n     session.commit()\r\n"
+                },
+                {
+                    "date": 1758134352364,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -59,5 +59,8 @@\n     produtos_str = \"\"\r\n     for prod in lista:\r\n         produtos_str += f\"{prod}\\n\"\r\n         \r\n-    return produtos_str\n\\ No newline at end of file\n+    return produtos_str\r\n+\r\n+def get_all_produtos():\r\n+    return session.query(Produto).all()\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1758129965649,
+            "name": "Commit-0",
+            "content": "from sqlalchemy import create_engine\r\nfrom sqlalchemy.orm import sessionmaker, declarative_base\r\nfrom sqlalchemy import Column, String, Integer\r\n\r\n"
+        }
+    ]
+}

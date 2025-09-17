@@ -1,0 +1,118 @@
+{
+    "sourceFile": "18-banco_de_dados/sqlalchemy/main_produto.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 25,
+            "patches": [
+                {
+                    "date": 1758131065615,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1758131096864,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,11 +2,12 @@\n \r\n menu = \"\"\"\r\n 1 - Adicionar produto\r\n 2 - Listar todos os produtos\r\n-3 - Atualizar produto\r\n-4 - Deletar produto\r\n-5 - Sair\r\n+3 - Listar produto por id\r\n+4 - Atualizar produto\r\n+6 - Deletar produto\r\n+S - Sair\r\n \"\"\"\r\n while True:\r\n     \r\n     break\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758131124199,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,10 @@\n menu = \"\"\"\r\n 1 - Adicionar produto\r\n 2 - Listar todos os produtos\r\n 3 - Listar produto por id\r\n-4 - Atualizar produto\r\n+4 - Listar produto por nome\r\n+5 - Atualizar produto\r\n 6 - Deletar produto\r\n S - Sair\r\n \"\"\"\r\n while True:\r\n"
+                },
+                {
+                    "date": 1758131826570,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,36 @@\n 4 - Listar produto por nome\r\n 5 - Atualizar produto\r\n 6 - Deletar produto\r\n S - Sair\r\n+Escolha:\r\n \"\"\"\r\n while True:\r\n-    \r\n+    choice = input(menu)\r\n+    match choice:\r\n+        case \"1\":\r\n+            nome = input(\"Insira o nome do produto:\")\r\n+            qtd_produto = input(\"Insira a quantidade:\")\r\n+            preco_unitario = input(\"Insira o preco unitário:\")\r\n+            prod.adiciona_produto(nome, qtd_produto, preco_unitario)\r\n+            print(\"Produto adicionado!\")\r\n+            \r\n+        case \"2\":\r\n+            print(\"Lista de produtos:\\n\", prod.get_all_produtos())\r\n+            \r\n+        case \"3\":\r\n+            id = input(\"Insira o id do produto:\")\r\n+            print(\"Produto:\", prod.get_produto_by_id(id))\r\n+        \r\n+        case \"4\":\r\n+            nome = input(\"Insira o nome do produto:\")\r\n+            print(\"Produto:\", prod.get_produto_by_name(nome))\r\n+            \r\n+        case \"5\":\r\n+            id = input(\"Insira o id do produto:\")\r\n+            nome = input(\"Insira o nome do produto:\")\r\n+            qtd_produto = input(\"Insira a quantidade:\")\r\n+            preco_unitario = input(\"Insira o preco unitário:\")\r\n+            \r\n+            prod.update_produto(id, nome, qtd_produto, preco_unitario)\r\n+            print(\"Produto atualzado!\")\r\n     break\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758131895004,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,5 +38,12 @@\n             preco_unitario = input(\"Insira o preco unitário:\")\r\n             \r\n             prod.update_produto(id, nome, qtd_produto, preco_unitario)\r\n             print(\"Produto atualzado!\")\r\n-    break\n\\ No newline at end of file\n+            \r\n+        case \"6\":\r\n+            id = input(\"Insira o id do produto:\")\r\n+            prod.delete_produto(id)\r\n+            print(\"Produto deletado!\")\r\n+        \r\n+        case \"S\":\r\n+            break\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758132021466,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,5 +45,6 @@\n             prod.delete_produto(id)\r\n             print(\"Produto deletado!\")\r\n         \r\n         case \"S\":\r\n-            break\n\\ No newline at end of file\n+            break\r\n+    break\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758132061639,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n S - Sair\r\n Escolha:\r\n \"\"\"\r\n while True:\r\n-    choice = input(menu)\r\n+    choice = input(menu).lower()\r\n     match choice:\r\n         case \"1\":\r\n             nome = input(\"Insira o nome do produto:\")\r\n             qtd_produto = input(\"Insira a quantidade:\")\r\n"
+                },
+                {
+                    "date": 1758132095952,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,36 +13,36 @@\n while True:\r\n     choice = input(menu).lower()\r\n     match choice:\r\n         case \"1\":\r\n-            nome = input(\"Insira o nome do produto:\")\r\n-            qtd_produto = input(\"Insira a quantidade:\")\r\n-            preco_unitario = input(\"Insira o preco unitário:\")\r\n+            nome = input(\"Insira o nome do produto: \")\r\n+            qtd_produto = input(\"Insira a quantidade: \")\r\n+            preco_unitario = input(\"Insira o preco unitário: \")\r\n             prod.adiciona_produto(nome, qtd_produto, preco_unitario)\r\n             print(\"Produto adicionado!\")\r\n             \r\n         case \"2\":\r\n             print(\"Lista de produtos:\\n\", prod.get_all_produtos())\r\n             \r\n         case \"3\":\r\n-            id = input(\"Insira o id do produto:\")\r\n+            id = input(\"Insira o id do produto: \")\r\n             print(\"Produto:\", prod.get_produto_by_id(id))\r\n         \r\n         case \"4\":\r\n-            nome = input(\"Insira o nome do produto:\")\r\n+            nome = input(\"Insira o nome do produto: \")\r\n             print(\"Produto:\", prod.get_produto_by_name(nome))\r\n             \r\n         case \"5\":\r\n-            id = input(\"Insira o id do produto:\")\r\n-            nome = input(\"Insira o nome do produto:\")\r\n-            qtd_produto = input(\"Insira a quantidade:\")\r\n-            preco_unitario = input(\"Insira o preco unitário:\")\r\n+            id = input(\"Insira o id do produto: \")\r\n+            nome = input(\"Insira o nome do produto: \")\r\n+            qtd_produto = input(\"Insira a quantidade: \")\r\n+            preco_unitario = input(\"Insira o preco unitário: \")\r\n             \r\n             prod.update_produto(id, nome, qtd_produto, preco_unitario)\r\n             print(\"Produto atualzado!\")\r\n             \r\n         case \"6\":\r\n-            id = input(\"Insira o id do produto:\")\r\n+            id = input(\"Insira o id do produto: \")\r\n             prod.delete_produto(id)\r\n             print(\"Produto deletado!\")\r\n         \r\n         case \"S\":\r\n"
+                },
+                {
+                    "date": 1758132175560,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,10 @@\n 6 - Deletar produto\r\n S - Sair\r\n Escolha:\r\n \"\"\"\r\n-while True:\r\n+flag = True\r\n+while flag:\r\n     choice = input(menu).lower()\r\n     match choice:\r\n         case \"1\":\r\n             nome = input(\"Insira o nome do produto: \")\r\n@@ -45,6 +46,5 @@\n             prod.delete_produto(id)\r\n             print(\"Produto deletado!\")\r\n         \r\n         case \"S\":\r\n-            break\r\n-    break\n\\ No newline at end of file\n+            flag = False\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758132338847,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,9 @@\n S - Sair\r\n Escolha:\r\n \"\"\"\r\n flag = True\r\n+\r\n while flag:\r\n     choice = input(menu).lower()\r\n     match choice:\r\n         case \"1\":\r\n@@ -45,6 +46,6 @@\n             id = input(\"Insira o id do produto: \")\r\n             prod.delete_produto(id)\r\n             print(\"Produto deletado!\")\r\n         \r\n-        case \"S\":\r\n+        case \"s\":\r\n             flag = False\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758132642956,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n             prod.adiciona_produto(nome, qtd_produto, preco_unitario)\r\n             print(\"Produto adicionado!\")\r\n             \r\n         case \"2\":\r\n-            print(\"Lista de produtos:\\n\", prod.get_all_produtos())\r\n+            print(\"Lista de produtos:\\n\", prod.get_all_produtos_string())\r\n             \r\n         case \"3\":\r\n             id = input(\"Insira o id do produto: \")\r\n             print(\"Produto:\", prod.get_produto_by_id(id))\r\n"
+                },
+                {
+                    "date": 1758133116934,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n             prod.adiciona_produto(nome, qtd_produto, preco_unitario)\r\n             print(\"Produto adicionado!\")\r\n             \r\n         case \"2\":\r\n-            print(\"Lista de produtos:\\n\", prod.get_all_produtos_string())\r\n+            print(\"Lista de produtos:\\n\" + prod.get_all_produtos_string())\r\n             \r\n         case \"3\":\r\n             id = input(\"Insira o id do produto: \")\r\n             print(\"Produto:\", prod.get_produto_by_id(id))\r\n"
+                },
+                {
+                    "date": 1758133211536,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n             prod.adiciona_produto(nome, qtd_produto, preco_unitario)\r\n             print(\"Produto adicionado!\")\r\n             \r\n         case \"2\":\r\n-            print(\"Lista de produtos:\\n\" + prod.get_all_produtos_string())\r\n+            print(\"Lista de produtos:\\n Nome | Preco | Quantidade | Total\\n\" + prod.get_all_produtos_string())\r\n             \r\n         case \"3\":\r\n             id = input(\"Insira o id do produto: \")\r\n             print(\"Produto:\", prod.get_produto_by_id(id))\r\n"
+                },
+                {
+                    "date": 1758133225575,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n             prod.adiciona_produto(nome, qtd_produto, preco_unitario)\r\n             print(\"Produto adicionado!\")\r\n             \r\n         case \"2\":\r\n-            print(\"Lista de produtos:\\n Nome | Preco | Quantidade | Total\\n\" + prod.get_all_produtos_string())\r\n+            print(\"Lista de produtos:\\nNome | Preco | Quantidade | Total\\n\" + prod.get_all_produtos_string())\r\n             \r\n         case \"3\":\r\n             id = input(\"Insira o id do produto: \")\r\n             print(\"Produto:\", prod.get_produto_by_id(id))\r\n"
+                },
+                {
+                    "date": 1758133609938,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n             prod.adiciona_produto(nome, qtd_produto, preco_unitario)\r\n             print(\"Produto adicionado!\")\r\n             \r\n         case \"2\":\r\n-            print(\"Lista de produtos:\\nNome | Preco | Quantidade | Total\\n\" + prod.get_all_produtos_string())\r\n+            print(f\"Lista de produtos:\\n{'Nome'.ljust(10)}|{'Preco'.ljust(10)}|{'Quantidade'.ljust(10)}| Total\\n\" + prod.get_all_produtos_string())\r\n             \r\n         case \"3\":\r\n             id = input(\"Insira o id do produto: \")\r\n             print(\"Produto:\", prod.get_produto_by_id(id))\r\n"
+                },
+                {
+                    "date": 1758133639473,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n             prod.adiciona_produto(nome, qtd_produto, preco_unitario)\r\n             print(\"Produto adicionado!\")\r\n             \r\n         case \"2\":\r\n-            print(f\"Lista de produtos:\\n{'Nome'.ljust(10)}|{'Preco'.ljust(10)}|{'Quantidade'.ljust(10)}| Total\\n\" + prod.get_all_produtos_string())\r\n+            print(f\"Lista de produtos:\\n{'Nome'.ljust(11)}|{'Preco'.ljust(10)}|{'Quantidade'.ljust(14)}| Total\\n\" + prod.get_all_produtos_string())\r\n             \r\n         case \"3\":\r\n             id = input(\"Insira o id do produto: \")\r\n             print(\"Produto:\", prod.get_produto_by_id(id))\r\n"
+                },
+                {
+                    "date": 1758133654599,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n             prod.adiciona_produto(nome, qtd_produto, preco_unitario)\r\n             print(\"Produto adicionado!\")\r\n             \r\n         case \"2\":\r\n-            print(f\"Lista de produtos:\\n{'Nome'.ljust(11)}|{'Preco'.ljust(10)}|{'Quantidade'.ljust(14)}| Total\\n\" + prod.get_all_produtos_string())\r\n+            print(f\"Lista de produtos:\\n{'Nome'.ljust(11)}|{'Preco'.ljust(11)}|{'Quantidade'.ljust(13)}| Total\\n\" + prod.get_all_produtos_string())\r\n             \r\n         case \"3\":\r\n             id = input(\"Insira o id do produto: \")\r\n             print(\"Produto:\", prod.get_produto_by_id(id))\r\n"
+                },
+                {
+                    "date": 1758133675055,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n             prod.adiciona_produto(nome, qtd_produto, preco_unitario)\r\n             print(\"Produto adicionado!\")\r\n             \r\n         case \"2\":\r\n-            print(f\"Lista de produtos:\\n{'Nome'.ljust(11)}|{'Preco'.ljust(11)}|{'Quantidade'.ljust(13)}| Total\\n\" + prod.get_all_produtos_string())\r\n+            print(f\"Lista de produtos:\\n{'Nome'.ljust(11)}|{'Preco'.ljust(12)}|{'Quantidade'.ljust(12)}| Total\\n\" + prod.get_all_produtos_string())\r\n             \r\n         case \"3\":\r\n             id = input(\"Insira o id do produto: \")\r\n             print(\"Produto:\", prod.get_produto_by_id(id))\r\n"
+                },
+                {
+                    "date": 1758133763551,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,11 @@\n             prod.adiciona_produto(nome, qtd_produto, preco_unitario)\r\n             print(\"Produto adicionado!\")\r\n             \r\n         case \"2\":\r\n-            print(f\"Lista de produtos:\\n{'Nome'.ljust(11)}|{'Preco'.ljust(12)}|{'Quantidade'.ljust(12)}| Total\\n\" + prod.get_all_produtos_string())\r\n+            header = f\"Lista de produtos:\\n{'Nome'.ljust(11)}|{'Preco'.ljust(12)}|{'Quantidade'.ljust(12)}| Total\\n\"\r\n+            line =  \"-\" * len(header) + \"\\n\"\r\n+            print(header + line + prod.get_all_produtos_string())\r\n             \r\n         case \"3\":\r\n             id = input(\"Insira o id do produto: \")\r\n             print(\"Produto:\", prod.get_produto_by_id(id))\r\n"
+                },
+                {
+                    "date": 1758133823003,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n             prod.adiciona_produto(nome, qtd_produto, preco_unitario)\r\n             print(\"Produto adicionado!\")\r\n             \r\n         case \"2\":\r\n-            header = f\"Lista de produtos:\\n{'Nome'.ljust(11)}|{'Preco'.ljust(12)}|{'Quantidade'.ljust(12)}| Total\\n\"\r\n+            header = f\"Lista de produtos:\\n{'Nome'.ljust(11)}|{' Preco'.ljust(11)}|{' sQuantidade'.ljust(12)}| Total\\n\"\r\n             line =  \"-\" * len(header) + \"\\n\"\r\n             print(header + line + prod.get_all_produtos_string())\r\n             \r\n         case \"3\":\r\n"
+                },
+                {
+                    "date": 1758133843548,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n             prod.adiciona_produto(nome, qtd_produto, preco_unitario)\r\n             print(\"Produto adicionado!\")\r\n             \r\n         case \"2\":\r\n-            header = f\"Lista de produtos:\\n{'Nome'.ljust(11)}|{' Preco'.ljust(11)}|{' sQuantidade'.ljust(12)}| Total\\n\"\r\n+            header = f\"Lista de produtos:\\n{'Nome'.ljust(11)}|{' Preco'.ljust(11)}|{' Quantidade'.ljust(12)}| Total\\n\"\r\n             line =  \"-\" * len(header) + \"\\n\"\r\n             print(header + line + prod.get_all_produtos_string())\r\n             \r\n         case \"3\":\r\n"
+                },
+                {
+                    "date": 1758133855943,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n             prod.adiciona_produto(nome, qtd_produto, preco_unitario)\r\n             print(\"Produto adicionado!\")\r\n             \r\n         case \"2\":\r\n-            header = f\"Lista de produtos:\\n{'Nome'.ljust(11)}|{' Preco'.ljust(11)}|{' Quantidade'.ljust(12)}| Total\\n\"\r\n+            header = f\"Lista de produtos:\\n{'Nome'.ljust(11)}|{' Preco'.ljust(12)}|{' Quantidade'.ljust(12)}| Total\\n\"\r\n             line =  \"-\" * len(header) + \"\\n\"\r\n             print(header + line + prod.get_all_produtos_string())\r\n             \r\n         case \"3\":\r\n"
+                },
+                {
+                    "date": 1758133954405,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,11 @@\n             print(header + line + prod.get_all_produtos_string())\r\n             \r\n         case \"3\":\r\n             id = input(\"Insira o id do produto: \")\r\n-            print(\"Produto:\", prod.get_produto_by_id(id))\r\n+            header = f\"\\n{'Nome'.ljust(11)}|{' Preco'.ljust(12)}|{' Quantidade'.ljust(12)}| Total\\n\"\r\n+            line =  \"-\" * len(header) + \"\\n\"\r\n+            print(\"Produto:\\n\" + header + line + prod.get_produto_by_id(id))\r\n         \r\n         case \"4\":\r\n             nome = input(\"Insira o nome do produto: \")\r\n             print(\"Produto:\", prod.get_produto_by_name(nome))\r\n"
+                },
+                {
+                    "date": 1758133982746,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,11 +28,11 @@\n             print(header + line + prod.get_all_produtos_string())\r\n             \r\n         case \"3\":\r\n             id = input(\"Insira o id do produto: \")\r\n-            header = f\"\\n{'Nome'.ljust(11)}|{' Preco'.ljust(12)}|{' Quantidade'.ljust(12)}| Total\\n\"\r\n+            header = f\"{'Nome'.ljust(11)}|{' Preco'.ljust(12)}|{' Quantidade'.ljust(12)}| Total\\n\"\r\n             line =  \"-\" * len(header) + \"\\n\"\r\n-            print(\"Produto:\\n\" + header + line + prod.get_produto_by_id(id))\r\n+            print(\"Produto:\\n\" + header + line, prod.get_produto_by_id(id))\r\n         \r\n         case \"4\":\r\n             nome = input(\"Insira o nome do produto: \")\r\n             print(\"Produto:\", prod.get_produto_by_name(nome))\r\n"
+                },
+                {
+                    "date": 1758134010703,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n         case \"3\":\r\n             id = input(\"Insira o id do produto: \")\r\n             header = f\"{'Nome'.ljust(11)}|{' Preco'.ljust(12)}|{' Quantidade'.ljust(12)}| Total\\n\"\r\n             line =  \"-\" * len(header) + \"\\n\"\r\n-            print(\"Produto:\\n\" + header + line, prod.get_produto_by_id(id))\r\n+            print(\"Produto:\\n\" + header + line + str(prod.get_produto_by_id(id)))\r\n         \r\n         case \"4\":\r\n             nome = input(\"Insira o nome do produto: \")\r\n             print(\"Produto:\", prod.get_produto_by_name(nome))\r\n"
+                },
+                {
+                    "date": 1758134064418,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,11 @@\n             print(\"Produto:\\n\" + header + line + str(prod.get_produto_by_id(id)))\r\n         \r\n         case \"4\":\r\n             nome = input(\"Insira o nome do produto: \")\r\n-            print(\"Produto:\", prod.get_produto_by_name(nome))\r\n+            header = f\"{'Nome'.ljust(11)}|{' Preco'.ljust(12)}|{' Quantidade'.ljust(12)}| Total\\n\"\r\n+            line =  \"-\" * len(header) + \"\\n\"\r\n+            print(\"Produto:\\n\" + header + line + str(prod.get_produto_by_name(nome)))\r\n             \r\n         case \"5\":\r\n             id = input(\"Insira o id do produto: \")\r\n             nome = input(\"Insira o nome do produto: \")\r\n"
+                }
+            ],
+            "date": 1758131065615,
+            "name": "Commit-0",
+            "content": "import produto as prod\r\n\r\nmenu = \"\"\"\r\n1 - Adicionar produto\r\n2 - Listar todos os produtos\r\n3 - Atualizar produto\r\n4 - Deletar produto\r\n5 - Sair\r\n\"\"\"\r\nwhile True:\r\n    \r\n    break"
+        }
+    ]
+}
