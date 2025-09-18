@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 2,
+            "activePatchIndex": 4,
             "patches": [
                 {
                     "date": 1755782861558,
@@ -16,6 +16,14 @@
                 {
                     "date": 1755787301891,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,7 +20,8 @@\n     },\r\n     \"peacock.color\": \"#42b883\",\r\n     \"python.analysis.extraPaths\": [\r\n         \"./modulos\",\r\n+        \"./modulos/1-\",\r\n         \"./modulos/1-\"\r\n     ]\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758228561055,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,6 +22,9 @@\n     \"python.analysis.extraPaths\": [\r\n         \"./modulos\",\r\n         \"./modulos/1-\",\r\n         \"./modulos/1-\"\r\n+    ],\r\n+    \"python.testing.pytestArgs\": [\r\n+        \"19-teste-python\"\r\n     ]\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758228561196,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,6 +25,8 @@\n         \"./modulos/1-\"\r\n     ],\r\n     \"python.testing.pytestArgs\": [\r\n         \"19-teste-python\"\r\n-    ]\r\n+    ],\r\n+    \"python.testing.unittestEnabled\": false,\r\n+    \"python.testing.pytestEnabled\": true\r\n }\n\\ No newline at end of file\n"
                 }
             ],
             "date": 1755782861558,
