@@ -1,0 +1,74 @@
+{
+    "sourceFile": "19-teste-python/test_basico.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 14,
+            "patches": [
+                {
+                    "date": 1758227981126,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1758228008008,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,2 @@\n def test_soma():\r\n-    assert sum ([1, 2, 3]) == 6\n\\ No newline at end of file\n+    assert (sum ([1, 2, 3])) == 6 #\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758228062550,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,2 @@\n def test_soma():\r\n-    assert (sum ([1, 2, 3])) == 6 #\n\\ No newline at end of file\n+    assert (sum ([1, 2, 3])) == 6 #Assert verifica se o trecho bate com a segunda parte\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758228079576,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,2 @@\n def test_soma():\r\n-    assert (sum ([1, 2, 3])) == 6 #Assert verifica se o trecho bate com a segunda parte\n\\ No newline at end of file\n+    assert (sum ([1, 2, 3])) == 6 #Assert verifica se o trecho bate com a segunda parte - pytest no terminal para rodar\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758228160043,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,3 @@\n def test_soma():\r\n-    assert (sum ([1, 2, 3])) == 6 #Assert verifica se o trecho bate com a segunda parte - pytest no terminal para rodar\n\\ No newline at end of file\n+    assert (sum ([1, 2, 3])) == 6 #Assert verifica se o trecho bate com a segunda parte - pytest no terminal para rodar\r\n+\r\n"
+                },
+                {
+                    "date": 1758228239175,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,8 @@\n-def test_soma():\r\n-    assert (sum ([1, 2, 3])) == 6 #Assert verifica se o trecho bate com a segunda parte - pytest no terminal para rodar\r\n+# def test_soma():\r\n+#     assert (sum ([1, 2, 3])) == 6 #Assert verifica se o trecho bate com a segunda parte - pytest no terminal para rodar\r\n \r\n+def is_positive(number):\r\n+    return number > 0\r\n+\r\n+print(is_positive(5))\r\n+print(is_positive(-1))\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758228265663,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n # def test_soma():\r\n-#     assert (sum ([1, 2, 3])) == 6 #Assert verifica se o trecho bate com a segunda parte - pytest no terminal para rodar\r\n+#     assert (sum([1, 2, 3])) == 6 #Assert verifica se o trecho bate com a segunda parte - pytest no terminal para rodar\r\n \r\n def is_positive(number):\r\n     return number > 0\r\n \r\n"
+                },
+                {
+                    "date": 1758228275049,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,5 @@\n-# def test_soma():\r\n-#     assert (sum([1, 2, 3])) == 6 #Assert verifica se o trecho bate com a segunda parte - pytest no terminal para rodar\r\n+def test_soma():\r\n+    assert (sum([1, 2, 3])) == 6 #Assert verifica se o trecho bate com a segunda parte - pytest no terminal para rodar\r\n \r\n def is_positive(number):\r\n     return number > 0\r\n-\r\n\\ No newline at end of file\n-print(is_positive(5))\r\n-print(is_positive(-1))\n"
+                },
+                {
+                    "date": 1758228330124,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,4 +2,8 @@\n     assert (sum([1, 2, 3])) == 6 #Assert verifica se o trecho bate com a segunda parte - pytest no terminal para rodar\r\n \r\n def is_positive(number):\r\n     return number > 0\r\n+\r\n+def test_is_positive():\r\n+    assert (is_positive(5)) is True\r\n+    assert (is_positive(-1)) is False\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758228360112,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,6 +4,6 @@\n def is_positive(number):\r\n     return number > 0\r\n \r\n def test_is_positive():\r\n-    assert (is_positive(5)) is True\r\n-    assert (is_positive(-1)) is False\n\\ No newline at end of file\n+    assert (is_positive(5)) == True\r\n+    assert (is_positive(-1)) == False\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758228637682,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,8 @@\n def test_soma():\r\n     assert (sum([1, 2, 3])) == 6 #Assert verifica se o trecho bate com a segunda parte - pytest no terminal para rodar\r\n \r\n-def is_positive(number):\r\n-    return number > 0\r\n \r\n+\r\n def test_is_positive():\r\n     assert (is_positive(5)) == True\r\n     assert (is_positive(-1)) == False\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758228655205,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n+import functions\r\n+\r\n def test_soma():\r\n     assert (sum([1, 2, 3])) == 6 #Assert verifica se o trecho bate com a segunda parte - pytest no terminal para rodar\r\n \r\n-\r\n-\r\n def test_is_positive():\r\n     assert (is_positive(5)) == True\r\n     assert (is_positive(-1)) == False\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758228730893,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import functions\r\n+from functions import is_positive\r\n \r\n def test_soma():\r\n     assert (sum([1, 2, 3])) == 6 #Assert verifica se o trecho bate com a segunda parte - pytest no terminal para rodar\r\n \r\n"
+                },
+                {
+                    "date": 1758318082974,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,12 @@\n-from functions import is_positive\r\n+from functions import is_positive, valida_email\r\n \r\n def test_soma():\r\n     assert (sum([1, 2, 3])) == 6 #Assert verifica se o trecho bate com a segunda parte - pytest no terminal para rodar\r\n \r\n def test_is_positive():\r\n     assert (is_positive(5)) == True\r\n\\ No newline at end of file\n-    assert (is_positive(-1)) == False\n+    assert (is_positive(-1)) == False\r\n+    \r\n+def test_email():\r\n+    assert (valida_email(\"email@gmail.com\")) == True\r\n+    assert (valida_email(\"emailgmailcom\")) == False\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758318272934,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,6 +7,6 @@\n     assert (is_positive(5)) == True\r\n     assert (is_positive(-1)) == False\r\n     \r\n def test_email():\r\n-    assert (valida_email(\"email@gmail.com\")) == True\r\n-    assert (valida_email(\"emailgmailcom\")) == False\n\\ No newline at end of file\n+    assert (valida_email(\"email@gmail.com\") == True)\r\n+    assert (valida_email(\"emailgmailcom\") == False)\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1758227981126,
+            "name": "Commit-0",
+            "content": "def test_soma():\r\n    assert sum ([1, 2, 3]) == 6"
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+{
+    "sourceFile": "19-teste-python/test_basico3.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1758318641138,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1758318704278,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,5 @@\n-from functions import somar_lista, encontrar_valor\n\\ No newline at end of file\n+from functions import somar_lista, encontrar_valor\r\n+import pytest #Tratamento de exceções\r\n+\r\n+def test_somar_lista():\r\n+    assert (somar_lista([1, 2, 3, 4]) == 10)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758318837386,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,10 @@\n from functions import somar_lista, encontrar_valor\r\n import pytest #Tratamento de exceções\r\n \r\n def test_somar_lista():\r\n-    assert (somar_lista([1, 2, 3, 4]) == 10)\n\\ No newline at end of file\n+    assert (somar_lista([1, 2, 3, 4]) == 10)\r\n+    assert (somar_lista([2.3, 4.5, 1.2]) == 8.0)\r\n+    assert (somar_lista([]) == 0)\r\n+    \r\n+    with pytest.raises(ValueError):\r\n+        somar_lista([1, 2, 'a'])\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758318957518,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,5 +6,15 @@\n     assert (somar_lista([2.3, 4.5, 1.2]) == 8.0)\r\n     assert (somar_lista([]) == 0)\r\n     \r\n     with pytest.raises(ValueError):\r\n-        somar_lista([1, 2, 'a'])\n\\ No newline at end of file\n+        somar_lista([1, 2, 'a'])\r\n+        \r\n+def test_encontrar_valor():\r\n+    dicionario = {\r\n+        'valor1' : 1,\r\n+        'valor2' : 2,\r\n+        'valor3' : 3,\r\n+        'valor4' : 4\r\n+    }\r\n+    \r\n+    assert (encontrar_valor(dicionario, 'valor2') == 2)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758319032378,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,5 +16,9 @@\n         'valor3' : 3,\r\n         'valor4' : 4\r\n     }\r\n     \r\n-    assert (encontrar_valor(dicionario, 'valor2') == 2)\n\\ No newline at end of file\n+    assert (encontrar_valor(dicionario, 'valor2') == 2)\r\n+    assert (encontrar_valor(dicionario, 'valor0') == None)\r\n+    \r\n+    with pytest.raises(ValueError):\r\n+        encontrar_valor(12, \"valor1\")\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758319049443,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,5 +20,5 @@\n     assert (encontrar_valor(dicionario, 'valor2') == 2)\r\n     assert (encontrar_valor(dicionario, 'valor0') == None)\r\n     \r\n     with pytest.raises(ValueError):\r\n-        encontrar_valor(12, \"valor1\")\n\\ No newline at end of file\n+        encontrar_valor({}, \"valor1\")\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1758319073273,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,5 +20,5 @@\n     assert (encontrar_valor(dicionario, 'valor2') == 2)\r\n     assert (encontrar_valor(dicionario, 'valor0') == None)\r\n     \r\n     with pytest.raises(ValueError):\r\n-        encontrar_valor({}, \"valor1\")\n\\ No newline at end of file\n+        encontrar_valor(12, \"valor1\")\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1758318641138,
+            "name": "Commit-0",
+            "content": "from functions import somar_lista, encontrar_valor"
+        }
+    ]
+}

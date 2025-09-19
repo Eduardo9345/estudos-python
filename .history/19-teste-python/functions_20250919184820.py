@@ -1,0 +1,18 @@
+def sub(a, b):
+    return a - b
+
+def length(list):
+    return len(list)
+
+def is_positive(number):
+    return number > 0
+
+def valida_email(email):
+    return ('@' in email) and ('.' in email)
+
+def somar_lista(valores):
+    """ Soma todos os valores em uma lista """
+    if not all(isinstance(i, (int, float)) for i in valores):
+        raise ValueError("Todos os itens da lista devem ser números")
+    
+    return sum(valores)
