@@ -1,0 +1,22 @@
+{
+    "sourceFile": ".vscode/settings.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1758647484115,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1758647484281,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,6 +4,7 @@\n         \"**/.svn\": true,\r\n         \"**/.hg\": true,\r\n         \"**/.DS_Store\": true,\r\n         \"**/Thumbs.db\": true\r\n-    }\r\n+    },\r\n+    \"explorerExclude.backup\": {}\r\n }\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1758647484115,
+            "name": "Commit-0",
+            "content": "{\r\n    \"files.exclude\": {\r\n        \"**/.git\": true,\r\n        \"**/.svn\": true,\r\n        \"**/.hg\": true,\r\n        \"**/.DS_Store\": true,\r\n        \"**/Thumbs.db\": true\r\n    }\r\n}"
+        }
+    ]
+}
