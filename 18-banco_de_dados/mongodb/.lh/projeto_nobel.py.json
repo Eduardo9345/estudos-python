@@ -1,0 +1,26 @@
+{
+    "sourceFile": "projeto_nobel.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1758650433820,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1758650699397,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,15 @@\n import requests\r\n from pymongo import MongoClient\r\n \r\n client = MongoClient()\r\n+\r\n+db = client['nobel']\r\n+\r\n+for collection_name in [\"prizes\", \"laureates\"]:\r\n+    response = requests.get(\r\n+        f\"https://api.nobelprize.org/v1/{collection_name[:-1]}.json\"\r\n+    )\r\n+    \r\n+    documents = response.json()[collection_name]\r\n+    db[collection_name].insert_many(documents)\r\n+    \r\n"
+                },
+                {
+                    "date": 1758650781662,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,4 +12,14 @@\n     \r\n     documents = response.json()[collection_name]\r\n     db[collection_name].insert_many(documents)\r\n     \r\n+prizes = db[\"prizes\"]\r\n+\r\n+laureates = db[\"laureates\"]\r\n+\r\n+len_prizes = prizes.count_documents({})\r\n+\r\n+len_laureates = laureates.count_documents({})\r\n+\r\n+print(len_prizes)\r\n+print(len_laureates)\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1758650433820,
+            "name": "Commit-0",
+            "content": "import requests\r\nfrom pymongo import MongoClient\r\n\r\nclient = MongoClient()\r\n"
+        }
+    ]
+}
