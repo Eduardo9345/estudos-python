@@ -1,0 +1,50 @@
+{
+    "sourceFile": "test_database.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1759191921154,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1759192050192,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,5 +37,15 @@\n                    INSERT INTO users (name, email)\r\n                    VALUES (?, ?)\r\n                    \"\"\", (\"joão\", \"joão@email.com\"))\r\n     conn.commit()\r\n+    \r\n+    cursor.execute(\r\n+        \"\"\"\r\n+        SELECT * FROM users WHERE email = ?\r\n+        \"\"\", (\"joão@email.com\")\r\n+    )\r\n+    user = cursor.fetchone()\r\n+    assert(user is not None)\r\n+    assert(user[1] == \"joão\")\r\n+    assert(user[2] == \"joão@email.com\")\r\n     \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1759192200523,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n     \r\n     cursor.execute(\r\n         \"\"\"\r\n         SELECT * FROM users WHERE email = ?\r\n-        \"\"\", (\"joão@email.com\")\r\n+        \"\"\", (\"joão@email.com\",)\r\n     )\r\n     user = cursor.fetchone()\r\n     assert(user is not None)\r\n     assert(user[1] == \"joão\")\r\n"
+                },
+                {
+                    "date": 1759192285771,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,5 +47,9 @@\n     user = cursor.fetchone()\r\n     assert(user is not None)\r\n     assert(user[1] == \"joão\")\r\n     assert(user[2] == \"joão@email.com\")\r\n-    \n\\ No newline at end of file\n+\r\n+def test_database_no_duplicate_emails(db_connection):\r\n+    \"\"\"\r\n+    Testa a inserção de usuários com emails duplicados\r\n+    \"\"\"\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1759192314077,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,5 +51,12 @@\n \r\n def test_database_no_duplicate_emails(db_connection):\r\n     \"\"\"\r\n     Testa a inserção de usuários com emails duplicados\r\n-    \"\"\"\n\\ No newline at end of file\n+    \"\"\"\r\n+    \r\n+    conn, cursor = db_connection\r\n+    cursor.execute(\"\"\"\r\n+                   INSERT INTO users (name, email)\r\n+                   VALUES (?, ?)\r\n+                   \"\"\", (\"Jane\", \"Jane@email.com\"))\r\n+    conn.commit()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1759192367479,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,5 +58,12 @@\n     cursor.execute(\"\"\"\r\n                    INSERT INTO users (name, email)\r\n                    VALUES (?, ?)\r\n                    \"\"\", (\"Jane\", \"Jane@email.com\"))\r\n-    conn.commit()\n\\ No newline at end of file\n+    conn.commit()\r\n+    \r\n+    with pytest.raises(sqlite3.IntegrityError):\r\n+        cursor.execute(\"\"\"\r\n+                   INSERT INTO users (name, email)\r\n+                   VALUES (?, ?)\r\n+                   \"\"\", (\"Duplicate User\", \"Jane@email.com\"))\r\n+        conn.commit()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1759192390867,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,9 +58,8 @@\n     cursor.execute(\"\"\"\r\n                    INSERT INTO users (name, email)\r\n                    VALUES (?, ?)\r\n                    \"\"\", (\"Jane\", \"Jane@email.com\"))\r\n-    conn.commit()\r\n     \r\n     with pytest.raises(sqlite3.IntegrityError):\r\n         cursor.execute(\"\"\"\r\n                    INSERT INTO users (name, email)\r\n"
+                },
+                {
+                    "date": 1759192400893,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,8 +58,9 @@\n     cursor.execute(\"\"\"\r\n                    INSERT INTO users (name, email)\r\n                    VALUES (?, ?)\r\n                    \"\"\", (\"Jane\", \"Jane@email.com\"))\r\n+    conn.commit()\r\n     \r\n     with pytest.raises(sqlite3.IntegrityError):\r\n         cursor.execute(\"\"\"\r\n                    INSERT INTO users (name, email)\r\n"
+                },
+                {
+                    "date": 1759192617388,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,8 +32,9 @@\n     Testa a inserção de um usuário na tabela users\r\n     \"\"\"\r\n     \r\n     conn, cursor = db_connection\r\n+    \r\n     cursor.execute(\"\"\"\r\n                    INSERT INTO users (name, email)\r\n                    VALUES (?, ?)\r\n                    \"\"\", (\"joão\", \"joão@email.com\"))\r\n@@ -54,8 +55,9 @@\n     Testa a inserção de usuários com emails duplicados\r\n     \"\"\"\r\n     \r\n     conn, cursor = db_connection\r\n+    \r\n     cursor.execute(\"\"\"\r\n                    INSERT INTO users (name, email)\r\n                    VALUES (?, ?)\r\n                    \"\"\", (\"Jane\", \"Jane@email.com\"))\r\n@@ -65,5 +67,5 @@\n         cursor.execute(\"\"\"\r\n                    INSERT INTO users (name, email)\r\n                    VALUES (?, ?)\r\n                    \"\"\", (\"Duplicate User\", \"Jane@email.com\"))\r\n-        conn.commit()\n\\ No newline at end of file\n+    conn.commit()\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1759191921154,
+            "name": "Commit-0",
+            "content": "import pytest\r\nimport sqlite3\r\n\r\n@pytest.fixture\r\ndef db_connection():\r\n    \"\"\"\r\n    Fixture que configura uma conexão com um banco de dados SQLite\r\n    temporário e garante a limpeza dos recursos após o teste\r\n    \"\"\"\r\n    \r\n    conn = sqlite3.connect(\":memory:\") #Cria em memória\r\n    cursor = conn.cursor()\r\n    \r\n    cursor.execute(\"\"\"\r\n    \r\n    CREATE TABLE users(\r\n        id INTEGER PRIMARY KEY,\r\n        name TEXT NOT NULL,\r\n        email TEXT NOT NULL UNIQUE\r\n    )\r\n    \r\n    \"\"\")\r\n    \r\n    conn.commit()\r\n    \r\n    yield conn, cursor\r\n    \r\n    conn.close()\r\n    \r\ndef test_database_insert(db_connection):\r\n    \"\"\" \r\n    Testa a inserção de um usuário na tabela users\r\n    \"\"\"\r\n    \r\n    conn, cursor = db_connection\r\n    cursor.execute(\"\"\"\r\n                   INSERT INTO users (name, email)\r\n                   VALUES (?, ?)\r\n                   \"\"\", (\"joão\", \"joão@email.com\"))\r\n    conn.commit()\r\n    "
+        }
+    ]
+}

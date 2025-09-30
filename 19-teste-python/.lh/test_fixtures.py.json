@@ -1,0 +1,46 @@
+{
+    "sourceFile": "test_fixtures.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1759190682933,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1759190733439,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n-## \r\n+## Fixture serve para reaproveitar os parametros a serem usados para testagem\r\n+\r\n import pytest\r\n \r\n @pytest.fixture\r\n def list_sample():\r\n"
+                },
+                {
+                    "date": 1759190765057,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,5 +3,8 @@\n import pytest\r\n \r\n @pytest.fixture\r\n def list_sample():\r\n-    return [10, 9, 8, 7, 6]\n\\ No newline at end of file\n+    return [10, 9, 8, 7, 6]\r\n+\r\n+def test_sum(list_sample):\r\n+    assert (sum(list_sample))\r\n"
+                },
+                {
+                    "date": 1759190782866,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,5 +6,5 @@\n def list_sample():\r\n     return [10, 9, 8, 7, 6]\r\n \r\n def test_sum(list_sample):\r\n-    assert (sum(list_sample))\r\n+    assert (sum(list_sample)) # reaproveita a lista\r\n"
+                },
+                {
+                    "date": 1759190789789,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,5 +6,5 @@\n def list_sample():\r\n     return [10, 9, 8, 7, 6]\r\n \r\n def test_sum(list_sample):\r\n-    assert (sum(list_sample)) # reaproveita a lista\r\n+    assert (sum(list_sample) == 40) # reaproveita a lista\r\n"
+                },
+                {
+                    "date": 1759190817608,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,4 +7,7 @@\n     return [10, 9, 8, 7, 6]\r\n \r\n def test_sum(list_sample):\r\n     assert (sum(list_sample) == 40) # reaproveita a lista\r\n+    \r\n+def test_len(list_sample):\r\n+    assert (len(list_sample) == 5)\r\n"
+                },
+                {
+                    "date": 1759192543843,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,10 @@\n ## Fixture serve para reaproveitar os parametros a serem usados para testagem\r\n \r\n+# 🔹 O que são fixtures?\r\n+# Fixtures são formas de preparar dados ou contexto antes de rodar os testes.\r\n+# Elas servem para evitar repetição e deixar o código mais organizado.\r\n+\r\n import pytest\r\n \r\n @pytest.fixture\r\n def list_sample():\r\n"
+                },
+                {
+                    "date": 1759192576116,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,12 @@\n # 🔹 O que são fixtures?\r\n # Fixtures são formas de preparar dados ou contexto antes de rodar os testes.\r\n # Elas servem para evitar repetição e deixar o código mais organizado.\r\n \r\n+# Evita duplicar código.\r\n+# Facilita a manutenção dos testes.\r\n+# Pode ser usada para criar conexões com banco de dados, abrir arquivos, criar objetos, etc., sempre preparando o \"ambiente\" para o teste.\r\n+\r\n import pytest\r\n \r\n @pytest.fixture\r\n def list_sample():\r\n"
+                }
+            ],
+            "date": 1759190682933,
+            "name": "Commit-0",
+            "content": "## \r\nimport pytest\r\n\r\n@pytest.fixture\r\ndef list_sample():\r\n    return [10, 9, 8, 7, 6]"
+        }
+    ]
+}

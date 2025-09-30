@@ -1,0 +1,38 @@
+{
+    "sourceFile": "test_mock.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1759191095734,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1759191180866,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,15 @@\n import pytest\r\n-from unittest.mock import MagicMock\n\\ No newline at end of file\n+from unittest.mock import MagicMock\r\n+\r\n+\r\n+@pytest.fixture\r\n+def mock_response():\r\n+    \"\"\"\r\n+    \r\n+    Fixture que retorna um objeto de resposta mockado com status code 200 e um\r\n+    corpo JSON específico\r\n+    \r\n+    \"\"\"\r\n+    \r\n+    mock = MagicMock()\r\n+    \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1759191274363,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,5 +11,7 @@\n     \r\n     \"\"\"\r\n     \r\n     mock = MagicMock()\r\n-    \n\\ No newline at end of file\n+    mock.status_code = 200\r\n+    \r\n+    mock.json.return_value = {'message' : 'Success'}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1759191283307,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,5 +13,7 @@\n     \r\n     mock = MagicMock()\r\n     mock.status_code = 200\r\n     \r\n-    mock.json.return_value = {'message' : 'Success'}\n\\ No newline at end of file\n+    mock.json.return_value = {'message' : 'Success'}\r\n+    \r\n+    return mock\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1759191293572,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,8 @@\n     \"\"\"\r\n     \r\n     mock = MagicMock()\r\n     mock.status_code = 200\r\n-    \r\n     mock.json.return_value = {'message' : 'Success'}\r\n     \r\n-    return mock\n\\ No newline at end of file\n+    return mock\r\n+\r\n"
+                },
+                {
+                    "date": 1759191422006,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,4 +16,15 @@\n     mock.json.return_value = {'message' : 'Success'}\r\n     \r\n     return mock\r\n \r\n+\r\n+\r\n+def test_api_reponse(mock_response):\r\n+    \"\"\"\r\n+    Testa se a resposta mockada tem o status code correto e o JSON esperado\r\n+    \"\"\"\r\n+    \r\n+    response = mock_response\r\n+    \r\n+    assert(response.status_code == 200)\r\n+    assert(response.json.return_value == {'message' : 'Success'})\r\n"
+                }
+            ],
+            "date": 1759191095734,
+            "name": "Commit-0",
+            "content": "import pytest\r\nfrom unittest.mock import MagicMock"
+        }
+    ]
+}
