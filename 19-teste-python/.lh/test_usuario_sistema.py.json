@@ -1,0 +1,54 @@
+{
+    "sourceFile": "test_usuario_sistema.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 9,
+            "patches": [
+                {
+                    "date": 1759275521438,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1759275706195,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,4 +2,21 @@\n import sqlite3\r\n \r\n from usuario_sistema import adicionar_usuario, buscar_usuario\r\n \r\n+@pytest.mark.fixture\r\n+def db_connection():\r\n+    conn = sqlite3.connect(\":memory:\")\r\n+    cursor = conn.cursor()\r\n+    \r\n+    cursor.execute(\r\n+        \"\"\"\r\n+        CREATE TABLE users(\r\n+            id INTEGER PRIMARY KEY,\r\n+            name TEXT NOT NULL,\r\n+            email TEXT NOT NULL UNIQUE\r\n+        )\r\n+        \"\"\")\r\n+    \r\n+    conn.commit()\r\n+    yield conn, cursor\r\n+    conn.close()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1759275736307,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,14 +9,16 @@\n     cursor = conn.cursor()\r\n     \r\n     cursor.execute(\r\n         \"\"\"\r\n-        CREATE TABLE users(\r\n+        CREATE TABLE usuarios(\r\n             id INTEGER PRIMARY KEY,\r\n-            name TEXT NOT NULL,\r\n+            nome TEXT NOT NULL,\r\n             email TEXT NOT NULL UNIQUE\r\n         )\r\n         \"\"\")\r\n     \r\n     conn.commit()\r\n\\ No newline at end of file\n     yield conn, cursor\r\n-    conn.close()\n+    conn.close\r\n+    \r\n+    \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1759275779415,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,5 +20,7 @@\n     conn.commit()\r\n     yield conn, cursor\r\n     conn.close\r\n     \r\n-    \n\\ No newline at end of file\n+@pytest.mark.parametrize(\r\n+    \"id, nome, email\"\r\n+)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1759276198786,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,6 +21,20 @@\n     yield conn, cursor\r\n     conn.close\r\n     \r\n @pytest.mark.parametrize(\r\n-    \"id, nome, email\"\r\n-)\n\\ No newline at end of file\n+    \"id, nome, email, esperado_nome\",\r\n+    [\r\n+        (1, \"Alice\", \"alice@gmail.com\", \"Alice\"),\r\n+        (2, \"João\", \"joão@example.com\", \"João\"),\r\n+        (3, \"José\", \"jose@example.com\", \"José\"),\r\n+        (4, \"Carol\", \"carol@example.com\", \"Carol\")\r\n+    ]\r\n+)\r\n+@pytest.mark.unit\r\n+def test_adicionar_usuario(db_connection, id, nome, email, esperado_nome):\r\n+    conn, cursor = db_connection\r\n+    adicionar_usuario(cursor, id, nome, email)\r\n+    resultado = buscar_usuario(cursor, email)\r\n+    \r\n+    assert(resultado is not None)\r\n+    assert(resultado[1] == esperado_nome)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1759276225586,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,5 +36,6 @@\n     adicionar_usuario(cursor, id, nome, email)\r\n     resultado = buscar_usuario(cursor, email)\r\n     \r\n     assert(resultado is not None)\r\n-    assert(resultado[1] == esperado_nome)\n\\ No newline at end of file\n+    assert(resultado[1] == esperado_nome)\r\n+    assert(resultado[2] == email)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1759276315726,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import sqlite3\r\n \r\n from usuario_sistema import adicionar_usuario, buscar_usuario\r\n \r\n-@pytest.mark.fixture\r\n+@pytest.fixture\r\n def db_connection():\r\n     conn = sqlite3.connect(\":memory:\")\r\n     cursor = conn.cursor()\r\n     \r\n"
+                },
+                {
+                    "date": 1759276330761,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,8 +29,9 @@\n         (3, \"José\", \"jose@example.com\", \"José\"),\r\n         (4, \"Carol\", \"carol@example.com\", \"Carol\")\r\n     ]\r\n )\r\n+\r\n @pytest.mark.unit\r\n def test_adicionar_usuario(db_connection, id, nome, email, esperado_nome):\r\n     conn, cursor = db_connection\r\n     adicionar_usuario(cursor, id, nome, email)\r\n"
+                },
+                {
+                    "date": 1759276575431,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,14 +29,20 @@\n         (3, \"José\", \"jose@example.com\", \"José\"),\r\n         (4, \"Carol\", \"carol@example.com\", \"Carol\")\r\n     ]\r\n )\r\n-\r\n @pytest.mark.unit\r\n def test_adicionar_usuario(db_connection, id, nome, email, esperado_nome):\r\n     conn, cursor = db_connection\r\n     adicionar_usuario(cursor, id, nome, email)\r\n     resultado = buscar_usuario(cursor, email)\r\n     \r\n     assert(resultado is not None)\r\n     assert(resultado[1] == esperado_nome)\r\n-    assert(resultado[2] == email)\n\\ No newline at end of file\n+    assert(resultado[2] == email)\r\n+    \r\n+@pytest.mark.integration\r\n+def test_buscar_usuario_com_email_inexistente(db_connection):\r\n+    conn, cursor = db_connection\r\n+    resultado = buscar_usuario(cursor, \"emailnaoexistente@example.com\")\r\n+    \r\n+    assert(resultado is None)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1759276935667,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,5 +44,25 @@\n def test_buscar_usuario_com_email_inexistente(db_connection):\r\n     conn, cursor = db_connection\r\n     resultado = buscar_usuario(cursor, \"emailnaoexistente@example.com\")\r\n     \r\n-    assert(resultado is None)\n\\ No newline at end of file\n+    assert(resultado is None)\r\n+    \r\n+@pytest.mark.slow\r\n+@pytest.mark.integration\r\n+def test_addicionar_e_buscar_varios_usuarios(db_connection):\r\n+    import time\r\n+    conn, cursor = db_connection\r\n+    \r\n+    for i in range(100):\r\n+        adicionar_usuario(cursor, i, f\"User{i}\", f\"user{i}@example.com\")\r\n+        \r\n+    conn.commit()\r\n+    \r\n+    time.sleep(2)\r\n+    \r\n+    for i in range(100):\r\n+        resultado = buscar_usuario(cursor, f\"user{i}@example.com\")\r\n+        \r\n+        assert(resultado is not None)\r\n+        assert(resultado[1] == f\"User{i}\")\r\n+        assert(resultado[2] == f\"user{i}@example.com\")\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1759275521438,
+            "name": "Commit-0",
+            "content": "import pytest\r\nimport sqlite3\r\n\r\nfrom usuario_sistema import adicionar_usuario, buscar_usuario\r\n\r\n"
+        }
+    ]
+}

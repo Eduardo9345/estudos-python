@@ -1,0 +1,34 @@
+{
+    "sourceFile": "usuario_sistema.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1759275335979,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1759275356812,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n def adicionar_usuario(cursor, id, nome, email):\r\n     \"\"\"Adiciona um usuario ao banco de dados\"\"\"\r\n-    cursor.execute('''\r\n-        INSERT INTO usuarios(id, nome, email)\r\n-        VALUES (?, ?, ?)\r\n-                   ''', (id, nome, email))\r\n-    \n\\ No newline at end of file\n+    cursor.execute(\r\n+        '''\r\n+            INSERT INTO usuarios(id, nome, email)\r\n+            VALUES (?, ?, ?)\r\n+        ''', (id, nome, email))\r\n"
+                },
+                {
+                    "date": 1759275443792,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,4 +4,12 @@\n         '''\r\n             INSERT INTO usuarios(id, nome, email)\r\n             VALUES (?, ?, ?)\r\n         ''', (id, nome, email))\r\n+\r\n+def buscar_usuario(cursor, email):\r\n+    \"\"\"Busca um usuario pelo email\"\"\"\r\n+    cursor.execute(\r\n+        '''\r\n+            SELECT * FROM usuarios\r\n+            WHERE email = ?\r\n+        ''', (email,))\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1759275466027,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,5 +11,6 @@\n     cursor.execute(\r\n         '''\r\n             SELECT * FROM usuarios\r\n             WHERE email = ?\r\n-        ''', (email,))\n\\ No newline at end of file\n+        ''', (email,))\r\n+    return cursor.fetchone()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1759275476261,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,5 +12,5 @@\n         '''\r\n             SELECT * FROM usuarios\r\n             WHERE email = ?\r\n         ''', (email,))\r\n-    return cursor.fetchone()\n\\ No newline at end of file\n+    return cursor.fetchone()\r\n"
+                }
+            ],
+            "date": 1759275335979,
+            "name": "Commit-0",
+            "content": "def adicionar_usuario(cursor, id, nome, email):\r\n    \"\"\"Adiciona um usuario ao banco de dados\"\"\"\r\n    cursor.execute('''\r\n        INSERT INTO usuarios(id, nome, email)\r\n        VALUES (?, ?, ?)\r\n                   ''', (id, nome, email))\r\n    "
+        }
+    ]
+}

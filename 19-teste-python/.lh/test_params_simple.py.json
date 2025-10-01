@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 2,
             "patches": [
                 {
                     "date": 1759241747529,
@@ -12,6 +12,10 @@
                 {
                     "date": 1759242875209,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,19 @@\n+\"\"\"\r\n+O que são testes parametrizados em Python?\r\n+\r\n+Testes parametrizados são uma forma de rodar o mesmo teste várias vezes com dados diferentes, sem precisar escrever várias funções de teste repetidas.\r\n+Isso é muito útil quando você quer validar a mesma lógica com diferentes entradas e saídas esperadas.\r\n+\r\n+Evitam duplicação de código.\r\n+\r\n+Fácil adicionar novos cenários (só incluir mais uma tupla na lista).\r\n+\r\n+Ajuda a cobrir casos de borda rapidamente.\r\n+É diferente das fixtures pois roda contextos diferentes\r\n+\r\n+\"\"\"\r\n+\r\n import pytest\r\n \r\n def adicionar(x, y):\r\n     return x + y\r\n"
+                },
+                {
+                    "date": 1759275815450,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n \r\n Fácil adicionar novos cenários (só incluir mais uma tupla na lista).\r\n \r\n Ajuda a cobrir casos de borda rapidamente.\r\n-É diferente das fixtures pois roda contextos diferentes\r\n+É diferente das fixtures pois roda contextos diferentes, o fixtures serve para pre configurar o ambiente\r\n \r\n \"\"\"\r\n \r\n import pytest\r\n"
                 }
             ],
             "date": 1759241747529,
