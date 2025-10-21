@@ -1,0 +1,66 @@
+{
+    "sourceFile": "4-text.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 12,
+            "patches": [
+                {
+                    "date": 1761055042837,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1761055142186,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,11 @@\n \r\n import flet as ft\r\n \r\n def main(page : ft.Page):\r\n+    t1 =ft.Text(\r\n+        value = \"Utilizando elemento de texto\",\r\n+        theme_style = ft.TextThemeStyle.DISPLAY_LARGE\r\n+    )\r\n     \r\n-    pass\r\n-    \r\n \r\n ft.app(target=main)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1761055157579,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,7 +7,8 @@\n     t1 =ft.Text(\r\n         value = \"Utilizando elemento de texto\",\r\n         theme_style = ft.TextThemeStyle.DISPLAY_LARGE\r\n     )\r\n-    \r\n+    page.add(t1)\r\n+    page.update()\r\n \r\n ft.app(target=main)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1761055225301,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,10 @@\n \r\n def main(page : ft.Page):\r\n     t1 =ft.Text(\r\n         value = \"Utilizando elemento de texto\",\r\n-        theme_style = ft.TextThemeStyle.DISPLAY_LARGE\r\n+        # theme_style = ft.TextThemeStyle.DISPLAY_LARGE\r\n+        theme_style = ft.TextThemeStyle.TITLE_SMALL\r\n     )\r\n     page.add(t1)\r\n     page.update()\r\n \r\n"
+                },
+                {
+                    "date": 1761055256015,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,10 @@\n def main(page : ft.Page):\r\n     t1 =ft.Text(\r\n         value = \"Utilizando elemento de texto\",\r\n         # theme_style = ft.TextThemeStyle.DISPLAY_LARGE\r\n-        theme_style = ft.TextThemeStyle.TITLE_SMALL\r\n+        theme_style = ft.TextThemeStyle.TITLE_SMALL,\r\n+        bgcolor= ft.Colors.WHITE\r\n     )\r\n     page.add(t1)\r\n     page.update()\r\n \r\n"
+                },
+                {
+                    "date": 1761055268925,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     t1 =ft.Text(\r\n         value = \"Utilizando elemento de texto\",\r\n         # theme_style = ft.TextThemeStyle.DISPLAY_LARGE\r\n         theme_style = ft.TextThemeStyle.TITLE_SMALL,\r\n-        bgcolor= ft.Colors.WHITE\r\n+        bgcolor= ft.Colors.WHITE30\r\n     )\r\n     page.add(t1)\r\n     page.update()\r\n \r\n"
+                },
+                {
+                    "date": 1761055317235,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,13 @@\n     t1 =ft.Text(\r\n         value = \"Utilizando elemento de texto\",\r\n         # theme_style = ft.TextThemeStyle.DISPLAY_LARGE\r\n         theme_style = ft.TextThemeStyle.TITLE_SMALL,\r\n-        bgcolor= ft.Colors.WHITE30\r\n+        bgcolor= ft.Colors.WHITE30,\r\n+        style = ft.TextStyle(\r\n+            color = ft.Colors.BLACK38,\r\n+            font_family=\"Arial\"\r\n+        )\r\n     )\r\n     page.add(t1)\r\n     page.update()\r\n \r\n"
+                },
+                {
+                    "date": 1761055375769,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,11 @@\n         theme_style = ft.TextThemeStyle.TITLE_SMALL,\r\n         bgcolor= ft.Colors.WHITE30,\r\n         style = ft.TextStyle(\r\n             color = ft.Colors.BLACK38,\r\n-            font_family=\"Arial\"\r\n+            font_family=\"Arial\",\r\n+            italic=True,\r\n+            weight=ft.FontWeight.W_300\r\n         )\r\n     )\r\n     page.add(t1)\r\n     page.update()\r\n"
+                },
+                {
+                    "date": 1761055394066,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,10 @@\n             color = ft.Colors.BLACK38,\r\n             font_family=\"Arial\",\r\n             italic=True,\r\n             weight=ft.FontWeight.W_300\r\n-        )\r\n+        ),\r\n+        max_lines=2\r\n     )\r\n     page.add(t1)\r\n     page.update()\r\n \r\n"
+                },
+                {
+                    "date": 1761055409397,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import flet as ft\r\n \r\n def main(page : ft.Page):\r\n     t1 =ft.Text(\r\n-        value = \"Utilizando elemento de texto\",\r\n+        value = \"Utilizando elemento de texto\" * 4,\r\n         # theme_style = ft.TextThemeStyle.DISPLAY_LARGE\r\n         theme_style = ft.TextThemeStyle.TITLE_SMALL,\r\n         bgcolor= ft.Colors.WHITE30,\r\n         style = ft.TextStyle(\r\n"
+                },
+                {
+                    "date": 1761055465770,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,10 @@\n             font_family=\"Arial\",\r\n             italic=True,\r\n             weight=ft.FontWeight.W_300\r\n         ),\r\n-        max_lines=2\r\n+        max_lines=2,\r\n+        overflow=ft.TextOverflow.ELLIPSIS\r\n     )\r\n     page.add(t1)\r\n     page.update()\r\n \r\n"
+                },
+                {
+                    "date": 1761055477154,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import flet as ft\r\n \r\n def main(page : ft.Page):\r\n     t1 =ft.Text(\r\n-        value = \"Utilizando elemento de texto\" * 4,\r\n+        value = \"Utilizando elemento de texto\" * 8,\r\n         # theme_style = ft.TextThemeStyle.DISPLAY_LARGE\r\n         theme_style = ft.TextThemeStyle.TITLE_SMALL,\r\n         bgcolor= ft.Colors.WHITE30,\r\n         style = ft.TextStyle(\r\n"
+                },
+                {
+                    "date": 1761055505300,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,10 @@\n             italic=True,\r\n             weight=ft.FontWeight.W_300\r\n         ),\r\n         max_lines=2,\r\n-        overflow=ft.TextOverflow.ELLIPSIS\r\n+        overflow=ft.TextOverflow.ELLIPSIS,\r\n+        text_align= ft.TextAlign.CENTER\r\n     )\r\n     page.add(t1)\r\n     page.update()\r\n \r\n"
+                }
+            ],
+            "date": 1761055042837,
+            "name": "Commit-0",
+            "content": "# flet run 1-fundamentos.py (Desktop)\r\n# flet run 1-fundamentos.py --web (WEB)\r\n\r\nimport flet as ft\r\n\r\ndef main(page : ft.Page):\r\n    \r\n    pass\r\n    \r\n\r\nft.app(target=main)"
+        }
+    ]
+}

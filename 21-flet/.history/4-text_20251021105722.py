@@ -5,9 +5,7 @@ import flet as ft
 
 def main(page : ft.Page):
     
-    msg = ft.Text(value="Hello World!") # Cria a variável (elemento da página)
-    page.add(msg) # Adiciona na página
-    
+    pass
     
 
 ft.app(target=main)

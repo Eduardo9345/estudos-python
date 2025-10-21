@@ -7,9 +7,9 @@ def main(page : ft.Page):
     # page.bgcolor = "#C79030" ou ft.Colors.{cor}
     page.bgcolor = ft.Colors.GREEN_400
     
-    page.horizontal_alignment = ft.CrossAxisAlignment.START
+    page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     
-    page.vertical_alignment = ft.MainAxisAlignment.START
+    page.vertical_alignment = ft.MainAxisAlignment.CENTER
     
     page.padding = ft.padding.all(100)
     
@@ -22,17 +22,6 @@ def main(page : ft.Page):
             )
         )
     )
-    
-    #Desktop
-    page.window_height = 300
-    page.window_width = 600
-    page.window.resizable = False #Não redimensionável
-    
-    page.window_top = 300
-    page.window_left = 300
-    
-    page.window_progress_bar = 1
-    
     page.update()
 
 ft.app(target=main)

@@ -1,0 +1,62 @@
+{
+    "sourceFile": "2-customizando.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 11,
+            "patches": [
+                {
+                    "date": 1761054364764,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1761054434558,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,14 @@\n     page.horizontal_alignment = ft.CrossAxisAlignment.STRETCH\r\n     \r\n     page.add(\r\n         ft.Text(value = \"Olá mundo!\")\r\n+        ft.Container(\r\n+            ft.Text(\r\n+                value = \"Hell World 2\",\r\n+                bgcolor = \"black\"\r\n+            )\r\n+        )\r\n     )\r\n     page.update()\r\n \r\n ft.app(target=main)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1761054454812,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     \r\n     page.horizontal_alignment = ft.CrossAxisAlignment.STRETCH\r\n     \r\n     page.add(\r\n-        ft.Text(value = \"Olá mundo!\")\r\n+        ft.Text(value = \"Olá mundo!\"),\r\n         ft.Container(\r\n             ft.Text(\r\n                 value = \"Hell World 2\",\r\n                 bgcolor = \"black\"\r\n"
+                },
+                {
+                    "date": 1761054473939,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     page.add(\r\n         ft.Text(value = \"Olá mundo!\"),\r\n         ft.Container(\r\n             ft.Text(\r\n-                value = \"Hell World 2\",\r\n+                value = \"Hello World 2\",\r\n                 bgcolor = \"black\"\r\n             )\r\n         )\r\n     )\r\n"
+                },
+                {
+                    "date": 1761054513687,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,10 @@\n     page.bgcolor = ft.Colors.GREEN_400\r\n     \r\n     page.horizontal_alignment = ft.CrossAxisAlignment.STRETCH\r\n     \r\n+    page.vertical_alignment = ft.MainAxisAlignment.CENTER\r\n+    \r\n     page.add(\r\n         ft.Text(value = \"Olá mundo!\"),\r\n         ft.Container(\r\n             ft.Text(\r\n"
+                },
+                {
+                    "date": 1761054529395,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     page.title = \"Flet Example!\"\r\n     # page.bgcolor = \"#C79030\" ou ft.Colors.{cor}\r\n     page.bgcolor = ft.Colors.GREEN_400\r\n     \r\n-    page.horizontal_alignment = ft.CrossAxisAlignment.STRETCH\r\n+    page.horizontal_alignment = ft.CrossAxisAlignment.END\r\n     \r\n     page.vertical_alignment = ft.MainAxisAlignment.CENTER\r\n     \r\n     page.add(\r\n"
+                },
+                {
+                    "date": 1761054537934,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     page.title = \"Flet Example!\"\r\n     # page.bgcolor = \"#C79030\" ou ft.Colors.{cor}\r\n     page.bgcolor = ft.Colors.GREEN_400\r\n     \r\n-    page.horizontal_alignment = ft.CrossAxisAlignment.END\r\n+    page.horizontal_alignment = ft.CrossAxisAlignment.CENTER\r\n     \r\n     page.vertical_alignment = ft.MainAxisAlignment.CENTER\r\n     \r\n     page.add(\r\n"
+                },
+                {
+                    "date": 1761054733328,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,10 @@\n     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER\r\n     \r\n     page.vertical_alignment = ft.MainAxisAlignment.CENTER\r\n     \r\n+    page.padding = ft.padding.all(100)\r\n+    \r\n     page.add(\r\n         ft.Text(value = \"Olá mundo!\"),\r\n         ft.Container(\r\n             ft.Text(\r\n"
+                },
+                {
+                    "date": 1761054754607,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,11 +6,11 @@\n     page.title = \"Flet Example!\"\r\n     # page.bgcolor = \"#C79030\" ou ft.Colors.{cor}\r\n     page.bgcolor = ft.Colors.GREEN_400\r\n     \r\n-    page.horizontal_alignment = ft.CrossAxisAlignment.CENTER\r\n+    page.horizontal_alignment = ft.CrossAxisAlignment.start\r\n     \r\n-    page.vertical_alignment = ft.MainAxisAlignment.CENTER\r\n+    page.vertical_alignment = ft.MainAxisAlignment.start\r\n     \r\n     page.padding = ft.padding.all(100)\r\n     \r\n     page.add(\r\n"
+                },
+                {
+                    "date": 1761054771917,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,11 +6,11 @@\n     page.title = \"Flet Example!\"\r\n     # page.bgcolor = \"#C79030\" ou ft.Colors.{cor}\r\n     page.bgcolor = ft.Colors.GREEN_400\r\n     \r\n-    page.horizontal_alignment = ft.CrossAxisAlignment.start\r\n+    page.horizontal_alignment = ft.CrossAxisAlignment.START\r\n     \r\n-    page.vertical_alignment = ft.MainAxisAlignment.start\r\n+    page.vertical_alignment = ft.MainAxisAlignment.START\r\n     \r\n     page.padding = ft.padding.all(100)\r\n     \r\n     page.add(\r\n"
+                },
+                {
+                    "date": 1761054860240,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,33 @@\n+# flet run 1-fundamentos.py (Desktop)\r\n+# flet run 1-fundamentos.py --web (WEB)\r\n+\r\n+import flet as ft\r\n+def main(page : ft.Page):\r\n+    page.title = \"Flet Example!\"\r\n+    # page.bgcolor = \"#C79030\" ou ft.Colors.{cor}\r\n+    page.bgcolor = ft.Colors.GREEN_400\r\n+    \r\n+    page.horizontal_alignment = ft.CrossAxisAlignment.START\r\n+    \r\n+    page.vertical_alignment = ft.MainAxisAlignment.START\r\n+    \r\n+    page.padding = ft.padding.all(100)\r\n+    \r\n+    page.add(\r\n+        ft.Text(value = \"Olá mundo!\"),\r\n+        ft.Container(\r\n+            ft.Text(\r\n+                value = \"Hello World 2\",\r\n+                bgcolor = \"black\"\r\n+            )\r\n+        )\r\n+    )\r\n+    \r\n+    #Desktop\r\n+    page.window_height = 300\r\n+    page.window_width = 600\r\n+    page.window.resizable = False #Não redimensionável\r\n+    \r\n+    page.update()\r\n+\r\n+ft.app(target=main)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1761054961600,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,34 +27,12 @@\n     page.window_height = 300\r\n     page.window_width = 600\r\n     page.window.resizable = False #Não redimensionável\r\n     \r\n-    page.update()\r\n-\r\n-ft.app(target=main)\n-# flet run 1-fundamentos.py (Desktop)\r\n-# flet run 1-fundamentos.py --web (WEB)\r\n-\r\n-import flet as ft\r\n-def main(page : ft.Page):\r\n-    page.title = \"Flet Example!\"\r\n-    # page.bgcolor = \"#C79030\" ou ft.Colors.{cor}\r\n-    page.bgcolor = ft.Colors.GREEN_400\r\n+    page.window_top = 300\r\n+    page.window_left = 300\r\n     \r\n-    page.horizontal_alignment = ft.CrossAxisAlignment.START\r\n+    page.window_progress_bar = 1\r\n     \r\n-    page.vertical_alignment = ft.MainAxisAlignment.START\r\n-    \r\n-    page.padding = ft.padding.all(100)\r\n-    \r\n-    page.add(\r\n-        ft.Text(value = \"Olá mundo!\"),\r\n-        ft.Container(\r\n-            ft.Text(\r\n-                value = \"Hello World 2\",\r\n-                bgcolor = \"black\"\r\n-            )\r\n-        )\r\n-    )\r\n     page.update()\r\n \r\n ft.app(target=main)\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1761054364764,
+            "name": "Commit-0",
+            "content": "# flet run 1-fundamentos.py (Desktop)\r\n# flet run 1-fundamentos.py --web (WEB)\r\n\r\nimport flet as ft\r\ndef main(page : ft.Page):\r\n    page.title = \"Flet Example!\"\r\n    # page.bgcolor = \"#C79030\" ou ft.Colors.{cor}\r\n    page.bgcolor = ft.Colors.GREEN_400\r\n    \r\n    page.horizontal_alignment = ft.CrossAxisAlignment.STRETCH\r\n    \r\n    page.add(\r\n        ft.Text(value = \"Olá mundo!\")\r\n    )\r\n    page.update()\r\n\r\nft.app(target=main)"
+        }
+    ]
+}

@@ -22,17 +22,6 @@ def main(page : ft.Page):
             )
         )
     )
-    
-    #Desktop
-    page.window_height = 300
-    page.window_width = 600
-    page.window.resizable = False #Não redimensionável
-    
-    page.window_top = 300
-    page.window_left = 300
-    
-    page.window_progress_bar = 1
-    
     page.update()
 
 ft.app(target=main)
